@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات بأعلى معايير الجودة">
+<title>KITCHERA | تصميم المطابخ وغرف النوم والحمامات</title>
+<style>
+/* كود الـ CSS يوضع هنا فقط */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+    border: 2px solid #5a402d;
+}
+</style>
+ 
+<style>
+/* ═══ Responsive ═══ */
+@media (max-width: 768px) {
+  .portfolio-grid { grid-template-columns: 1fr; } 
+}
+  @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+body { font-family: 'Amiri', serif; }
+  :root {
+    --primary: #050707;
+    --secondary: #000000;
+    --accent: 	#c3f0e7;
+    --light: #e4ecea;
+    --border: 	#020202;
+    --white: 	#c5a778;
+    --shadow: 0 4px 20px rgb(5, 28, 34);
+    --shadow-hover: 0 8px 30px rgb(0, 0, 0);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--primary);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: #f8f0e1;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+  }
+  .navbar.scrolled { box-shadow: var(--shadow); }
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--primary);
+    position: relative;
+  }
+  .logo::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; right: 0;
+    width: 40px; height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 15px; font-weight: 500;
+    color: var(--secondary);
+    transition: var(--transition);
+    position: relative; padding: 4px 0;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute;
+    bottom: 0; right: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+    border-radius: 1px;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 10px 24px !important;
+    border-radius: 8px;
+    font-size: 14px !important;
+    transition: var(--transition);
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--accent); color: var(--primary) !important; }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--primary);
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    background: linear-gradient(135deg, #b8f1e8 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgb(10, 10, 8) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgb(201, 169, 110) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgb(201, 169, 110);
+    color: var(--accent);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border: 1px solid rgb(201, 169, 110);
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    font-size: 19px;
+    color: var(--secondary);
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 14px 36px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Tajawal', sans-serif;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: var(--secondary);
+    cursor: pointer;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  .section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-label {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--primary);
+  }
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-text h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary);
+  }
+  .about-text p {
+    font-size: 16px;
+    color: var(--secondary);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .about-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .about-features li svg {
+    width: 20px; height: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .about-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .stat h3 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat span {
+    font-size: 14px;
+    color: var(--secondary);
+    font-weight: 500;
+  }
+  .about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative;
+  }
+  .about-img {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  .about-img:hover img { transform: scale(1.05); }
+  .about-img.main { grid-column: span 2; height: 280px; }
+  .about-img.small { height: 200px; }
+  .about-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .about-img:hover::after { opacity: 1; }
+  .experience-badge {
+    position: absolute;
+    bottom: -20px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: var(--white);
+    padding: 20px 32px;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow-hover);
+    z-index: 10;
+  }
+  .experience-badge .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+  .experience-badge .txt {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .services-section { background: var(--light); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 40px 32px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: var(--transition);
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    background: rgb(112, 85, 33);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    transition: var(--transition);
+  }
+  .service-card:hover .service-icon {
+    background: var(--accent);
+    color: var(--primary);
+  }
+  .service-icon svg { width: 28px; height: 28px; }
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    font-size: 15px;
+    color: var(--secondary);
+    line-height: 1.7;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+  .service-link:hover { gap: 10px; }
+
+  .portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Tajawal', sans-serif;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .portfolio-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: var(--light);
+  }
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  .portfolio-item:hover img { transform: scale(1.1); }
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+  .portfolio-overlay h4 {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .portfolio-overlay span {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+  }
+  .portfolio-overlay .tag {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .testimonials-section { background: var(--light); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+  .testimonial-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-4px);
+  }
+  .stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+  .testimonial-card p {
+    font-size: 15px;
+    color: var(--secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .author-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .author-info span {
+    font-size: 13px;
+    color: var(--secondary);
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contact-info-box h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .contact-info-box p {
+    font-size: 16px;
+    color: var(--secondary);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .info-item .icon {
+    width: 48px; height: 48px;
+    background: rgb(201, 169, 110);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .info-item .icon svg { width: 20px; height: 20px; }
+  .info-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .info-item span { font-size: 15px; color: var(--secondary); }
+  .social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .social-btn {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--primary);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .social-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+  .social-btn svg { width: 20px; height: 20px; }
+
+  .contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary);
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Tajawal', sans-serif;
+    transition: var(--transition);
+    background: var(--white);
+    color: var(--primary);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgb(201, 169, 110);
+  }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Tajawal', sans-serif;
+  }
+  .submit-btn:hover {
+    background: var(--accent);
+    color: var(--primary);
+  }
+
+  .footer {
+    background: var(--primary);
+    color: var(--white);
+    padding: 60px 24px 24px;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-brand .logo {
+    color: var(--white);
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+  .footer-brand p {
+    font-size: 15px;
+    color: rgb(15, 15, 15);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+  }
+  .footer-social a {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    color: var(--white);
+  }
+  .footer-social a:hover { background: var(--accent); color: var(--primary); }
+  .footer-social a svg { width: 18px; height: 18px; }
+  .footer-col h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul li a {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    transition: var(--transition);
+  }
+  .footer-col ul li a:hover { color: var(--accent); padding-right: 4px; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    font-size: 14px;
+    color: rgb(14, 13, 13);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 992px) {
+    .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 40px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      background: var(--white);
+      flex-direction: column;
+      padding: 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 16px; }
+    .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .about-stats { justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-social { justify-content: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .section { padding: 60px 20px; }
+    .section-title { font-size: 28px; }
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">KITCHERA</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#portfolio">أعمالنا</a></li>
+      <li><a href="#testimonials">آراء العملاء</a></li>
+      <li><a href="#contact" class="nav-cta">احصل على عرض</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="القائمة">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✦ تصاميم عصرية بمعايير عالمية</div>
+    <h1>نحوّل مساحاتك إلى <span>تحف فنية</span></h1>
+    <p>تصاميم عصرية للمطابخ وغرف النوم والحمامات تجمع بين الجمال والوظيفة. نصنع لك مساحة تعكس ذوقك وتناسب أسلوب حياتك.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        استكشف أعمالنا
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        تواصل معنا
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="section-header fade-in">
+    <span class="section-label">من نحن</span>
+    <h2 class="section-title">خبرة وإبداع في عالم التصميم الداخلي</h2>
+    <p class="section-subtitle">نؤمن بأن كل مساحة في منزلك تستحق أن تكون مثالية</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h3>نصنع المساحات التي تلهمك</h3>
+      <p>شركة KITCHERA هي وجهتك الأولى لتصميم وتنفيذ المطابخ وغرف النوم والحمامات بأعلى معايير الجودة. نجمع بين الإبداع والخبرة لتقديم حلول مخصصة تناسب احتياجاتك وذوقك.</p>
+      <p>فريقنا من المصممين والفنيين يعمل بشغف لتحويل رؤيتك إلى واقع، مع الاهتمام بأدق التفاصيل من المرحلة التصميمية وحتى التركيب النهائي.</p>
+      <ul class="about-features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>تصاميم مخصصة حسب ذوقك وميزانيتك</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>مواد عالية الجودة مع ضمان شامل</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>فريق متخصص من المصممين والفنيين</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>الالتزام تام بالمواعيد والميزانية</li>
+      </ul>
+      <div class="about-stats">
+        <div class="stat"><h3>+500</h3><span>مشروع منفذ</span></div>
+        <div class="stat"><h3>12</h3><span>سنة خبرة</span></div>
+        <div class="stat"><h3>98%</h3><span>رضا العملاء</span></div>
+      </div>
+    </div>
+    <div class="about-images fade-in">
+      <div class="about-img main"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="مطبخ عصري"></div>
+      <div class="about-img small"><img src="https://images.unsplash.com/photo-1616594039964-40891a909d99?w=400&q=80" alt="غرفة نوم"></div>
+      <div class="about-img small"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=80" alt="حمام فاخر"></div>
+      <div class="experience-badge"><span class="num">12+</span><span class="txt">سنوات من الخبرة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section services-section" id="services">
+  <div class="section-header fade-in">
+    <span class="section-label">خدماتنا</span>
+    <h2 class="section-title">حلول متكاملة لكل ركن في منزلك</h2>
+    <p class="section-subtitle">نقدم لك خدمات شاملة تغطي جميع احتياجاتك</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 20h18"/><path d="M6 20v-8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v8"/><path d="M6 12h12"/><path d="M9 9V6h6v3"/><circle cx="12" cy="6" r="1"/>
+        </svg>
+      </div>
+      <h3>المطابخ</h3>
+      <p>تصاميم مطابخ عصرية وكلاسيكية بمواد عالية الجودة، مع تركيب احترافي وضمان شامل على جميع الأعمال.</p>
+      <a href="#portfolio" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 20h20"/><path d="M5 20v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"/><path d="M5 14h14"/><path d="M10 8V6a2 2 0 0 1 4 0v2"/>
+        </svg>
+      </div>
+      <h3>غرف النوم</h3>
+      <p>غرف نوم مريحة وأنيقة بتصاميم مخصصة، دواليب مدمجة، وإضاءة مثالية لخلق أجواء الاسترخاء.</p>
+      <a href="#portfolio" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21h6"/><path d="M12 21v-5"/><path d="M7 16h10v5H7z"/><path d="M6 16a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><path d="M8 12V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/>
+        </svg>
+      </div>
+      <h3>الحمامات</h3>
+      <p>تصاميم حمامات فاخرة بأحدث التقنيات والاكسسوارات، مع تركيبات صحية متقنة وعازل مائي.</p>
+      <a href="#portfolio" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- قسم سابقة الأعمال -->
+<div class="portfolio-grid" id="portfolioGrid">
+    <!-- الصور ستظهر هنا تلقائياً -->
+</div>
+    
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     3️⃣  CONTACT SECTION  ←  القسم الرئيسي المعدل
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="section-header fade-in">
+    <span class="section-label">تواصل معنا</span>
+    <h2 class="section-title">نحن هنا لمساعدتك</h2>
+    <p class="section-subtitle">احصل على استشارة مجانية أو تابعنا على وسائل التواصل الاجتماعي</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <!-- ═══ الفورم المعدل بالكامل ═══ -->
+    <div class="contact-form fade-in">
+      <form onsubmit="handleSubmit(event)">
+
+        <!-- الصف الأول: الاسم + رقم الجوال -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" id="cName" placeholder="أدخل اسمك" required>
+          </div>
+          <div class="form-group">
+            <label>رقم الجوال</label>
+            <input type="tel" id="cPhone" placeholder="05xxxxxxxx" required>
+          </div>
+        </div>
+
+        <!-- البريد الإلكتروني -->
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="cEmail" placeholder="example@email.com" required>
+        </div>
+
+        <!-- نوع الخدمة -->
+        <div class="form-group">
+          <label>نوع الخدمة</label>
+          <select id="cService" required>
+            <option value="">اختر الخدمة المطلوبة</option>
+            <option value="kitchen">تصميم مطبخ</option>
+            <option value="bedroom">غرفة نوم</option>
+            <option value="bathroom">تصميم حمام</option>
+            <option value="multiple">أكثر من خدمة</option>
+          </select>
+        </div>
+
+        <!-- ═══ نوع الزيارة ← جديد ═══ -->
+        <div class="form-group">
+          <label>نوع الزيارة</label>
+          <div class="visit-options">
+            <label class="visit-card">
+              <input type="radio" name="visitType" value="home" checked>
+              <span class="v-icon">🏠</span>
+              <span class="v-title">زيارة منزلية</span>
+              <span class="v-desc">نزورك في بيتك</span>
+            </label>
+            <label class="visit-card">
+              <input type="radio" name="visitType" value="showroom">
+              <span class="v-icon">🏢</span>
+              <span class="v-title">زيارة المقر</span>
+              <span class="v-desc">تفضل بزيارتنا</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ═══ تاريخ + ساعة الزيارة ← جديد ═══ -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>📅 تاريخ الزيارة المفضل</label>
+            <input type="date" id="cDate" required>
+          </div>
+          <div class="form-group">
+            <label>⏰ ساعة الزيارة</label>
+            <select id="cTime" required>
+              <option value="">اختر الساعة</option>
+              <option value="11:00 ص">11:00 صباحاً</option>
+              <option value="12:00 م">12:00 ظهراً</option>
+              <option value="01:00 م">01:00 مساءً</option>
+              <option value="02:00 م">02:00 مساءً</option>
+              <option value="03:00 م">03:00 مساءً</option>
+              <option value="04:00 م">04:00 مساءً</option>
+              <option value="05:00 م">05:00 مساءً</option>
+              <option value="06:00 م">06:00 مساءً</option>
+              <option value="07:00 م">07:00 مساءً</option>
+              <option value="08:00 م">08:00 مساءً</option>
+              <option value="09:00 م">09:00 مساءً</option>
+              <option value="10:00 م">10:00 مساءً</option>
+              <option value="11:00 م">11:00 مساءً</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- التفاصيل الإضافية -->
+        <div class="form-group">
+          <label>تفاصيل إضافية</label>
+          <textarea id="cDetails" placeholder="صف لنا مشروعك وأي متطلبات خاصة..."></textarea>
+        </div>
+
+        <!-- زر الإرسال -->
+        <button type="submit" class="submit-btn">📩 إرسال الطلب عبر واتساب</button>
+      </form>
+    </div>
+
+    <!-- ═══ معلومات التواصل ═══ -->
+    <div class="contact-info-box fade-in">
+      <h3>لنبدأ مشروعك القادم</h3>
+      <p>سواء كنت تبحث عن تصميم مطبخ عصري أو غرفة نوم أنيقة أو حمام فاخر، فريقنا جاهز لتحويل رؤيتك إلى واقع.</p>
+
+      <!-- الهاتف 1 -->
+      <div class="info-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <h4>الهاتف</h4>
+          <span>+201122601548</span>
+        </div>
+      </div>
+
+      <!-- الهاتف 2 ← مع أيقونة -->
+      <div class="info-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <h4>الهاتف</h4>
+          <span>+201066321915</span>
+        </div>
+      </div>
+
+      <!-- البريد الإلكتروني -->
+      <div class="info-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <h4>البريد الإلكتروني</h4>
+          <span>egyptkitchera@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- الموقع -->
+      <div class="info-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <h4>الموقع</h4>
+          <span>مول 5 plaza _ الحي المتنيز 6 October City, Egypt 002</span>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="social-row">
+        <!-- واتساب -->
+        <a href="https://wa.me/201066321915" target="_blank" class="social-btn" title="WhatsApp" aria-label="WhatsApp" style="background:#eef0ef; color:#25D366; border-color:#000000;">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+        <!-- انستجرام -->
+        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" class="social-btn" title="Instagram" aria-label="Instagram" style="background:#f5f3f3; color:#5e0f0f; border-color:#050505;">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <!-- فيسبوك -->
+        <a href="https://facebook.com/KITCHERA" target="_blank" class="social-btn" title="Facebook" aria-label="Facebook" style="background:#f5f3f3; color:#0712aa; border-color:#050505;">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <p>© 2025 KITCHERA | جميع الحقوق محفوظة | تصميم وتنفيذ المطابخ وغرف النوم والحمامات</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     أزرار طافية  ←  جديدة
+     ═══════════════════════════════════════════════════════════ -->
+<!-- زر واتساب ثابت -->
+<a href="https://wa.me/201066321915" target="_blank" class="whatsapp-float" title="تواصل معنا على واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- زر اتصال طافي -->
+<a href="tel:+201122601548" class="call-float" title="اتصل بنا الآن" aria-label="اتصل بنا الآن">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+  /* ═══════════════════════════════════════════════════════
+     1️⃣  handleSubmit  ←  معدلة بالكامل
+     ═══════════════════════════════════════════════════════ */
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // جمع كل البيانات
+    const name    = document.getElementById('cName').value.trim();
+    const phone   = document.getElementById('cPhone').value.trim();
+    const email   = document.getElementById('cEmail').value.trim();
+    const service = document.getElementById('cService').value;
+    const visitType = document.querySelector('input[name="visitType"]:checked').value;
+    const date    = document.getElementById('cDate').value;
+    const time    = document.getElementById('cTime').value;
+    const details = document.getElementById('cDetails').value.trim();
+    // ترجمة نوع الخدمة
+    const serviceNames = {
+      'kitchen': 'تصميم مطبخ',
+      'bedroom': 'غرفة نوم',
+      'bathroom': 'تصميم حمام',
+      'multiple': 'أكثر من خدمة'
+    };
+
+    // ترجمة نوع الزيارة
+    const visitText = visitType === 'home' ? '🏠 زيارة منزلية' : '🏢 زيارة المقر';
+
+    // التحقق من التاريخ (ممنوع تاريخ سابق)
+    const today = new Date().toISOString().split('T')[0];
+    if (date < today) {
+      alert('❌ لا يمكن اختيار تاريخ سابق! يرجى اختيار تاريخ صحيح.');
+      return;
+    }
+
+    // بناء رسالة الواتساب
+    let msg = `طلب جديد من موقع KITCHERA 📋\n\n`;
+    msg += `👤 الاسم: ${name}\n`;
+    msg += `📞 رقم الجوال: ${phone}\n`;
+    msg += `📧 البريد الإلكتروني: ${email}\n`;
+    msg += `🔧 نوع الخدمة: ${serviceNames[service] || service}\n`;
+    msg += `📍 نوع الزيارة: ${visitText}\n`;
+    msg += `📅 التاريخ: ${date}\n`;
+    msg += `⏰ الساعة: ${time}\n`;
+
+    if (details) {
+      msg += `📝 *التفاصيل:* ${details}\n`;
+    }
+
+    msg += `\n────────────────\nتم الإرسال من موقع KITCHERA`;
+
+    // ⚠️ غير الرقم هنا لو عايز
+    const whatsappNumber = "201066321915";
+
+    // فتح واتساب
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+
+    // مسح الفورم
+    e.target.reset();
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     2️⃣  حاسبة المساحة  ←  جديدة
+     ═══════════════════════════════════════════════════════ */
+  let lastCalc = {};
+
+  function calcArea() {
+    const l = parseFloat(document.getElementById('len').value);
+    const w = parseFloat(document.getElementById('wid').value);
+
+    if (!l || !w || l <= 0 || w <= 0) {
+      alert('يرجى إدخال طول وعرض صحيحين');
+      return;
+    }
+
+    const area  = (l * w).toFixed(2);
+    const units = Math.ceil(area / 1.5);
+    const cost  = (area * 3500).toLocaleString(); // 3500 ج.م/م² ← غير السعر هنا
+
+    lastCalc = { l, w, area, units, cost };
+
+    document.getElementById('areaVal').textContent  = area;
+    document.getElementById('unitsVal').textContent = units + ' وحدة تقريباً';
+    document.getElementById('costVal').textContent  = cost;
+    document.getElementById('calcResult').style.display = 'block';
+  }
+
+  function sendCalcToWhatsApp() {
+    const { l, w, area, units, cost } = lastCalc;
+    const msg = `*طلب تسعير - KITCHERA* 📐\n\n📏 *الأبعاد:* ${l}م × ${w}م\n📐 *المساحة:* ${area} م²\n🔧 *الوحدات:* ${units} وحدة\n💰 *التكلفة التقديرية:* ${cost} ج.م\n\nأرغب في معرفة التفاصيل.`;
+    const num = "201066321915"; // ← غير الرقم هنا
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     3️⃣  Scroll + Navbar effects
+     ═══════════════════════════════════════════════════════ */
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+
+  // Intersection Observer للأنيميشن
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // تعيين أقل تاريخ = اليوم
+  document.getElementById('cDate').min = new Date().toISOString().split('T')[0];
+  // دالة إغلاق نافذة الترحيب
+function closeWelcomeModal() {
+    document.getElementById('welcomeModal').style.display = 'none';
+}
+</script>
+<script>
+    // كود الجافاسكريبت يوضع هنا فقط وخالٍ من أي CSS
+    const grid = document.getElementById('portfolioGrid');
+    const lightbox = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxContent');
+
+    if (grid) {
+        for (let i = 1; i <= 28; i++) {
+            grid.innerHTML += `
+                <div class="portfolio-item">
+                    <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;">
+                    <div class="portfolio-overlay">
+                        <h3>تصميم مشروع ${i}</h3>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function openLightbox(imageSrc) {
+        if (lightbox && lightboxImg) {
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = 'flex';
+        }
+    }
+
+    function closeLightbox() {
+        if (lightbox) {
+            lightbox.style.display = 'none';
+        }
+    }
+</script>
+</div>
+</body>
+</html>
