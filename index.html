@@ -1192,43 +1192,29 @@ body { font-family: 'Amiri', serif; }
      1️⃣  handleSubmit  ←  معدلة بالكامل
      ═══════════════════════════════════════════════════════ */
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // يمنع التحويل وإعادة تحميل الصفحة
 
-    // جمع كل البيانات
-    const name    = document.getElementById('cName').value.trim();
-    const phone   = document.getElementById('cPhone').value.trim();
-    const email   = document.getElementById('cEmail').value.trim();
-    const service = document.getElementById('cService').value;
-    const visitType = document.querySelector('input[name="visitType"]:checked').value;
-    const date    = document.getElementById('cDate').value;
-    const time    = document.getElementById('cTime').value;
-    const details = document.getElementById('cDetails').value.trim();
-    // ترجمة نوع الخدمة
-    const serviceNames = {
-      'kitchen': 'تصميم مطبخ',
-      'bedroom': 'غرفة نوم',
-      'bathroom': 'تصميم حمام',
-      'multiple': 'أكثر من خدمة'
-    };
+    // 1️⃣ فحص تاريخ الزيارة (منع اختيار تاريخ في الماضي)
+    const dateInput = document.getElementById('cDate');
+    if (dateInput && dateInput.value) {
+        const today = new Date().toISOString().split('T')[0];
+        if (dateInput.value < today) {
+            alert("❌ يرجى اختيار تاريخ اليوم أو تاريخ مستقبلي.");
+            return; // إيقاف العملية إذا كان التاريخ قديماً
+        }
+    }
 
-    // ترجمة نوع الزيارة
-    const visitText = visitType === 'home' ? '🏠 زيارة منزلية' : '🏢 زيارة المقر';
-
-    // التحقق من التاريخ (ممنوع تاريخ سابق)
-    const today = new Date().toISOString().split('T')[0];
-    if (date < today) {
-     function handleSubmit(e) {
-    e.preventDefault(); // يمنع فتح الواتساب وإعادة تحميل الصفحة
-    
+    // 2️⃣ تغيير حالة زر الإرسال
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = submitBtn ? submitBtn.innerText : '';
-    
+
     if (submitBtn) {
         submitBtn.innerText = 'جاري الإرسال... ⏳';
         submitBtn.disabled = true;
     }
 
+    // 3️⃣ إرسال البيانات تلقائياً إلى الإيميل
     const formData = new FormData(form);
 
     fetch("https://formsubmit.co/ajax/egyptkitchera@gmail.com", {
@@ -1238,7 +1224,7 @@ body { font-family: 'Amiri', serif; }
     .then(response => response.json())
     .then(data => {
         alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
-        form.reset(); // تفريغ الخانات بعد الإرسال
+        form.reset(); // تفريغ حقول النموذج
     })
     .catch(error => {
         alert("❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
