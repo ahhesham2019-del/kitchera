@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <!-- وسوم أمان الموقع والحماية من الثغرات -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="google-site-verification" content="GQE3Y1vC386_9yAIsVd843o-J9bskHYhBXgLKfr_6Ak" />
   <!-- أكواد معاينة الرابط على السوشيال ميديا والواتساب (Open Graph) -->
 <meta property="og:type" content="website" />
@@ -848,6 +852,9 @@ body { font-family: 'Amiri', serif; }
   }
 </style>
 <base target="_blank">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 </head>
 <body>
 
@@ -869,6 +876,7 @@ body { font-family: 'Amiri', serif; }
     </button>
   </div>
 </nav>
+<main>
 
 <!-- Hero -->
 <section class="hero" id="home">
@@ -1003,14 +1011,14 @@ body { font-family: 'Amiri', serif; }
 
         <!-- البريد الإلكتروني -->
         <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input type="email" id="cEmail" placeholder="example@email.com" required>
+          <label for="cEmail">البريد الإلكتروني</label>
+<input type="email" id="cEmail" name="cEmail" placeholder="example@gmail.com" required aria-label="البريد الإلكتروني">
         </div>
 
         <!-- نوع الخدمة -->
         <div class="form-group">
-          <label>نوع الخدمة</label>
-          <select id="cService" required>
+          <label for="cService">نوع الخدمة</label>
+<select id="cService" name="cService" required aria-label="نوع الخدمة">
             <option value="">اختر الخدمة المطلوبة</option>
             <option value="kitchen">تصميم مطبخ</option>
             <option value="bedroom">غرفة نوم</option>
@@ -1041,12 +1049,12 @@ body { font-family: 'Amiri', serif; }
         <!-- ═══ تاريخ + ساعة الزيارة ← جديد ═══ -->
         <div class="form-row">
           <div class="form-group">
-            <label>📅 تاريخ الزيارة المفضل</label>
-            <input type="date" id="cDate" required>
+            <label for="cDate">📅 تاريخ الزيارة</label>
+<input type="date" id="cDate" name="cDate" required aria-label="تاريخ الزيارة">
           </div>
           <div class="form-group">
-            <label>⏰ ساعة الزيارة</label>
-            <select id="cTime" required>
+            <<label for="cTime">⏰ ساعة الزيارة</label>
+<select id="cTime" name="cTime" required aria-label="ساعة الزيارة">
               <option value="">اختر الساعة</option>
               <option value="11:00 ص">11:00 صباحاً</option>
               <option value="12:00 م">12:00 ظهراً</option>
@@ -1159,7 +1167,7 @@ body { font-family: 'Amiri', serif; }
     </div>
   </div>
 </section>
-
+</main>
 <!-- ═══════════════════════════════════════════════════════════
      FOOTER
      ═══════════════════════════════════════════════════════════ -->
