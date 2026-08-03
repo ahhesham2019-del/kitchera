@@ -37,6 +37,42 @@
     max-height: 85vh;
     border-radius: 10px;
     border: 2px solid #5a402d;
+}/* 1. تكبير النص العلوي (نؤمن بأن كل مساحة...) */
+.section-subtitle, 
+.hero-description, 
+p.lead {
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #2b2b2b !important; /* توضيح اللون وجعله أغمق قليلاً */
+    margin-top: 10px;
+}
+
+/* 2. تكبير فقرات الوصف والنقاط (قسم: نصنع المساحات...) */
+/* تكبير الفقرات النصية */
+p {
+    font-size: 20px !important;
+    line-height: 1.9 !important; /* مسافة مريحة بين السطور */
+    color: #1a1a1a !important;
+}
+
+/* تكبير قائمة العلامات (✓ تصاميم مخصصة...) */
+ul li, 
+.features-list li, 
+.feature-item {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    margin-bottom: 12px !important;
+    color: #111111 !important;
+}
+
+/* 3. تكبير النصوص تحت الأرقام (مشروع منجز / سنة خبرة / رضا العملاء) */
+.stat-label, 
+.stats-item p, 
+.stat-box span {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-top: 8px;
 }
 </style>
  
@@ -257,7 +293,7 @@ body { font-family: 'Amiri', serif; }
   .section-label {
     display: inline-block;
     color: var(--accent);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
