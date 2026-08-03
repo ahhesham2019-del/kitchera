@@ -1340,6 +1340,45 @@ function closeWelcomeModal() {
             lightbox.style.display = 'none';
         }
     }
+    // === كود إرسال البيانات فوراً على البريد الإلكتروني (FormSubmit) ===
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // يمنع فتح الواتساب أو تحويل الصفحة
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]') || contactForm.querySelector('button');
+            const originalText = submitBtn ? submitBtn.innerText : '';
+            
+            if (submitBtn) {
+                submitBtn.innerText = 'جاري الإرسال... ⏳';
+                submitBtn.disabled = true;
+            }
+
+            const formData = new FormData(contactForm);
+
+            fetch("https://formsubmit.co/ajax/egyptkitchera@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
+                contactForm.reset(); // تفريغ الخانات
+            })
+            .catch(error => {
+                alert("❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    }
+});
 </script>
 </div>
 </body>
