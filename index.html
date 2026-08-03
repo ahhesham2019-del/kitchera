@@ -1217,37 +1217,39 @@ body { font-family: 'Amiri', serif; }
     // التحقق من التاريخ (ممنوع تاريخ سابق)
     const today = new Date().toISOString().split('T')[0];
     if (date < today) {
-      alert('❌ لا يمكن اختيار تاريخ سابق! يرجى اختيار تاريخ صحيح.');
-      return;
+     function handleSubmit(e) {
+    e.preventDefault(); // يمنع فتح الواتساب وإعادة تحميل الصفحة
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
+    const originalText = submitBtn ? submitBtn.innerText : '';
+    
+    if (submitBtn) {
+        submitBtn.innerText = 'جاري الإرسال... ⏳';
+        submitBtn.disabled = true;
     }
 
-    // بناء رسالة الواتساب
-    let msg = `طلب جديد من موقع KITCHERA 📋\n\n`;
-    msg += `👤 الاسم: ${name}\n`;
-    msg += `📞 رقم الجوال: ${phone}\n`;
-    msg += `📧 البريد الإلكتروني: ${email}\n`;
-    msg += `🔧 نوع الخدمة: ${serviceNames[service] || service}\n`;
-    msg += `📍 نوع الزيارة: ${visitText}\n`;
-    msg += `📅 التاريخ: ${date}\n`;
-    msg += `⏰ الساعة: ${time}\n`;
+    const formData = new FormData(form);
 
-    if (details) {
-      msg += `📝 *التفاصيل:* ${details}\n`;
-    }
-
-    msg += `\n────────────────\nتم الإرسال من موقع KITCHERA`;
-
-    // ⚠️ غير الرقم هنا لو عايز
-    const whatsappNumber = "201066321915";
-
-    // فتح واتساب
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-
-    // مسح الفورم
-    e.target.reset();
-  }
-
+    fetch("https://formsubmit.co/ajax/egyptkitchera@gmail.com", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
+        form.reset(); // تفريغ الخانات بعد الإرسال
+    })
+    .catch(error => {
+        alert("❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
+    })
+    .finally(() => {
+        if (submitBtn) {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
   /* ═══════════════════════════════════════════════════════
      2️⃣  حاسبة المساحة  ←  جديدة
      ═══════════════════════════════════════════════════════ */
