@@ -33,6 +33,40 @@
 <meta name="description" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات بأعلى معايير الجودة">
 <title>KITCHERA | تصميم المطابخ وغرف النوم والحمامات</title>
 <style>
+  /* تعديل محاذاة أزرار اختيار نوع الزيارة */
+.visit-options {
+    display: flex;
+    gap: 16px;
+    align-items: center; /* ← ده يخلي كل حاجة في المنتصف */
+}
+
+.visit-card {
+    display: flex;
+    align-items: center; /* ← محاذاة عمودية للعناصر جوه البطاقة */
+    gap: 8px;
+    cursor: pointer;
+}
+
+.visit-card input[type="radio"] {
+    margin: 0; /* ← تشيل أي هوامش افتراضية */
+    position: relative;
+    top: 2px; /* ← حركها لتحت شوية لو لسه فوق */
+}
+
+.visit-card .v-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.visit-card .v-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.visit-card .v-desc {
+    font-size: 13px;
+    color: #666;
+}
 /* كود الـ CSS يوضع هنا فقط */
 .lightbox-modal {
     display: none;
@@ -1265,25 +1299,25 @@ body { font-family: 'Amiri', serif; }
         return;
     }
 
-    let message = `*طلب جديد من موقع KITCHERA* 📩\n\n`;
-    message += `*الاسم:* ${name}\n`;
-    message += `*رقم التليفون:* ${phone}\n`;
-    if (email) message += `*الإيميل:* ${email}\n`;
-    message += `*نوع الخدمة:* ${service || 'غير محدد'}\n`;
-    
-    if (isHomeVisit && address) {
-        message += `*نوع الزيارة:* منزلية 🏠\n`;
-        message += `*العنوان:* ${address}\n`;
-    } else {
-        message += `*نوع الزيارة:* في المقر 🏢\n`;
-    }
+   let message = `📩 طلب جديد من موقع KITCHERA\n\n`;
+message += `الاسم: ${name}\n`;
+message += `رقم التليفون: ${phone}\n`;
+if (email) message += `الإيميل: ${email}\n`;
+message += `نوع الخدمة: ${service || 'غير محدد'}\n`;
 
-    if (visitDate) {
-        message += `*الموعد:* ${visitDate} ${visitTime || ''}\n`;
-    }
-    if (details) {
-        message += `*التفاصيل:* ${details}\n`;
-    }
+    if (isHomeVisit && address) {
+    message += `نوع الزيارة: منزلية 🏠\n`;
+    message += `العنوان: ${address}\n`;
+} else {
+    message += `نوع الزيارة: في المقر 🏢\n`;
+}
+
+if (visitDate) {
+    message += `الموعد: ${visitDate} ${visitTime || ''}\n`;
+}
+if (details) {
+    message += `التفاصيل: ${details}\n`;
+}
 
     const WHATSAPP_NUMBER = "201066321915";
     const encodedMessage = encodeURIComponent(message);
