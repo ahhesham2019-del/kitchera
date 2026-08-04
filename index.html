@@ -1042,25 +1042,30 @@ body { font-family: 'Amiri', serif; }
             <option value="multiple">أكثر من خدمة</option>
           </select>
         </div>
+<!-- نوع الزيارة جديد -->
+<div class="form-group">
+    <label>نوع الزيارة</label>
+    <div class="visit-options">
+        <label class="visit-card">
+            <input type="radio" id="visit-home" name="visitType" value="home" onchange="toggleAddressField()" checked>
+            <span class="v-icon">🏠</span>
+            <span class="v-title">زيارة منزلية</span>
+            <span class="v-desc">نزورك في بيتك</span>
+        </label>
+        <label class="visit-card">
+            <input type="radio" id="visit-office" name="visitType" value="showroom" onchange="toggleAddressField()">
+            <span class="v-icon">🏢</span>
+            <span class="v-title">زيارة المقر</span>
+            <span class="v-desc">تفضل بزيارتنا</span>
+        </label>
+    </div>
+</div>
 
-        <!-- ═══ نوع الزيارة ← جديد ═══ -->
-        <div class="form-group">
-          <label>نوع الزيارة</label>
-          <div class="visit-options">
-            <label class="visit-card">
-              <input type="radio" name="visitType" value="home" checked>
-              <span class="v-icon">🏠</span>
-              <span class="v-title">زيارة منزلية</span>
-              <span class="v-desc">نزورك في بيتك</span>
-            </label>
-            <label class="visit-card">
-              <input type="radio" name="visitType" value="showroom">
-              <span class="v-icon">🏢</span>
-              <span class="v-title">زيارة المقر</span>
-              <span class="v-desc">تفضل بزيارتنا</span>
-            </label>
-          </div>
-        </div>
+<!-- حقل العنوان (يظهر عند اختيار زيارة منزلية) -->
+<div id="addressContainer" class="form-group" style="margin-top: 15px;">
+    <label for="address">عنوان الزيارة بالتفصيل</label>
+    <input type="text" id="address" name="address" class="form-control" placeholder="المدينة - المنطقة - الشارع - رقم العقار">
+</div>
 
         <!-- ═══ تاريخ + ساعة الزيارة ← جديد ═══ -->
         <div class="form-row">
@@ -1068,11 +1073,10 @@ body { font-family: 'Amiri', serif; }
             <label for="cDate">📅 تاريخ الزيارة</label>
 <input type="date" id="cDate" name="cDate" required aria-label="تاريخ الزيارة">
           </div>
-          <div class="form-group">
-            <<label for="cTime">⏰ ساعة الزيارة</label>
-<select id="cTime" name="cTime" required aria-label="ساعة الزيارة">
-              <option value="">اختر الساعة</option>
-              <option value="11:00 ص">11:00 صباحاً</option>
+         <div class="form-group">
+  <label for="visit-time">ساعة الزيارة</label>
+  <select id="visit-time" name="visit_time" class="form-control">
+    <option value="">اختر الساعة</option>
               <option value="12:00 م">12:00 ظهراً</option>
               <option value="01:00 م">01:00 مساءً</option>
               <option value="02:00 م">02:00 مساءً</option>
@@ -1353,34 +1357,140 @@ function closeWelcomeModal() {
         }
     }
     // === كود إرسال البيانات فوراً على البريد الإلكتروني (FormSubmit) ===
+// === كود إرسال البيانات فوراً على البريد الإلكتروني (FormSubmit) ===
+
+// 1. دالة التحكم بإظهار وإخفاء حقل العنوان
+function toggleAddressField() {
+    const homeVisit = document.getElementById('visit-home');
+    const addressContainer = document.getElementById('addressContainer');
+    
+    if (homeVisit && addressContainer) {
+        if (homeVisit.checked) {
+            addressContainer.style.display = 'block';
+        } else {
+            addressContainer.style.display = 'none';
+            const addressInput = document.getElementById('address');
+            if (addressInput) addressInput.value = '';
+        }
+    }
+}
+
+// 2. التنفيذ بعد اكتمال تحميل عناصر الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('form');
+    // فحص حالة الزيارة عند التحميل
+    toggleAddressField();
+
+    // ربط تغيير أزرار نوع الزيارة بدالة الإخفاء والإظهار
+    const radioButtons = document.querySelectorAll('input[name="visitType"], input[name="visit_type"]');
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', toggleAddressField);
+    });
+
+    // تحديد نموذج الإرسال
+    const contactForm = document.getElementById('contactForm') || document.querySelector('form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // يمنع فتح الواتساب أو تحويل الصفحة
-            
+            e.preventDefault();
+
             const submitBtn = contactForm.querySelector('button[type="submit"]') || contactForm.querySelector('button');
             const originalText = submitBtn ? submitBtn.innerText : '';
-            
+
             if (submitBtn) {
-                submitBtn.innerText = 'جاري الإرسال... ⏳';
+                submitBtn.innerText = "...جاري الإرسال ⏳";
                 submitBtn.disabled = true;
             }
 
-            const formData = new FormData(contactForm);
+            // استخراج مدخلات النموذج بأمان
+            const nameInput = contactForm.querySelector('#name') || contactForm.querySelector('[name="fullName"]') || contactForm.querySelector('[name="name"]');
+            const phoneInput = contactForm.querySelector('#phone') || contactForm.querySelector('[name="phone"]');
+            const serviceSelect = contactForm.querySelector('#service') || contactForm.querySelector('[name="service"]');
+            const dateInput = contactForm.querySelector('#cDate') || contactForm.querySelector('[name="cDate"]');
+            const timeSelect = contactForm.querySelector('#visit-time') || contactForm.querySelector('[name="visit_time"]');
+            const addressInput = contactForm.querySelector('#address') || contactForm.querySelector('[name="address"]');
+            const homeVisitRadio = document.getElementById('visit-home');
 
-            fetch("https://formsubmit.co/ajax/egyptkitchera@gmail.com", {
+            const name = nameInput ? nameInput.value.trim() : '';
+            const phone = phoneInput ? phoneInput.value.trim() : '';
+            const serviceType = serviceSelect ? (serviceSelect.options[serviceSelect.selectedIndex]?.text || serviceSelect.value) : '';
+            const visitDate = dateInput ? dateInput.value : '';
+            const visitTime = timeSelect ? (timeSelect.options[timeSelect.selectedIndex]?.text || timeSelect.value) : '';
+            const isHomeVisit = homeVisitRadio ? homeVisitRadio.checked : false;
+            const address = addressInput ? addressInput.value.trim() : '';
+
+            // تحقق من البيانات المطلوبة
+            if (!name) {
+                alert("❌ يرجى إدخال الاسم");
+                if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
+                if (nameInput) nameInput.focus();
+                return;
+            }
+            if (!phone) {
+                alert("❌ يرجى إدخال رقم التليفون");
+                if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
+                if (phoneInput) phoneInput.focus();
+                return;
+            }
+
+            // صياغة نص الرسالة
+            let message = `📩 طلب جديد من الموقع\n\n`;
+            message += `👤 الاسم: ${name}\n`;
+            message += `📱 رقم العميل: ${phone}\n`;
+            
+            if (isHomeVisit && address) {
+                message += `🏠 العنوان: ${address}\n`;
+                message += `📍 نوع الزيارة: منزلية 🏡\n`;
+            } else {
+                message += `📍 نوع الزيارة: في المركز 🏥\n`;
+            }
+
+            if (visitDate) {
+                message += `📅 الموعد: ${visitDate} ${visitTime || ''}\n`;
+            }
+            message += `🛠️ نوع الخدمة: ${serviceType || 'غير محدد'}`;
+
+            // مفاتيح تليجرام (استبدلهم بالقيم الحقيقية)
+            const TELEGRAM_BOT_TOKEN = "ضع_TOKEN_البوت_هنا";
+            const TELEGRAM_CHAT_ID = "ضع_CHAT_ID_هنا";
+
+            // إضافة timeout للطلب
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+            // إرسال الطلب
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: "POST",
-                body: formData
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message
+                }),
+                signal: controller.signal
             })
-            .then(response => response.json())
+            .then(response => {
+                clearTimeout(timeoutId);
+                if (!response.ok) {
+                    throw new Error(`خطأ في الاتصال: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
-                alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
-                contactForm.reset(); // تفريغ الخانات
+                if (data.ok) {
+                    alert("✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً");
+                    contactForm.reset();
+                    toggleAddressField();
+                } else {
+                    console.error("Telegram API Error:", data);
+                    throw new Error(data.description || "خطأ غير معروف من Telegram");
+                }
             })
             .catch(error => {
-                alert("❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
+                console.error("Error:", error);
+                if (error.name === 'AbortError') {
+                    alert("⏰ انتهى وقت الانتظار! يرجى التحقق من الاتصال بالإنترنت");
+                } else {
+                    alert("❌ " + error.message);
+                }
             })
             .finally(() => {
                 if (submitBtn) {
