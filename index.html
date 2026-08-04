@@ -1217,22 +1217,20 @@ body { font-family: 'Amiri', serif; }
      ═══════════════════════════════════════════════════════════ -->
 <script>
   /* ═══════════════════════════════════════════════════════
-     1️⃣  handleSubmit  ←  معدلة بالكامل
+     1️⃣  handleSubmit  ←  واتساب مباشر
      ═══════════════════════════════════════════════════════ */
   function handleSubmit(e) {
-    e.preventDefault(); // يمنع التحويل وإعادة تحميل الصفحة
+    e.preventDefault();
 
-    // 1️⃣ فحص تاريخ الزيارة (منع اختيار تاريخ في الماضي)
     const dateInput = document.getElementById('cDate');
     if (dateInput && dateInput.value) {
         const today = new Date().toISOString().split('T')[0];
         if (dateInput.value < today) {
             alert("❌ يرجى اختيار تاريخ اليوم أو تاريخ مستقبلي.");
-            return; // إيقاف العملية إذا كان التاريخ قديماً
+            return;
         }
     }
 
-    // 2️⃣ تغيير حالة زر الإرسال
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalText = submitBtn ? submitBtn.innerText : '';
@@ -1242,30 +1240,95 @@ body { font-family: 'Amiri', serif; }
         submitBtn.disabled = true;
     }
 
-    // 3️⃣ إرسال البيانات تلقائياً إلى الإيميل
-    const formData = new FormData(form);
+    const name = document.getElementById('cName')?.value.trim() || '';
+    const phone = document.getElementById('cPhone')?.value.trim() || '';
+    const email = document.getElementById('cEmail')?.value.trim() || '';
+    const serviceSelect = document.getElementById('cService');
+    const service = serviceSelect ? (serviceSelect.options[serviceSelect.selectedIndex]?.text || serviceSelect.value) : '';
+    const visitDate = document.getElementById('cDate')?.value || '';
+    const timeSelect = document.getElementById('visit-time');
+    const visitTime = timeSelect ? (timeSelect.options[timeSelect.selectedIndex]?.text || timeSelect.value) : '';
+    const address = document.getElementById('address')?.value.trim() || '';
+    const details = document.getElementById('cDetails')?.value.trim() || '';
+    const isHomeVisit = document.getElementById('visit-home')?.checked || false;
 
+    if (!name) {
+        alert("❌ يرجى إدخال الاسم");
+        if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
+        document.getElementById('cName')?.focus();
+        return;
+    }
+    if (!phone) {
+        alert("❌ يرجى إدخال رقم التليفون");
+        if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
+        document.getElementById('cPhone')?.focus();
+        return;
+    }
+
+    let message = `*طلب جديد من موقع KITCHERA* 📩\n\n`;
+    message += `*الاسم:* ${name}\n`;
+    message += `*رقم التليفون:* ${phone}\n`;
+    if (email) message += `*الإيميل:* ${email}\n`;
+    message += `*نوع الخدمة:* ${service || 'غير محدد'}\n`;
+    
+    if (isHomeVisit && address) {
+        message += `*نوع الزيارة:* منزلية 🏠\n`;
+        message += `*العنوان:* ${address}\n`;
+    } else {
+        message += `*نوع الزيارة:* في المقر 🏢\n`;
+    }
+
+    if (visitDate) {
+        message += `*الموعد:* ${visitDate} ${visitTime || ''}\n`;
+    }
+    if (details) {
+        message += `*التفاصيل:* ${details}\n`;
+    }
+
+    const WHATSAPP_NUMBER = "201066321915";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${+201066321915}?text=${encodedMessage}`;
+    
+    window.open(whatsappURL, '_blank');
+
+    const formData = new FormData(form);
     fetch("https://formsubmit.co/ajax/74cbda25a1f0fdc896d3f5e84c207b51", {
         method: "POST",
         body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert("✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.");
-        form.reset(); // تفريغ حقول النموذج
-    })
-    .catch(error => {
-        alert("❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
-    })
-    .finally(() => {
-        if (submitBtn) {
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
+    }).catch(() => {});
+
+    alert("✅ تم فتح واتساب! أرسل الرسالة بنفسك.");
+    form.reset();
+    
+    const addressContainer = document.getElementById('addressContainer');
+    if (addressContainer) addressContainer.style.display = 'none';
+
+    if (submitBtn) {
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+    }
+  }
+
   /* ═══════════════════════════════════════════════════════
-     2️⃣  حاسبة المساحة  ←  جديدة
+     2️⃣  toggleAddressField
+     ═══════════════════════════════════════════════════════ */
+  function toggleAddressField() {
+      const homeVisit = document.getElementById('visit-home');
+      const addressContainer = document.getElementById('addressContainer');
+      
+      if (homeVisit && addressContainer) {
+          if (homeVisit.checked) {
+              addressContainer.style.display = 'block';
+          } else {
+              addressContainer.style.display = 'none';
+              const addressInput = document.getElementById('address');
+              if (addressInput) addressInput.value = '';
+          }
+      }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     3️⃣  حاسبة المساحة
      ═══════════════════════════════════════════════════════ */
   let lastCalc = {};
 
@@ -1280,7 +1343,7 @@ body { font-family: 'Amiri', serif; }
 
     const area  = (l * w).toFixed(2);
     const units = Math.ceil(area / 1.5);
-    const cost  = (area * 3500).toLocaleString(); // 3500 ج.م/م² ← غير السعر هنا
+    const cost  = (area * 3500).toLocaleString();
 
     lastCalc = { l, w, area, units, cost };
 
@@ -1293,18 +1356,21 @@ body { font-family: 'Amiri', serif; }
   function sendCalcToWhatsApp() {
     const { l, w, area, units, cost } = lastCalc;
     const msg = `*طلب تسعير - KITCHERA* 📐\n\n📏 *الأبعاد:* ${l}م × ${w}م\n📐 *المساحة:* ${area} م²\n🔧 *الوحدات:* ${units} وحدة\n💰 *التكلفة التقديرية:* ${cost} ج.م\n\nأرغب في معرفة التفاصيل.`;
-    const num = "201066321915"; // ← غير الرقم هنا
+    const num = "201066321915";
     window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
   /* ═══════════════════════════════════════════════════════
-     3️⃣  Scroll + Navbar effects
+     4️⃣  Scroll + Navbar + Menu + Portfolio
      ═══════════════════════════════════════════════════════ */
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('active');
   }
 
-  // Intersection Observer للأنيميشن
+  function closeWelcomeModal() {
+    document.getElementById('welcomeModal').style.display = 'none';
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1313,195 +1379,44 @@ body { font-family: 'Amiri', serif; }
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Navbar scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // تعيين أقل تاريخ = اليوم
-  document.getElementById('cDate').min = new Date().toISOString().split('T')[0];
-  // دالة إغلاق نافذة الترحيب
-function closeWelcomeModal() {
-    document.getElementById('welcomeModal').style.display = 'none';
-}
-</script>
-<script>
-    // كود الجافاسكريبت يوضع هنا فقط وخالٍ من أي CSS
-    const grid = document.getElementById('portfolioGrid');
-    const lightbox = document.getElementById('lightboxModal');
-    const lightboxImg = document.getElementById('lightboxContent');
+  const cDateInput = document.getElementById('cDate');
+  if (cDateInput) cDateInput.min = new Date().toISOString().split('T')[0];
 
-    if (grid) {
-        for (let i = 1; i <= 28; i++) {
-            grid.innerHTML += `
-                <div class="portfolio-item">
-                    <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;">
-                    <div class="portfolio-overlay">
-                        <h3>تصميم مشروع ${i}</h3>
-                    </div>
-                </div>
-            `;
-        }
+  const grid = document.getElementById('portfolioGrid');
+  const lightbox = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxContent');
+
+  if (grid) {
+    for (let i = 1; i <= 28; i++) {
+      grid.innerHTML += `
+        <div class="portfolio-item">
+          <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;">
+          <div class="portfolio-overlay">
+            <h3>تصميم مشروع ${i}</h3>
+          </div>
+        </div>
+      `;
     }
+  }
 
-    function openLightbox(imageSrc) {
-        if (lightbox && lightboxImg) {
-            lightboxImg.src = imageSrc;
-            lightbox.style.display = 'flex';
-        }
+  function openLightbox(imageSrc) {
+    if (lightbox && lightboxImg) {
+      lightboxImg.src = imageSrc;
+      lightbox.style.display = 'flex';
     }
+  }
 
-    function closeLightbox() {
-        if (lightbox) {
-            lightbox.style.display = 'none';
-        }
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.style.display = 'none';
     }
-    // === كود إرسال البيانات فوراً على البريد الإلكتروني (FormSubmit) ===
-// === كود إرسال البيانات فوراً على البريد الإلكتروني (FormSubmit) ===
-
-// 1. دالة التحكم بإظهار وإخفاء حقل العنوان
-function toggleAddressField() {
-    const homeVisit = document.getElementById('visit-home');
-    const addressContainer = document.getElementById('addressContainer');
-    
-    if (homeVisit && addressContainer) {
-        if (homeVisit.checked) {
-            addressContainer.style.display = 'block';
-        } else {
-            addressContainer.style.display = 'none';
-            const addressInput = document.getElementById('address');
-            if (addressInput) addressInput.value = '';
-        }
-    }
-}
-
-// 2. التنفيذ بعد اكتمال تحميل عناصر الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    // فحص حالة الزيارة عند التحميل
-    toggleAddressField();
-
-    // ربط تغيير أزرار نوع الزيارة بدالة الإخفاء والإظهار
-    const radioButtons = document.querySelectorAll('input[name="visitType"], input[name="visit_type"]');
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', toggleAddressField);
-    });
-
-    // تحديد نموذج الإرسال
-    const contactForm = document.getElementById('contactForm') || document.querySelector('form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const submitBtn = contactForm.querySelector('button[type="submit"]') || contactForm.querySelector('button');
-            const originalText = submitBtn ? submitBtn.innerText : '';
-
-            if (submitBtn) {
-                submitBtn.innerText = "...جاري الإرسال ⏳";
-                submitBtn.disabled = true;
-            }
-
-            // استخراج مدخلات النموذج بأمان
-            const nameInput = contactForm.querySelector('#name') || contactForm.querySelector('[name="fullName"]') || contactForm.querySelector('[name="name"]');
-            const phoneInput = contactForm.querySelector('#phone') || contactForm.querySelector('[name="phone"]');
-            const serviceSelect = contactForm.querySelector('#service') || contactForm.querySelector('[name="service"]');
-            const dateInput = contactForm.querySelector('#cDate') || contactForm.querySelector('[name="cDate"]');
-            const timeSelect = contactForm.querySelector('#visit-time') || contactForm.querySelector('[name="visit_time"]');
-            const addressInput = contactForm.querySelector('#address') || contactForm.querySelector('[name="address"]');
-            const homeVisitRadio = document.getElementById('visit-home');
-
-            const name = nameInput ? nameInput.value.trim() : '';
-            const phone = phoneInput ? phoneInput.value.trim() : '';
-            const serviceType = serviceSelect ? (serviceSelect.options[serviceSelect.selectedIndex]?.text || serviceSelect.value) : '';
-            const visitDate = dateInput ? dateInput.value : '';
-            const visitTime = timeSelect ? (timeSelect.options[timeSelect.selectedIndex]?.text || timeSelect.value) : '';
-            const isHomeVisit = homeVisitRadio ? homeVisitRadio.checked : false;
-            const address = addressInput ? addressInput.value.trim() : '';
-
-            // تحقق من البيانات المطلوبة
-            if (!name) {
-                alert("❌ يرجى إدخال الاسم");
-                if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
-                if (nameInput) nameInput.focus();
-                return;
-            }
-            if (!phone) {
-                alert("❌ يرجى إدخال رقم التليفون");
-                if (submitBtn) { submitBtn.innerText = originalText; submitBtn.disabled = false; }
-                if (phoneInput) phoneInput.focus();
-                return;
-            }
-
-            // صياغة نص الرسالة
-            let message = `📩 طلب جديد من الموقع\n\n`;
-            message += `👤 الاسم: ${name}\n`;
-            message += `📱 رقم العميل: ${phone}\n`;
-            
-            if (isHomeVisit && address) {
-                message += `🏠 العنوان: ${address}\n`;
-                message += `📍 نوع الزيارة: منزلية 🏡\n`;
-            } else {
-                message += `📍 نوع الزيارة: في المركز 🏥\n`;
-            }
-
-            if (visitDate) {
-                message += `📅 الموعد: ${visitDate} ${visitTime || ''}\n`;
-            }
-            message += `🛠️ نوع الخدمة: ${serviceType || 'غير محدد'}`;
-
-            // مفاتيح تليجرام (استبدلهم بالقيم الحقيقية)
-            const TELEGRAM_BOT_TOKEN = "ضع_TOKEN_البوت_هنا";
-            const TELEGRAM_CHAT_ID = "ضع_CHAT_ID_هنا";
-
-            // إضافة timeout للطلب
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-            // إرسال الطلب
-            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    chat_id: TELEGRAM_CHAT_ID,
-                    text: message
-                }),
-                signal: controller.signal
-            })
-            .then(response => {
-                clearTimeout(timeoutId);
-                if (!response.ok) {
-                    throw new Error(`خطأ في الاتصال: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.ok) {
-                    alert("✅ تم إرسال الطلب بنجاح! سنتواصل معك قريباً");
-                    contactForm.reset();
-                    toggleAddressField();
-                } else {
-                    console.error("Telegram API Error:", data);
-                    throw new Error(data.description || "خطأ غير معروف من Telegram");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                if (error.name === 'AbortError') {
-                    alert("⏰ انتهى وقت الانتظار! يرجى التحقق من الاتصال بالإنترنت");
-                } else {
-                    alert("❌ " + error.message);
-                }
-            })
-            .finally(() => {
-                if (submitBtn) {
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                }
-            });
-        });
-    }
-});
+  }
 </script>
 </div>
 </body>
 </html>
+
