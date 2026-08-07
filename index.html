@@ -28,13 +28,20 @@
   <meta name="google-site-verification" content="GQE3Y1vC386_9yAIsVd843o-J9bskHYhBXgLKfr_6Ak" />
   <!-- أكواد معاينة الرابط على السوشيال ميديا والواتساب (Open Graph) -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات" />
-<meta property="og:description" content="KITCHERA - أعلى معايير الجودة في تصميم وتصنيع المطابخ والديكورات الحديثة." />
+<meta property="og:title" content="KITCHERA - تصميم مطابخ وغرف نوم وحمامات - ديكورات وتصميم داخلي" />
+<meta property="og:description" content="KITCHERA - شركة تصميم وتنفيذ المطابخ وغرف النوم والحمامات والديكورات الداخلية بأعلى معايير الجودة. مطابخ حديثة، دواليب، غرف نوم مودرن، أسقف جبس وأعمال نجارة. استشارة مجانية وأسعار تنافسية." />
 <meta property="og:url" content="https://ahhesham2019-del.github.io/kitchera/" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات بأعلى معايير الجودة">
-<title>KITCHERA | تصميم المطابخ وغرف النوم والحمامات</title>
+  <meta name="description" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات والديكورات الداخلية بأعلى معايير الجودة. شركة ديكورات وتصميم داخلي، مطابخ حديثة، دواليب، غرف نوم مودرن وأسقف جبس، أعمال نجارة ودهانات ومعارض مطابخ. استشارة مجانية وأسعار تنافسية.">
+  <meta name="keywords" content="مطابخ, تصميم مطابخ, اعمال خشبية, غرف نوم, حمامات, ديكور داخلي, ديكورات, تصميم داخلي, شركة ديكورات, اعمال جبس بورد, اسقف جبس, دواليب حائط, مطابخ المنيوم, مطابخ حديثة, رخام مطابخ, غرف نوم مودرن, غرف نوم كاملة, تصميم منزل, ديكور منازل, تنسيق منزل, شركة تصميم داخلي, مهندس ديكور, مصمم داخلي, اعمال نجارة, دواليب ملابس, مطبخ خشب, مطبخ المونتال, ديكور شقة, تجهيز شقة, مطبخ صغير, غرفة نوم جديدة, حمام فاخر, تصليح مطابخ, تركيب مطابخ, واجهات مطابخ, اكسسوارات مطابخ, مودرن كيتشن, kitchen, kitchen design, bedrooms, bathrooms, home decor, interior design">
+  <meta name="robots" content="index, follow">
+  <title>KITCHERA | تصميم مطابخ وغرف نوم وحمامات - ديكورات وتصميم داخلي</title>
+<!-- تسريع تحميل الخطوط -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- تحميل صورة الـ Hero مبكراً -->
+<link rel="preload" as="image" href="images/my-bedroom.jpg">
 <style>
   /* تعديل محاذاة أزرار اختيار نوع الزيارة */
 .visit-options {
@@ -251,7 +258,8 @@ body { font-family: 'Amiri', serif; }
     justify-content: center;
     text-align: center;
     padding: 120px 24px 80px;
-    background: linear-gradient(135deg, #b8f1e8 0%, #000000 100%);
+    background: linear-gradient(rgba(10, 12, 14, 0.65), rgba(10, 12, 14, 0.65)), url('images/my-bedroom.jpg') center/cover no-repeat;
+    background-color: #0a0c0e;
     position: relative;
     overflow: hidden;
   }
@@ -272,28 +280,29 @@ body { font-family: 'Amiri', serif; }
     border-radius: 50%;
   }
   .hero-content { position: relative; z-index: 2; max-width: 800px; }
-  .hero-badge {
+.hero-badge {
     display: inline-block;
-    background: rgb(201, 169, 110);
-    color: var(--accent);
+    background: rgba(227, 196, 137, 0.2);
+    color: #f6e7c8;
     padding: 8px 20px;
     border-radius: 50px;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 24px;
-    border: 1px solid rgb(201, 169, 110);
+    border: 1px solid rgba(227, 196, 137, 0.6);
+    backdrop-filter: blur(4px);
   }
-  .hero h1 {
+.hero h1 {
     font-size: 52px;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
-    color: var(--primary);
+    color: #ffffff;
   }
-  .hero h1 span { color: var(--accent); }
+  .hero h1 span { color: #e8c88a; }
   .hero p {
     font-size: 19px;
-    color: var(--secondary);
+    color: #f0ece6 !important;
     max-width: 600px;
     margin: 0 auto 36px;
     line-height: 1.8;
@@ -318,34 +327,36 @@ body { font-family: 'Amiri', serif; }
     font-family: 'Tajawal', sans-serif;
   }
   .btn-primary {
-    background: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
+    background: #e3c489;
+    color: #1a1a1a;
+    border-color: #e3c489;
   }
   .btn-primary:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--primary);
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #1a1a1a;
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
   }
   .btn-secondary {
-    background: transparent;
-    color: var(--primary);
-    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
   }
   .btn-secondary:hover {
-    background: var(--primary);
-    color: var(--white);
+    background: #e3c489;
+    border-color: #e3c489;
+    color: #1a1a1a;
     transform: translateY(-2px);
   }
-  .hero-scroll {
+.hero-scroll {
     position: absolute;
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
-    color: var(--secondary);
+    color: #ffffff;
     cursor: pointer;
   }
   @keyframes bounce {
@@ -487,7 +498,14 @@ body { font-family: 'Amiri', serif; }
     font-weight: 500;
   }
 
-  .services-section { background: var(--light); }
+.services-section {
+    background: linear-gradient(rgba(10, 12, 14, 0.82), rgba(10, 12, 14, 0.82)), url('images/my-bedroom.jpg') center/cover no-repeat;
+    background-color: #0a0c0e;
+  }
+.services-section .section-title,
+  .services-section .section-subtitle {
+    color: #ffffff !important;
+  }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1005,9 +1023,9 @@ body { font-family: 'Amiri', serif; }
       </div>
     </div>
     <div class="about-images fade-in">
-      <div class="about-img main"><img src="images/my-kitchen.jpg" alt="مطبخ عصري"></div>
-      <div class="about-img small"><img src="images/my-bedroom.jpg" alt="غرفة نوم"></div>
-      <div class="about-img small"><img src="images/my-bathroom.jpg" alt="حمام فاخر"></div>
+<div class="about-img main"><img src="images/my-kitchen.jpg" alt="مطبخ عصري" loading="lazy" decoding="async"></div>
+      <div class="about-img small"><img src="images/my-bedroom.jpg" alt="غرفة نوم" loading="lazy" decoding="async"></div>
+      <div class="about-img small"><img src="images/my-bathroom.jpg" alt="حمام فاخر" loading="lazy" decoding="async"></div>
       <div class="experience-badge"><span class="num">25+</span><span class="txt">سنوات من الخبرة</span></div>
     </div>
   </div>
@@ -1459,7 +1477,7 @@ if (details) {
     for (let i = 1; i <= 28; i++) {
       grid.innerHTML += `
         <div class="portfolio-item">
-          <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;">
+          <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;" loading="lazy" decoding="async">
           <div class="portfolio-overlay">
             <h3>تصميم مشروع ${i}</h3>
           </div>
