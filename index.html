@@ -10,9 +10,15 @@
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <link rel="apple-touch-icon" href="images/logo.jpg">
 
-  <!-- وسوم أمان الموقع -->
+<!-- وسوم أمان الموقع -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Referrer-Policy" content="same-origin">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://www.gstatic.com https://www.instagram.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: blob: https://*.instagram.com https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.firebase.google.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.instagram.com https://graph.instagram.com; frame-src https://www.instagram.com https://*.instagram.com; base-uri 'self'; form-action 'self' https://wa.me https://www.instagram.com; object-src 'none';">
+
+  <!-- تلميح أمان لمنع فتح الموقع داخل iframe من مواقع أخرى -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- خط Cairo / Tajawal من Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,8 +65,8 @@
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
       <!-- الشعار -->
       <a href="#home" class="flex items-center gap-3 shrink-0">
-        <img src="images/logo.jpg" alt="Kitchèra Logo" class="h-10 w-auto object-contain rounded-lg">
-        <span class="text-2xl font-extrabold text-olive-700 tracking-wide hidden xs:inline">Kitchèra</span>
+<img src="images/logo.jpg" alt="Kitchèra Logo" class="h-10 w-auto object-contain rounded-lg">
+        <span class="text-2xl font-extrabold text-olive-700 tracking-wide">Kitchèra</span>
       </a>
 
       <!-- روابط التنقل -->
@@ -226,44 +232,25 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════════
-       قسم الفيديوهات
+<!-- ════════════════════════════════════════════
+       قسم الفيديوهات (سحب الفيديوهات من إنستغرام)
        ════════════════════════════════════════════ -->
-  <section id="videos" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="videos" class="py-20 bg-gradient-to-b from-olive-800 to-olive-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">الفيديوهات</span>
-        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">معرض الفيديوهات والتصاميم</h2>
-        <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">شاهد أحدث أعمالنا وتصاميم المطابخ المميزة من Kitchèra</p>
+        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase">الفيديوهات</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">فيديوهاتنا من إنستغرام</h2>
+        <p class="mt-3 text-lg text-cream-100/80 max-w-2xl mx-auto">شاهد أحدث أعمالنا وتصاميمنا المميزة مباشرة من حساب Kitchèra على إنستغرام</p>
       </div>
-      <div class="mb-14 flex justify-center">
-        <div class="w-full max-w-2xl bg-white p-4 sm:p-6 rounded-3xl shadow-xl border border-gray-100 transition-all duration-300 hover:shadow-2xl">
-          <div class="flex justify-center overflow-hidden rounded-2xl">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dbvj7lNjIRQ/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:16px; margin:0; width:100%; min-width:300px;">
-              <a href="https://www.instagram.com/reel/Dbvj7lNjIRQ/" target="_blank">مشاهدة الفيديو على إنستغرام</a>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
-        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DbqaZExj6IG/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;"><a href="https://www.instagram.com/reel/DbqaZExj6IG/" target="_blank">مشاهدة الفيديو</a></blockquote>
-        </div>
-        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dbs_KaXFA1l/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;"><a href="https://www.instagram.com/reel/Dbs_KaXFA1l/" target="_blank">مشاهدة الفيديو</a></blockquote>
-        </div>
-        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Da26Z5AjGGK/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;"><a href="https://www.instagram.com/reel/Da26Z5AjGGK/" target="_blank">مشاهدة الفيديو</a></blockquote>
-        </div>
-        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DbLg1RMCC6F/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;"><a href="https://www.instagram.com/reel/DbLg1RMCC6F/" target="_blank">مشاهدة الفيديو</a></blockquote>
-        </div>
-      </div>
+
+      <!-- شبكة فيديوهات إنستغرام -->
+      <div id="instaVideos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"></div>
+
+      <!-- زر متابعة إنستغرام -->
       <div class="mt-12 text-center">
         <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-gradient-to-r from-purple-600 via-pink-500 to-amber-500 text-white font-bold text-lg rounded-full shadow-lg hover:opacity-95 transition-all duration-300 transform hover:-translate-y-0.5">
-          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          متابعة حساب Kitchèra على إنستغرام
+           class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white font-extrabold text-lg rounded-full shadow-lg hover:opacity-95 hover:-translate-y-0.5 transition-all">
+          <i class="fab fa-instagram text-2xl"></i> متابعة حساب Kitchèra على إنستغرام
         </a>
       </div>
     </div>
@@ -791,6 +778,16 @@
       }
     }
 
+// ═════════ حماية من هجمات XSS (تنظيف النصوص قبل عرضها) ═════════
+    function escapeHTML(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+.replace(/</g, '<')
+        .replace(/>/g, '>')
+        .replace(/"/g, '"')
+        .replace(/'/g, '&#039;');
+    }
+
     // ═════════ التقييمات ═════════
     async function submitReview() {
       const text = document.getElementById('reviewText').value.trim();
@@ -893,7 +890,34 @@
     // إغلاق النوافذ عند الضغط خارجها
     document.querySelectorAll('.fixed.inset-0').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); }));
 
-    if (!FB_ENABLED) { updateAuthUI(); }
+if (!FB_ENABLED) { updateAuthUI(); }
+  </script>
+
+<!-- ═════════ سحب فيديوهات إنستغرام وعرضها (Instagram Embeds) ═════════ -->
+  <script>
+    // روابط فيديوهات Kitchèra من إنستغرام (Reels) — عدّل / أضف أي روابط هنا
+    const INSTA_VIDEOS = [
+      { permalink: 'https://www.instagram.com/reel/Dbvj7lNjIRQ/', caption: 'تصميم مطبخ عصري' },
+      { permalink: 'https://www.instagram.com/reel/DbqaZExj6IG/', caption: 'أحدث أعمالنا' },
+      { permalink: 'https://www.instagram.com/reel/Dbs_KaXFA1l/', caption: 'تصاميم مميزة' },
+      { permalink: 'https://www.instagram.com/reel/Da26Z5AjGGK/', caption: 'مطبخ فاخر' },
+{ permalink: 'https://www.instagram.com/reel/DbLg1RMCC6F/', caption: 'جناح نوم أنيق' },
+{ permalink: 'https://www.instagram.com/reel/DbYYyLnDOT2/', caption: 'أثاث متكامل' },
+      { permalink: 'https://www.instagram.com/reel/Dba9m-5iPqF/', caption: 'تصميم جديد من أعمالنا' },
+{ permalink: 'https://www.instagram.com/reel/Dbdia_kDeVW/', caption: 'فيديو جديد من أعمالنا' },
+      { permalink: 'https://www.instagram.com/reel/Dak47VMk-Ae/', caption: 'تصميم مميز من أعمالنا' }
+    ];
+
+    const instaVideos = document.getElementById('instaVideos');
+    if (instaVideos) {
+      instaVideos.innerHTML = INSTA_VIDEOS.map(v => `
+        <div class="w-full bg-white p-3 rounded-2xl shadow-lg border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
+          <blockquote class="instagram-media" data-instgrm-permalink="${v.permalink}"
+            data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;">
+            <a href="${v.permalink}" target="_blank">${v.caption} — مشاهدة الفيديو</a>
+          </blockquote>
+        </div>`).join('');
+    }
   </script>
 </body>
 </html>
