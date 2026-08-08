@@ -1,1641 +1,526 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- أيقونة الموقع (Favicon) لتظهر في لسان المتصفح ونتائج بحث جوجل -->
-<link rel="icon" type="image/jpeg" href="images/logo.jpg">
-<link rel="apple-touch-icon" href="images/logo.jpg">
-
-<!-- صورة وشعار الشركة لنتائج البحث وشبكات التواصل الاجتماعي -->
-<meta property="og:image" content="https://ahhesham2019-del.github.io/kitchera/images/logo.jpg">
-<meta property="og:site_name" content="KITCHÈRA">
-
-<!-- كود التعريف البرمجي الرسمي للشركة لدى جوجل (Schema Structured Data) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "KITCHÈRA",
-  "alternateName": ["Kitchera", "كيتشيرا"],
-  "url": "https://ahhesham2019-del.github.io/kitchera/"
-}
-</script>
-  <!-- وسوم أمان الموقع والحماية من الثغرات -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data: blob:; font-src https://fonts.gstatic.com data:; frame-src https:; connect-src 'self' https://formsubmit.co https://wa.me https://api.whatsapp.com;">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="Referrer-Policy" content="no-referrer">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
-  <meta name="google-site-verification" content="GQE3Y1vC386_9yAIsVd843o-J9bskHYhBXgLKfr_6Ak" />
-  <!-- أكواد معاينة الرابط على السوشيال ميديا والواتساب (Open Graph) -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="KITCHERA - تصميم مطابخ وغرف نوم وحمامات - ديكورات وتصميم داخلي" />
-<meta property="og:description" content="KITCHERA - شركة تصميم وتنفيذ المطابخ وغرف النوم والحمامات والديكورات الداخلية بأعلى معايير الجودة. مطابخ حديثة، دواليب، غرف نوم مودرن، أسقف جبس وأعمال نجارة. استشارة مجانية وأسعار تنافسية." />
-<meta property="og:url" content="https://ahhesham2019-del.github.io/kitchera/" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="KITCHERA - تصميم وتنفيذ المطابخ وغرف النوم والحمامات والديكورات الداخلية بأعلى معايير الجودة. شركة ديكورات وتصميم داخلي، مطابخ حديثة، دواليب، غرف نوم مودرن وأسقف جبس، أعمال نجارة ودهانات ومعارض مطابخ. استشارة مجانية وأسعار تنافسية.">
-  <meta name="keywords" content="مطابخ, تصميم مطابخ, اعمال خشبية, غرف نوم, حمامات, ديكور داخلي, ديكورات, تصميم داخلي, شركة ديكورات, اعمال جبس بورد, اسقف جبس, دواليب حائط, مطابخ المنيوم, مطابخ حديثة, رخام مطابخ, غرف نوم مودرن, غرف نوم كاملة, تصميم منزل, ديكور منازل, تنسيق منزل, شركة تصميم داخلي, مهندس ديكور, مصمم داخلي, اعمال نجارة, دواليب ملابس, مطبخ خشب, مطبخ المونتال, ديكور شقة, تجهيز شقة, مطبخ صغير, غرفة نوم جديدة, حمام فاخر, تصليح مطابخ, تركيب مطابخ, واجهات مطابخ, اكسسوارات مطابخ, مودرن كيتشن, kitchen, kitchen design, bedrooms, bathrooms, home decor, interior design">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KITCHERA | تصميم وتشطيب المنازل والمطابخ</title>
+  <meta name="description" content="Kitchera - شركة تصميم وتشطيب المنازل والمطابخ. إبداع يفوق التوقعات في التصميم الداخلي.">
+  <meta name="keywords" content="مطابخ, تصميم داخلي, ديكورات, غرف نوم, حمامات, تصميم مطابخ, تشطيب منازل, interior design, kitchen design">
   <meta name="robots" content="index, follow">
-  <title>KITCHERA | تصميم مطابخ وغرف نوم وحمامات - ديكورات وتصميم داخلي</title>
-<!-- تسريع تحميل الخطوط -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- تحميل صورة الـ Hero مبكراً -->
-<link rel="preload" as="image" href="images/my-bedroom.jpg">
-<style>
-  /* تعديل محاذاة أزرار اختيار نوع الزيارة */
-.visit-options {
-    display: flex;
-    gap: 16px;
-    align-items: center; /* ← ده يخلي كل حاجة في المنتصف */
-}
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
 
-.visit-card {
-    display: flex;
-    align-items: center; /* ← محاذاة عمودية للعناصر جوه البطاقة */
-    gap: 8px;
-    cursor: pointer;
-}
+  <!-- وسوم أمان الموقع -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="no-referrer">
 
-.visit-card input[type="radio"] {
-    margin: 0; /* ← تشيل أي هوامش افتراضية */
-    position: relative;
-    top: 2px; /* ← حركها لتحت شوية لو لسه فوق */
-}
+  <!-- خط Cairo / Tajawal من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-.visit-card .v-icon {
-    font-size: 20px;
-    line-height: 1;
-}
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-.visit-card .v-title {
-    font-weight: 600;
-    font-size: 15px;
-}
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-.visit-card .v-desc {
-    font-size: 13px;
-    color: #666;
-}
-/* كود الـ CSS يوضع هنا فقط */
-.lightbox-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-.lightbox-close {
-    position: absolute;
-    top: 20px; right: 30px;
-    color: #ffffff;
-    font-size: 45px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.lightbox-content {
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 10px;
-    border: 2px solid #5a402d;
-}/* 1. تكبير النص العلوي (نؤمن بأن كل مساحة...) */
-.section-subtitle, 
-.hero-description, 
-p.lead {
-    font-size: 22px !important; /* <--- أضيفي هذا السطر لتكبير الخط */
-    font-weight: 600 !important; /* <--- أضيفي هذا السطر لجعل الخط عريض */
-    color: #2b2b2b !important;
-    margin-top: 10px;
-}
-
-/* 2. تكبير فقرات الوصف والنقاط (قسم: نصنع المساحات...) */
-/* تكبير الفقرات النصية */
-p {
-    font-size: 20px !important;
-    line-height: 1.9 !important; /* مسافة مريحة بين السطور */
-    color: #1a1a1a !important;
-}
-
-/* تكبير قائمة العلامات (✓ تصاميم مخصصة...) */
-ul li, 
-.features-list li, 
-.feature-item {
-    font-size: 19px !important;
-    font-weight: 700 !important;
-    margin-bottom: 12px !important;
-    color: #111111 !important;
-}
-
-/* 3. تكبير النصوص تحت الأرقام (مشروع منجز / سنة خبرة / رضا العملاء) */
-.stat-label, 
-.stats-item p, 
-.stat-box span {
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    color: #222222 !important;
-    margin-top: 8px;
-}
-</style>
- 
-<style>
-/* ═══ Responsive ═══ */
-@media (max-width: 768px) {
-  .portfolio-grid { grid-template-columns: 1fr; } 
-}
-  @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
-body { font-family: 'Amiri', serif; }
-  :root {
-    --primary: #050707;
-    --secondary: #000000;
-    --accent: 	#c3f0e7;
-    --light: #e4ecea;
-    --border: 	#020202;
-    --white: 	#c5a778;
-    --shadow: 0 4px 20px rgb(5, 28, 34);
-    --shadow-hover: 0 8px 30px rgb(0, 0, 0);
-    --radius: 12px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--primary);
-    background: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
-
-  .navbar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: #f8f0e1;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    transition: var(--transition);
-  }
-  .navbar.scrolled { box-shadow: var(--shadow); }
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 72px;
-  }
-.logo {
-    font-size: 34px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--primary);
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .logo-img {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .logo::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; right: 0;
-    width: 40px; height: 3px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-  .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a {
-    font-size: 15px; font-weight: 500;
-    color: var(--secondary);
-    transition: var(--transition);
-    position: relative; padding: 4px 0;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute;
-    bottom: 0; right: 0;
-    width: 0; height: 2px;
-    background: var(--accent);
-    transition: var(--transition);
-    border-radius: 1px;
-  }
-  .nav-links a:hover { color: var(--primary); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    background: var(--primary);
-    color: var(--white) !important;
-    padding: 10px 24px !important;
-    border-radius: 8px;
-    font-size: 14px !important;
-    transition: var(--transition);
-  }
-  .nav-cta::after { display: none !important; }
-  .nav-cta:hover { background: var(--accent); color: var(--primary) !important; }
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: var(--primary);
-  }
-
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    background: linear-gradient(rgba(10, 12, 14, 0.65), rgba(10, 12, 14, 0.65)), url('images/my-bedroom.jpg') center/cover no-repeat;
-    background-color: #0a0c0e;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%; right: -20%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgb(10, 10, 8) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -30%; left: -10%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgb(201, 169, 110) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 800px; }
-.hero-badge {
-    display: inline-block;
-    background: rgba(227, 196, 137, 0.2);
-    color: #f6e7c8;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 24px;
-    border: 1px solid rgba(227, 196, 137, 0.6);
-    backdrop-filter: blur(4px);
-  }
-.hero h1 {
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
-  .hero h1 span { color: #e8c88a; }
-  .hero p {
-    font-size: 19px;
-    color: #ffffff !important;
-    opacity: 0.95;
-    max-width: 600px;
-    margin: 0 auto 36px;
-    line-height: 1.8;
-  }
-  .hero-btns {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn {
-    padding: 14px 36px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Tajawal', sans-serif;
-  }
-  .btn-primary {
-    background: #e3c489;
-    color: #1a1a1a;
-    border-color: #e3c489;
-  }
-  .btn-primary:hover {
-    background: #ffffff;
-    border-color: #ffffff;
-    color: #1a1a1a;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-  }
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(6px);
-  }
-  .btn-secondary:hover {
-    background: #e3c489;
-    border-color: #e3c489;
-    color: #1a1a1a;
-    transform: translateY(-2px);
-  }
-.hero-scroll {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
-  }
-
-  .section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 60px; }
-  .section-label {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .section-title {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 16px;
-    color: var(--primary);
-  }
-  .section-subtitle {
-    font-size: 17px;
-    color: var(--secondary);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .about-text h3 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--primary);
-  }
-  .about-text p {
-    font-size: 16px;
-    color: var(--secondary);
-    line-height: 1.9;
-    margin-bottom: 20px;
-  }
-  .about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 24px 0;
-  }
-  .about-features li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
-    color: var(--primary);
-    font-weight: 500;
-  }
-  .about-features li svg {
-    width: 20px; height: 20px;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-  .about-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-  .stat h3 {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat span {
-    font-size: 14px;
-    color: var(--secondary);
-    font-weight: 500;
-  }
-  .about-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    position: relative;
-  }
-  .about-img {
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-  }
-  .about-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-  }
-  .about-img:hover img { transform: scale(1.05); }
-  .about-img.main { grid-column: span 2; height: 280px; }
-  .about-img.small { height: 200px; }
-  .about-img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgb(0, 0, 0), transparent);
-    opacity: 0;
-    transition: var(--transition);
-  }
-  .about-img:hover::after { opacity: 1; }
-  .experience-badge {
-    position: absolute;
-    bottom: -20px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary);
-    color: var(--white);
-    padding: 20px 32px;
-    border-radius: var(--radius);
-    text-align: center;
-    box-shadow: var(--shadow-hover);
-    z-index: 10;
-  }
-  .experience-badge .num {
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--accent);
-    display: block;
-    line-height: 1;
-  }
-  .experience-badge .txt {
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-.services-section {
-    background: linear-gradient(rgba(10, 12, 14, 0.82), rgba(10, 12, 14, 0.82)), url('images/my-bedroom.jpg') center/cover no-repeat;
-    background-color: #0a0c0e;
-  }
-.services-section .section-title,
-  .services-section .section-subtitle {
-    color: #ffffff !important;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .service-card {
-    background: var(--white);
-    padding: 40px 32px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    transition: var(--transition);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transition: var(--transition);
-  }
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: transparent;
-  }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 24px;
-    background: rgb(112, 85, 33);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    transition: var(--transition);
-  }
-  .service-card:hover .service-icon {
-    background: var(--accent);
-    color: var(--primary);
-  }
-  .service-icon svg { width: 28px; height: 28px; }
-  .service-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-  .service-card p {
-    font-size: 15px;
-    color: var(--secondary);
-    line-height: 1.7;
-  }
-  .service-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 20px;
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 600;
-    transition: var(--transition);
-  }
-  .service-link:hover { gap: 10px; }
-
-  .portfolio-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .tab-btn {
-    padding: 10px 28px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    border: 1px solid var(--border);
-    background: var(--white);
-    color: var(--secondary);
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: 'Tajawal', sans-serif;
-  }
-  .tab-btn.active, .tab-btn:hover {
-    background: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
-  }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .portfolio-item {
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    aspect-ratio: 4/3;
-    background: var(--light);
-  }
-  .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-  }
-  .portfolio-item:hover img { transform: scale(1.1); }
-  .portfolio-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 50%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    opacity: 0;
-    transition: var(--transition);
-  }
-  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-  .portfolio-overlay h4 {
-    color: var(--white);
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .portfolio-overlay span {
-    color: rgb(0, 0, 0);
-    font-size: 14px;
-  }
-  .portfolio-overlay .tag {
-    position: absolute;
-    top: 16px; right: 16px;
-    background: var(--accent);
-    color: var(--primary);
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .testimonials-section { background: var(--light); }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .testimonial-card {
-    background: var(--white);
-    padding: 32px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    transition: var(--transition);
-  }
-  .testimonial-card:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-4px);
-  }
-  .stars {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 16px;
-    color: var(--accent);
-  }
-  .testimonial-card p {
-    font-size: 15px;
-    color: var(--secondary);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .author-avatar {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 18px;
-  }
-  .author-info h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--primary);
-  }
-  .author-info span {
-    font-size: 13px;
-    color: var(--secondary);
-  }
-
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .contact-info-box h3 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .contact-info-box p {
-    font-size: 16px;
-    color: var(--secondary);
-    margin-bottom: 32px;
-    line-height: 1.8;
-  }
-  .info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  .info-item .icon {
-    width: 48px; height: 48px;
-    background: rgb(201, 169, 110);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-  .info-item .icon svg { width: 20px; height: 20px; }
-  .info-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-  .info-item span { font-size: 15px; color: var(--secondary); }
-  .social-row {
-    display: flex;
-    gap: 12px;
-    margin-top: 32px;
-  }
-  .social-btn {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border);
-    background: var(--white);
-    color: var(--primary);
-    transition: var(--transition);
-    cursor: pointer;
-  }
-  .social-btn:hover {
-    background: var(--primary);
-    color: var(--white);
-    border-color: var(--primary);
-    transform: translateY(-3px);
-  }
-  .social-btn svg { width: 20px; height: 20px; }
-
-  .contact-form {
-    background: var(--white);
-    padding: 40px;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-  }
-  .form-group { margin-bottom: 20px; }
-  .form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--primary);
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid #6b6b6b;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: 'Tajawal', sans-serif;
-    transition: var(--transition);
-    background: #ffffff;
-    color: #222222;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgb(201, 169, 110);
-  }
-  .form-group textarea { min-height: 120px; resize: vertical; }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-.submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: #25D366;
-    color: #ffffff;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: 'Tajawal', sans-serif;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  }
-  .submit-btn:hover {
-    background: #1ebe5d;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-  }
-
-.footer {
-    background: var(--primary);
-    color: var(--white);
-    padding: 60px 24px 24px;
-    text-align: center;
-  }
-  .footer-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .footer-logo-img {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .footer-logo-text {
-    font-size: 40px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #ffffff;
-  }
-  .footer-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-  .footer-brand .logo {
-    color: var(--white);
-    margin-bottom: 16px;
-    display: inline-block;
-  }
-  .footer-brand p {
-    font-size: 15px;
-    color: rgb(15, 15, 15);
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-  .footer-social {
-    display: flex;
-    gap: 12px;
-  }
-  .footer-social a {
-    width: 40px; height: 40px;
-    border-radius: 8px;
-    background: rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    color: var(--white);
-  }
-  .footer-social a:hover { background: var(--accent); color: var(--primary); }
-  .footer-social a svg { width: 18px; height: 18px; }
-  .footer-col h4 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--white);
-  }
-  .footer-col ul li { margin-bottom: 12px; }
-  .footer-col ul li a {
-    font-size: 14px;
-    color: rgb(0, 0, 0);
-    transition: var(--transition);
-  }
-  .footer-col ul li a:hover { color: var(--accent); padding-right: 4px; }
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 24px;
-    border-top: 1px solid rgb(0, 0, 0);
-    text-align: center;
-    font-size: 14px;
-    color: rgb(14, 13, 13);
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 992px) {
-    .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 40px; }
-  }
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 72px; left: 0; right: 0;
-      background: var(--white);
-      flex-direction: column;
-      padding: 24px;
-      gap: 16px;
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow);
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'Tajawal', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50:  '#F9F8F3',
+              100: '#F4F1E8',
+              200: '#EBE5D6',
+            },
+            olive: {
+              400: '#5C7260',
+              500: '#4A5D4E',
+              600: '#3B4E3F',
+              700: '#2E3E31',
+              800: '#24312A',
+            },
+            gold: {
+              300: '#E3C996',
+              400: '#D4B67A',
+              500: '#C5A059',
+              600: '#B08A3F',
+            },
+          },
+          boxShadow: {
+            soft: '0 4px 24px rgba(43, 62, 48, 0.08)',
+            card: '0 8px 30px rgba(43, 62, 48, 0.10)',
+          },
+        },
+      },
     }
-    .nav-links.active { display: flex; }
-    .menu-toggle { display: block; }
-    .hero h1 { font-size: 32px; }
-    .hero p { font-size: 16px; }
-    .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
-    .about-stats { justify-content: center; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-social { justify-content: center; }
-    .form-row { grid-template-columns: 1fr; }
-    .section { padding: 60px 20px; }
-    .section-title { font-size: 28px; }
-  }
-</style>
-<base target="_blank">
-<style>
-  /* تاريخ الزيارة - حقول منفصلة (اليوم/الشهر/السنة) */
-  .date-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .date-fields select {
-    width: 100%;
-    padding: 14px 12px;
-    border: 2px solid #6b6b6b;
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: 'Tajawal', sans-serif;
-    background: #ffffff;
-    color: #222222;
-  }
-  .date-fields select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgb(201,169,110); }
-  /* زر "انقر للمزيد" */
-  .portfolio-more-wrap { text-align: center; margin-top: 40px; }
-  .load-more-btn {
-    padding: 14px 40px;
-    background: var(--primary);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Tajawal', sans-serif;
-    transition: var(--transition);
-  }
-  .load-more-btn:hover { background: var(--accent); color: var(--primary); }
-  .load-more-btn:disabled { opacity: .6; cursor: default; }
-  /* قسم آراء العملاء + نموذج التقييم */
-  .testimonials-section { background: var(--light); padding: 100px 24px; }
-  .testimonials-section .section-header { max-width: 1200px; margin: 0 auto 60px; }
-  .review-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  .review-form { background: var(--white); padding: 36px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
-  .review-form h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .review-form .form-group { margin-bottom: 20px; }
-  .review-form .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--primary); }
-  .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 6px; }
-  .star-rating input { display: none; }
-  .star-rating label { font-size: 40px; color: #ccc; cursor: pointer; transition: var(--transition); }
-  .star-rating input:checked ~ label,
-  .star-rating label:hover,
-  .star-rating label:hover ~ label { color: #e3c489; }
-  .review-list { display: flex; flex-direction: column; gap: 16px; max-height: 460px; overflow: auto; padding-left: 4px; }
-  .review-card { background: var(--white); padding: 22px; border-radius: var(--radius); border: 1px solid var(--border); }
-  .review-card .rc-stars { color: #e3c489; font-size: 18px; margin-bottom: 8px; }
-  .review-card p { font-size: 15px; color: var(--secondary); line-height: 1.8; margin-bottom: 10px; }
-  .review-card .rc-author { font-size: 14px; font-weight: 700; color: var(--primary); }
-  @media (max-width: 768px) { .review-grid, .date-fields { grid-template-columns: 1fr; } }
-</style>
+  </script>
 </head>
-<body>
+<body class="bg-cream-50 font-cairo text-gray-800 antialiased">
 
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <div class="nav-container">
-<a href="#" class="logo"><img src="images/logo.jpg" alt="Kitchèra" class="logo-img"> Kitchèra</a>
-<ul class="nav-links" id="navLinks">
-      <li><a href="#about" target="_self">من نحن</a></li>
-      <li><a href="#services" target="_self">خدماتنا</a></li>
-      <li><a href="#portfolio" target="_self">أعمالنا</a></li>
-      <li><a href="#contact" target="_self" class="nav-cta">احصل على عرض</a></li>
-    </ul>
-    <button class="menu-toggle" onclick="toggleMenu()" aria-label="القائمة">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
-  </div>
-</nav>
-<main>
-
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">✦ تصاميم عصرية بمعايير عالمية</div>
-    <h1>نحوّل مساحاتك إلى <span>تحف فنية</span></h1>
-    <p>تصاميم عصرية للمطابخ وغرف النوم والحمامات تجمع بين الجمال والوظيفة. نصنع لك مساحة تعكس ذوقك وتناسب أسلوب حياتك.</p>
-    <div class="hero-btns">
-<a href="#portfolio" class="btn btn-primary" target="_self">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        استكشف أعمالنا
+  <!-- ════════════════════════════════════════════════════════
+       أ. الهيدر (Navbar)
+       ════════════════════════════════════════════════════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-cream-50/90 backdrop-blur-md shadow-sm border-b border-cream-200">
+    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- الشعار -->
+      <a href="#home" class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-xl bg-olive-600 text-gold-400 flex items-center justify-center text-xl shadow-soft">
+          <i class="fas fa-house"></i>
+        </span>
+        <span class="text-2xl font-extrabold text-olive-700 tracking-wide">Kitchèra</span>
       </a>
-      <a href="#contact" class="btn btn-secondary" target="_self">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        تواصل معنا
-      </a>
-    </div>
-  </div>
-  <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-  </div>
-</section>
 
-<!-- About -->
-<section class="section" id="about">
-  <div class="section-header fade-in">
-    <span class="section-label">من نحن</span>
-    <h2 class="section-title">خبرة وإبداع في عالم التصميم الداخلي</h2>
-    <p class="section-subtitle">نؤمن بأن كل مساحة في منزلك تستحق أن تكون مثالية</p>
-  </div>
-  <div class="about-grid">
-    <div class="about-text fade-in">
-      <h3>نصنع المساحات التي تلهمك</h3>
-      <p>شركة KITCHERA هي وجهتك الأولى لتصميم وتنفيذ المطابخ وغرف النوم والحمامات بأعلى معايير الجودة. نجمع بين الإبداع والخبرة لتقديم حلول مخصصة تناسب احتياجاتك وذوقك.</p>
-      <p>فريقنا من المصممين والفنيين يعمل بشغف لتحويل رؤيتك إلى واقع، مع الاهتمام بأدق التفاصيل من المرحلة التصميمية وحتى التركيب النهائي.</p>
-      <ul class="about-features">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>تصاميم مخصصة حسب ذوقك وميزانيتك</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>مواد عالية الجودة مع ضمان شامل</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>فريق متخصص من المصممين والفنيين</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>الالتزام تام بالمواعيد والميزانية</li>
+      <!-- روابط التنقل -->
+      <ul class="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-olive-700">
+        <li><a href="#home" class="hover:text-gold-600 transition-colors">الرئيسية</a></li>
+        <li><a href="#services" class="hover:text-gold-600 transition-colors">خدماتنا</a></li>
+        <li><a href="#portfolio" class="hover:text-gold-600 transition-colors">معرض الأعمال</a></li>
+        <li><a href="#videos" class="hover:text-gold-600 transition-colors">الفيديوهات</a></li>
+        <li><a href="#story" class="hover:text-gold-600 transition-colors">قصتنا</a></li>
+        <li><a href="#contact" class="hover:text-gold-600 transition-colors">تواصل معنا</a></li>
       </ul>
-      <div class="about-stats">
-<div class="stat"><h3>+2500</h3><span>مشروع منفذ</span></div>
-        <div class="stat"><h3>25</h3><span>سنة خبرة</span></div>
-        <div class="stat"><h3>98%</h3><span>رضا العملاء</span></div>
+
+      <!-- زر CTA -->
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-6 py-3 rounded-xl transition-all hover:shadow-card">
+        <i class="fas fa-arrow-left text-sm"></i>
+        احصل على عرض
+      </a>
+
+      <!-- زر الجوال -->
+      <button id="menuBtn" class="lg:hidden text-olive-700 text-2xl" aria-label="القائمة">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- قائمة الجوال -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-cream-50 border-t border-cream-200 px-6 py-4">
+      <ul class="flex flex-col gap-4 text-[15px] font-semibold text-olive-700">
+        <li><a href="#home" class="mobile-link">الرئيسية</a></li>
+        <li><a href="#services" class="mobile-link">خدماتنا</a></li>
+        <li><a href="#portfolio" class="mobile-link">معرض الأعمال</a></li>
+        <li><a href="#videos" class="mobile-link">الفيديوهات</a></li>
+        <li><a href="#story" class="mobile-link">قصتنا</a></li>
+        <li><a href="#contact" class="mobile-link bg-olive-600 text-white text-center rounded-xl px-4 py-3">احصل على عرض</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════
+       ب. قسم البطل (Hero)
+       ════════════════════════════════════════════════════════ -->
+  <section id="home" class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+      <!-- الجانب الأيمن: النصوص -->
+      <div>
+        <span class="inline-flex items-center gap-2 bg-gold-300/30 text-gold-600 text-sm font-bold px-4 py-2 rounded-full mb-6">
+          <i class="fas fa-gem"></i>
+          إبداع يفوق التوقعات
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-olive-800 leading-tight mb-6">
+          Kitchèra: <span class="text-gold-500">إبداع يفوق التوقعات</span> في التصميم الداخلي
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
+          نوفر لك تصاميم عصرية وتشطيبات فاخرة للمنازل والمطابخ، تجمع بين الجمال والوظيفة،
+          لنحوّل مساحتك إلى تحفة فنية تعكس ذوقك الرفيع.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-card">
+            احصل على عرضك المجاني
+            <i class="fas fa-arrow-left text-sm"></i>
+          </a>
+          <a href="#services" class="inline-flex items-center gap-2 bg-transparent border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-bold px-8 py-4 rounded-xl transition-all">
+            <i class="fas fa-compass"></i>
+            اكتشف خدماتنا
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="about-images fade-in">
-<div class="about-img main"><img src="images/my-kitchen.jpg" alt="مطبخ عصري" loading="lazy" decoding="async"></div>
-      <div class="about-img small"><img src="images/my-bedroom.jpg" alt="غرفة نوم" loading="lazy" decoding="async"></div>
-      <div class="about-img small"><img src="images/my-bathroom.jpg" alt="حمام فاخر" loading="lazy" decoding="async"></div>
-      <div class="experience-badge"><span class="num">25+</span><span class="txt">سنوات من الخبرة</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- Services -->
-<section class="section services-section" id="services">
-  <div class="section-header fade-in">
-    <span class="section-label">خدماتنا</span>
-    <h2 class="section-title">حلول متكاملة لكل ركن في منزلك</h2>
-    <p class="section-subtitle">نقدم لك خدمات شاملة تغطي جميع احتياجاتك</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 20h18"/><path d="M6 20v-8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v8"/><path d="M6 12h12"/><path d="M9 9V6h6v3"/><circle cx="12" cy="6" r="1"/>
-        </svg>
-      </div>
-<h3>المطابخ</h3>
-      <a href="#portfolio" target="_self" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 20h20"/><path d="M5 20v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"/><path d="M5 14h14"/><path d="M10 8V6a2 2 0 0 1 4 0v2"/>
-        </svg>
-      </div>
-<h3>غرف النوم</h3>
-      <a href="#portfolio" target="_self" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 21h6"/><path d="M12 21v-5"/><path d="M7 16h10v5H7z"/><path d="M6 16a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><path d="M8 12V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/>
-        </svg>
-      </div>
-<h3>الأثاث المتكامل</h3>
-      <a href="#portfolio" target="_self" class="service-link">شاهد أعمالنا <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- قسم سابقة الأعمال -->
-<section class="section" id="portfolio">
-  <div class="section-header fade-in">
-    <span class="section-label">أعمالنا</span>
-    <h2 class="section-title">معرض صور سابقة الأعمال</h2>
-    <p class="section-subtitle">تصفح أحدث مشاريعنا في تصميم المطابخ وغرف النوم والحمامات</p>
-  </div>
-  <div class="portfolio-grid" id="portfolioGrid">
-    <!-- الصور ستظهر هنا تلقائياً -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     3️⃣  CONTACT SECTION  ←  القسم الرئيسي المعدل
-     ═══════════════════════════════════════════════════════════ -->
-<section class="section" id="contact">
-  <div class="section-header fade-in">
-    <span class="section-label">تواصل معنا</span>
-    <h2 class="section-title">نحن هنا لمساعدتك</h2>
-    <p class="section-subtitle">احصل على استشارة مجانية أو تابعنا على وسائل التواصل الاجتماعي</p>
-  </div>
-
-  <div class="contact-wrapper">
-    <!-- ═══ الفورم المعدل بالكامل ═══ -->
-    <div class="contact-form fade-in">
-      <form onsubmit="handleSubmit(event)">
-
-        <!-- الصف الأول: الاسم + رقم الجوال -->
-        <div class="form-row">
-          <div class="form-group">
-            <label>الاسم الكامل</label>
-            <input type="text" id="cName" placeholder="أدخل اسمك" required>
-          </div>
-          <div class="form-group">
-            <label>رقم الجوال</label>
-<input type="tel" id="cPhone" placeholder="01xxxxxxxxx" required>
+      <!-- الجانب الأيسر: الصورة -->
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-gold-300/40 to-olive-400/30 rounded-[2rem] blur-xl"></div>
+        <img src="images/my-kitchen.jpg" alt="مطبخ ومعيشة مودرن" class="relative w-full h-[420px] md:h-[520px] object-cover rounded-2xl shadow-lg border-4 border-white">
+        <div class="absolute bottom-6 right-6 bg-white rounded-2xl shadow-card px-5 py-4 flex items-center gap-4">
+          <span class="w-12 h-12 rounded-xl bg-gold-500 text-white flex items-center justify-center text-xl">
+            <i class="fas fa-star"></i>
+          </span>
+          <div>
+            <p class="font-black text-olive-800 text-lg leading-none">+2500</p>
+            <p class="text-sm text-gray-500 mt-1">مشروع ناجح</p>
           </div>
         </div>
-
-        <!-- البريد الإلكتروني -->
-        <div class="form-group">
-          <label for="cEmail">البريد الإلكتروني</label>
-<input type="email" id="cEmail" name="cEmail" placeholder="example@gmail.com" required aria-label="البريد الإلكتروني">
-        </div>
-
-        <!-- نوع الخدمة -->
-        <div class="form-group">
-          <label for="cService">نوع الخدمة</label>
-<select id="cService" name="cService" required aria-label="نوع الخدمة">
-            <option value="">اختر الخدمة المطلوبة</option>
-            <option value="kitchen">تصميم مطبخ</option>
-            <option value="bedroom">غرفة نوم</option>
-            <option value="bathroom">تصميم حمام</option>
-            <option value="multiple">أكثر من خدمة</option>
-          </select>
-        </div>
-<!-- نوع الزيارة جديد -->
-<div class="form-group">
-    <label>نوع الزيارة</label>
-    <div class="visit-options">
-        <label class="visit-card">
-            <input type="radio" id="visit-home" name="visitType" value="home" onchange="toggleAddressField()" checked>
-            <span class="v-icon">🏠</span>
-            <span class="v-title">زيارة منزلية</span>
-            <span class="v-desc">نزورك في بيتك</span>
-        </label>
-        <label class="visit-card">
-            <input type="radio" id="visit-office" name="visitType" value="showroom" onchange="toggleAddressField()">
-            <span class="v-icon">🏢</span>
-            <span class="v-title">زيارة المقر</span>
-            <span class="v-desc">تفضل بزيارتنا</span>
-        </label>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- حقل العنوان (يظهر عند اختيار زيارة منزلية) -->
-<div id="addressContainer" class="form-group" style="margin-top: 15px;">
-    <label for="address">عنوان الزيارة بالتفصيل</label>
-    <input type="text" id="address" name="address" class="form-control" placeholder="المدينة - المنطقة - الشارع - رقم العقار">
-</div>
+  <!-- ════════════════════════════════════════════════════════
+       ج. شبكة معرض الأعمال (Portfolio)
+       ════════════════════════════════════════════════════════ -->
+  <section id="portfolio" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">معرض الأعمال</span>
+        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">أحدث تصاميمنا</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">نحن نفخر بكل مشروع ننجزه، وهذا جزء من أعمالنا المميزة</p>
+      </div>
 
-<!-- ═══ تاريخ + ساعة الزيارة ← جديد ═══ -->
-        <div class="form-group">
-          <label>📅 تاريخ الزيارة (اليوم / الشهر / السنة)</label>
-          <div class="date-fields">
-            <select id="cDay" name="cDay" required aria-label="اليوم">
-              <option value="">اليوم</option>
-            </select>
-            <select id="cMonth" name="cMonth" required aria-label="الشهر">
-              <option value="">الشهر</option>
-              <option value="1">يناير</option>
-              <option value="2">فبراير</option>
-              <option value="3">مارس</option>
-              <option value="4">أبريل</option>
-              <option value="5">مايو</option>
-              <option value="6">يونيو</option>
-              <option value="7">يوليو</option>
-              <option value="8">أغسطس</option>
-              <option value="9">سبتمبر</option>
-              <option value="10">أكتوبر</option>
-              <option value="11">نوفمبر</option>
-              <option value="12">ديسمبر</option>
-            </select>
-            <select id="cYear" name="cYear" required aria-label="السنة">
-              <option value="">السنة</option>
-            </select>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolioGrid">
+        <!-- البطاقات ستُملأ عبر JavaScript -->
+        <div class="group rounded-xl overflow-hidden shadow-soft hover:shadow-card transition-all border border-cream-200">
+          <div class="overflow-hidden h-52 bg-cream-100 flex items-center justify-center text-cream-200 text-5xl">
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
+          <div class="p-5 bg-white">
+            <h4 class="font-bold text-olive-800">جاري التحميل...</h4>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cDate">📅 التاريخ المحدد</label>
-<input type="date" id="cDate" name="cDate" required aria-label="تاريخ الزيارة" readonly style="background:#f0f0f0;">
-          </div>
-         <div class="form-group">
-  <label for="visit-time">ساعة الزيارة</label>
-  <select id="visit-time" name="visit_time" class="form-control">
-    <option value="">اختر الساعة</option>
-              <option value="12:00 م">12:00 ظهراً</option>
-              <option value="01:00 م">01:00 مساءً</option>
-              <option value="02:00 م">02:00 مساءً</option>
-              <option value="03:00 م">03:00 مساءً</option>
-              <option value="04:00 م">04:00 مساءً</option>
-              <option value="05:00 م">05:00 مساءً</option>
-              <option value="06:00 م">06:00 مساءً</option>
-              <option value="07:00 م">07:00 مساءً</option>
-              <option value="08:00 م">08:00 مساءً</option>
-              <option value="09:00 م">09:00 مساءً</option>
-              <option value="10:00 م">10:00 مساءً</option>
-              <option value="11:00 م">11:00 مساءً</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- التفاصيل الإضافية -->
-        <div class="form-group">
-          <label>تفاصيل إضافية</label>
-          <textarea id="cDetails" placeholder="صف لنا مشروعك وأي متطلبات خاصة..."></textarea>
-        </div>
-
-<!-- زر الإرسال -->
-        <button type="submit" class="submit-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          إرسال الطلب عبر واتساب
-        </button>
-      </form>
-    </div>
-
-    <!-- ═══ معلومات التواصل ═══ -->
-    <div class="contact-info-box fade-in">
-      <h3>لنبدأ مشروعك القادم</h3>
-      <p>سواء كنت تبحث عن تصميم مطبخ عصري أو غرفة نوم أنيقة أو حمام فاخر، فريقنا جاهز لتحويل رؤيتك إلى واقع.</p>
-
-      <!-- الهاتف 1 -->
-      <div class="info-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </div>
-        <div>
-          <h4>الهاتف</h4>
-          <span>+201122601548</span>
-        </div>
       </div>
 
-<!-- الهاتف 2 ← مع أيقونة واتساب -->
-      <div class="social-row">
-        <div  class="social-btn"target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp" style="background:#f9faf9; color:#25D366; border-color:#000000;">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-          </svg>
-        </div>
-        <div>
-          <h4>واتساب</h4>
-          <span>+201066321915</span>
-        </div>
-      </div>
-
-      <!-- البريد الإلكتروني -->
-      <div class="info-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <div>
-          <h4>البريد الإلكتروني</h4>
-          <span>egyptkitchera@gmail.com</span>
-        </div>
-      </div>
-
-      <!-- الموقع -->
-      <div class="info-item">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div>
-          <h4>الموقع</h4>
-<span>مول 5 plaza _ الحي المتميز 6 October City, Egypt 002</span>
-        </div>
-      </div>
-
-      <!-- Social Icons -->
-      <div class="social-row">
-<!-- واتساب -->
-        <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp" aria-label="WhatsApp" style="background:#eef0ef; color:#25D366; border-color:#000000;">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-        </a>
-<!-- انستجرام -->
-        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Instagram" style="background:#f5f3f3; color:#5e0f0f; border-color:#050505;">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-          </svg>
-        </a>
-<!-- فيسبوك -->
-        <a href="https://facebook.com/KITCHERA" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Facebook" style="background:#f5f3f3; color:#0712aa; border-color:#050505;">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
+      <!-- زر عرض المزيد -->
+      <div class="mt-12 text-center">
+        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-3 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white font-extrabold px-8 py-4 rounded-xl shadow-card hover:shadow-lg hover:scale-[1.03] transition-all">
+          <i class="fab fa-instagram text-2xl"></i>
+          شاهد المزيد على إنستغرام
         </a>
       </div>
     </div>
-  </div>
-</section>
-</main>
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER
-     ═══════════════════════════════════════════════════════════ -->
-<footer class="footer" style="background-color: #111111;">
-    <div class="footer-logo">
-        <img src="images/logo.jpg" alt="Kitchèra" class="footer-logo-img">
-        <span class="footer-logo-text">Kitchèra</span>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       ق. قسم الفيديوهات والتصاميم (Instagram Reels)
+       ════════════════════════════════════════════════════════ -->
+  <section id="videos" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">الفيديوهات</span>
+        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">معرض الفيديوهات والتصاميم</h2>
+        <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
+          شاهد أحدث أعمالنا وتصاميم المطابخ المميزة لمطبخ أحلامك من Kitchèra
+        </p>
+      </div>
+
+      <!-- الفيديو الرئيسي المميز (Featured Hero Video) -->
+      <div class="mb-14 flex justify-center">
+        <div class="w-full max-w-2xl bg-white p-4 sm:p-6 rounded-3xl shadow-xl border border-gray-100 transition-all duration-300 hover:shadow-2xl">
+          <div class="flex justify-center overflow-hidden rounded-2xl">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/Dbvj7lNjIRQ/"
+              data-instgrm-version="14"
+              style="background:#FFF; border:0; border-radius:16px; margin:0; width:100%; min-width:300px;">
+              <a href="https://www.instagram.com/reel/Dbvj7lNjIRQ/" target="_blank">مشاهدة الفيديو على إنستغرام</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- شبكة الفيديوهات الفرعية (Secondary Video Grid) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DbqaZExj6IG/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;">
+            <a href="https://www.instagram.com/reel/DbqaZExj6IG/" target="_blank">مشاهدة الفيديو</a>
+          </blockquote>
+        </div>
+        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dbs_KaXFA1l/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;">
+            <a href="https://www.instagram.com/reel/Dbs_KaXFA1l/" target="_blank">مشاهدة الفيديو</a>
+          </blockquote>
+        </div>
+        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Da26Z5AjGGK/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;">
+            <a href="https://www.instagram.com/reel/Da26Z5AjGGK/" target="_blank">مشاهدة الفيديو</a>
+          </blockquote>
+        </div>
+        <div class="w-full bg-white p-3 rounded-2xl shadow-md border border-gray-100 flex justify-center transition-transform hover:-translate-y-1">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DbLg1RMCC6F/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:12px; margin:0; width:100%; min-width:260px;">
+            <a href="https://www.instagram.com/reel/DbLg1RMCC6F/" target="_blank">مشاهدة الفيديو</a>
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- زر متابعة الحساب الرسمي -->
+      <div class="mt-12 text-center">
+        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-gradient-to-r from-purple-600 via-pink-500 to-amber-500 text-white font-bold text-lg rounded-full shadow-lg hover:opacity-95 transition-all duration-300 transform hover:-translate-y-0.5">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          متابعة حساب Kitchèra على إنستغرام
+        </a>
+      </div>
     </div>
-    <p style="color: #ffffff !important; opacity: 1 !important;">© 2025 Kitchèra | جميع الحقوق محفوظة | تصميم وتنفيذ المطابخ وغرف النوم والحمامات</p>
-</footer>
+  </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     أزرار طافية  ←  جديدة
-     ══════════════════════════════════════════════════════ -->
-<!-- زر واتساب ثابت -->
-<a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="تواصل معنا على واتساب">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+  <!-- سكريبت إنستغرام الرسمي لتشغيل التضمينات آلياً -->
+  <script async src="https://www.instagram.com/embed.js"></script>
 
-<!-- زر اتصال طافي -->
-<a href="tel:+201122601548" class="call-float" title="اتصل بنا الآن" aria-label="اتصل بنا الآن">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </svg>
-</a>
+  <!-- ════════════════════════════════════════════════════════
+       د. قسم مميزات الخدمة (Features)
+       ════════════════════════════════════════════════════════ -->
+  <section id="services" class="py-20 bg-cream-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">خدماتنا</span>
+        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">لماذا تختار Kitchèra؟</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">نقدم حلولاً متكاملة تجمع بين الإبداع والجودة العالية</p>
+      </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     JAVASCRIPT
-     ═══════════════════════════════════════════════════════════ -->
-<script>
-  /* ═══════════════════════════════════════════════════════
-     1️⃣  handleSubmit  ←  واتساب مباشر
-     ═══════════════════════════════════════════════════════ */
-  function handleSubmit(e) {
-    e.preventDefault();
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card transition-all border border-cream-200 text-center">
+          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6">
+            <i class="fas fa-pen-ruler"></i>
+          </span>
+          <h3 class="text-xl font-bold text-olive-800 mb-3">تصميم مخصص</h3>
+          <p class="text-gray-500 leading-relaxed">نصمم كل مساحة حسب ذوقك واحتياجاتك، مع رسومات ثلاثية الأبعاد قبل التنفيذ.</p>
+        </div>
 
-    const dateInput = document.getElementById('cDate');
-    if (dateInput && dateInput.value) {
-        const today = new Date().toISOString().split('T')[0];
-        if (dateInput.value < today) {
-            alert("❌ يرجى اختيار تاريخ اليوم أو تاريخ مستقبلي.");
-            return;
-        }
+        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card transition-all border border-cream-200 text-center">
+          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6">
+            <i class="fas fa-helmet-safety"></i>
+          </span>
+          <h3 class="text-xl font-bold text-olive-800 mb-3">تنفيذ متكامل</h3>
+          <p class="text-gray-500 leading-relaxed">من المخطط حتى التسليم النهائي، فريقنا يدير المشروع بأكمله بإتقان تام.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card transition-all border border-cream-200 text-center">
+          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6">
+            <i class="fas fa-gem"></i>
+          </span>
+          <h3 class="text-xl font-bold text-olive-800 mb-3">مواد فاخرة</h3>
+          <p class="text-gray-500 leading-relaxed">نستخدم أجود أنواع الخامات والتشطيبات مع ضمان شامل على جميع الأعمال.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       هـ. قسم إحصائيات وإنجازات (Stats)
+       ════════════════════════════════════════════════════════ -->
+  <section id="story" class="py-20 bg-olive-700">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase">إنجازاتنا</span>
+        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">أرقام تتحدث عنا</h2>
+        <p class="text-cream-100/80 max-w-xl mx-auto">سنوات من الخبرة والإبداع في عالم التصميم الداخلي</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card">
+            <span class="text-4xl font-black text-gold-400">+2500</span>
+          </div>
+          <p class="text-white font-bold text-lg mt-5">مشروع ناجح</p>
+          <p class="text-cream-100/70 text-sm mt-1">أنجزناه بكل فخر</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card">
+            <span class="text-4xl font-black text-gold-400">25</span>
+          </div>
+          <p class="text-white font-bold text-lg mt-5">عاماً خبرة عريقة</p>
+          <p class="text-cream-100/70 text-sm mt-1">في هذا المجال</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card">
+            <span class="text-4xl font-black text-gold-400">98%</span>
+          </div>
+          <p class="text-white font-bold text-lg mt-5">رضا العملاء</p>
+          <p class="text-cream-100/70 text-sm mt-1">نسبة سعادة عملائنا</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       و. قسم التواصل (Contact)
+       ════════════════════════════════════════════════════════ -->
+  <section id="contact" class="py-20 bg-cream-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">تواصل معنا</span>
+        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">لنبدأ مشروعك القادم</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">احصل على استشارة مجانية الآن</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-soft border border-cream-200 text-center">
+          <span class="w-14 h-14 mx-auto rounded-xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-phone"></i>
+          </span>
+          <h4 class="font-bold text-olive-800 mb-2">الهاتف</h4>
+          <p class="text-gray-600" dir="ltr">+201122601548</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-soft border border-cream-200 text-center">
+          <span class="w-14 h-14 mx-auto rounded-xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <h4 class="font-bold text-olive-800 mb-2">البريد الإلكتروني</h4>
+          <p class="text-gray-600" dir="ltr">egyptkitchera@gmail.com</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-soft border border-cream-200 text-center">
+          <span class="w-14 h-14 mx-auto rounded-xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-location-dot"></i>
+          </span>
+          <h4 class="font-bold text-olive-800 mb-2">الموقع</h4>
+          <p class="text-gray-600">مول 5 plaza، الحي المتميز، 6 أكتوبر، مصر</p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl shadow-card hover:shadow-lg transition-all">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          تواصل معنا على واتساب
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       ز. التذييل (Footer)
+       ════════════════════════════════════════════════════════ -->
+  <footer class="bg-olive-800 text-cream-100 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <!-- عن الشركة -->
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-11 h-11 rounded-xl bg-gold-500 text-white flex items-center justify-center text-xl">
+              <i class="fas fa-house"></i>
+            </span>
+            <span class="text-2xl font-extrabold text-white tracking-wide">Kitchèra</span>
+          </div>
+          <p class="text-cream-100/70 text-sm leading-relaxed">
+            شركة متخصصة في تصميم وتشطيب المنازل والمطابخ، نتميز بالإبداع والجودة
+            والالتزام التام بمواعيد الإنجاز.
+          </p>
+        </div>
+
+        <!-- روابط سريعة -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-5">روابط سريعة</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#home" class="hover:text-gold-400 transition-colors">الرئيسية</a></li>
+            <li><a href="#services" class="hover:text-gold-400 transition-colors">خدماتنا</a></li>
+            <li><a href="#portfolio" class="hover:text-gold-400 transition-colors">معرض الأعمال</a></li>
+            <li><a href="#videos" class="hover:text-gold-400 transition-colors">الفيديوهات</a></li>
+            <li><a href="#story" class="hover:text-gold-400 transition-colors">قصتنا</a></li>
+            <li><a href="#contact" class="hover:text-gold-400 transition-colors">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <!-- معلومات الاتصال -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-5">معلومات الاتصال</h4>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-phone text-gold-400 mt-1"></i>
+              <span dir="ltr">+201122601548</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-envelope text-gold-400 mt-1"></i>
+              <span dir="ltr">egyptkitchera@gmail.com</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-location-dot text-gold-400 mt-1"></i>
+              <span>مول 5 plaza، الحي المتميز، 6 أكتوبر، مصر</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- وسائل التواصل -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-5">تابعنا</h4>
+          <div class="flex gap-3">
+            <a href="https://facebook.com/KITCHERA" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="فيسبوك">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="انستجرام">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="واتساب">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-olive-700 pt-6 text-center text-sm text-cream-100/60">
+        © 2025 Kitchèra | جميع الحقوق محفوظة | تصميم وتشطيب المنازل والمطابخ
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر واتساب طافي -->
+  <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-card hover:scale-110 transition-transform" aria-label="واتساب">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ════════════════════════════════════════════════════════
+       JavaScript
+       ════════════════════════════════════════════════════════ -->
+  <script>
+    // قائمة الجوال
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     }
-
-    const form = e.target;
-    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
-    const originalHTML = submitBtn ? submitBtn.innerHTML : '';
-
-    if (submitBtn) {
-        submitBtn.innerHTML = 'جاري الإرسال... ⏳';
-        submitBtn.disabled = true;
-    }
-
-    const name = document.getElementById('cName')?.value.trim() || '';
-    const phone = document.getElementById('cPhone')?.value.trim() || '';
-    const email = document.getElementById('cEmail')?.value.trim() || '';
-    const serviceSelect = document.getElementById('cService');
-    const service = serviceSelect ? (serviceSelect.options[serviceSelect.selectedIndex]?.text || serviceSelect.value) : '';
-    const visitDate = document.getElementById('cDate')?.value || '';
-    const timeSelect = document.getElementById('visit-time');
-    const visitTime = timeSelect ? (timeSelect.options[timeSelect.selectedIndex]?.text || timeSelect.value) : '';
-    const address = document.getElementById('address')?.value.trim() || '';
-    const details = document.getElementById('cDetails')?.value.trim() || '';
-    const isHomeVisit = document.getElementById('visit-home')?.checked || false;
-
-if (!name) {
-        alert("❌ يرجى إدخال الاسم");
-        if (submitBtn) { submitBtn.innerHTML = originalHTML; submitBtn.disabled = false; }
-        document.getElementById('cName')?.focus();
-        return;
-    }
-    if (!phone) {
-        alert("❌ يرجى إدخال رقم التليفون");
-        if (submitBtn) { submitBtn.innerHTML = originalHTML; submitBtn.disabled = false; }
-        document.getElementById('cPhone')?.focus();
-        return;
-    }
-
-   let message = `📩 طلب جديد من موقع KITCHERA\n\n`;
-message += `الاسم: ${name}\n`;
-message += `رقم التليفون: ${phone}\n`;
-if (email) message += `الإيميل: ${email}\n`;
-message += `نوع الخدمة: ${service || 'غير محدد'}\n`;
-
-    if (isHomeVisit && address) {
-    message += `نوع الزيارة: منزلية 🏠\n`;
-    message += `العنوان: ${address}\n`;
-} else {
-    message += `نوع الزيارة: في المقر 🏢\n`;
-}
-
-if (visitDate) {
-    message += `الموعد: ${visitDate} ${visitTime || ''}\n`;
-}
-if (details) {
-    message += `التفاصيل: ${details}\n`;
-}
-
-    const WHATSAPP_NUMBER = "201066321915";
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank');
-
-    const formData = new FormData(form);
-    fetch("https://formsubmit.co/ajax/74cbda25a1f0fdc896d3f5e84c207b51", {
-        method: "POST",
-        body: formData
-    }).catch(() => {});
-
-    alert("✅ تم فتح واتساب! أرسل الرسالة بنفسك.");
-    form.reset();
-    
-    const addressContainer = document.getElementById('addressContainer');
-    if (addressContainer) addressContainer.style.display = 'none';
-
-    if (submitBtn) {
-        submitBtn.innerHTML = originalHTML;
-        submitBtn.disabled = false;
-    }
-  }
-
-  /* ═══════════════════════════════════════════════════════
-     2️⃣  toggleAddressField
-     ═══════════════════════════════════════════════════════ */
-  function toggleAddressField() {
-      const homeVisit = document.getElementById('visit-home');
-      const addressContainer = document.getElementById('addressContainer');
-      
-      if (homeVisit && addressContainer) {
-          if (homeVisit.checked) {
-              addressContainer.style.display = 'block';
-          } else {
-              addressContainer.style.display = 'none';
-              const addressInput = document.getElementById('address');
-              if (addressInput) addressInput.value = '';
-          }
-      }
-  }
-
-  /* ═══════════════════════════════════════════════════════
-     3️⃣  حاسبة المساحة
-     ═══════════════════════════════════════════════════════ */
-  let lastCalc = {};
-
-  function calcArea() {
-    const l = parseFloat(document.getElementById('len').value);
-    const w = parseFloat(document.getElementById('wid').value);
-
-    if (!l || !w || l <= 0 || w <= 0) {
-      alert('يرجى إدخال طول وعرض صحيحين');
-      return;
-    }
-
-    const area  = (l * w).toFixed(2);
-    const units = Math.ceil(area / 1.5);
-    const cost  = (area * 3500).toLocaleString();
-
-    lastCalc = { l, w, area, units, cost };
-
-    document.getElementById('areaVal').textContent  = area;
-    document.getElementById('unitsVal').textContent = units + ' وحدة تقريباً';
-    document.getElementById('costVal').textContent  = cost;
-    document.getElementById('calcResult').style.display = 'block';
-  }
-
-  function sendCalcToWhatsApp() {
-    const { l, w, area, units, cost } = lastCalc;
-    const msg = `*طلب تسعير - KITCHERA* 📐\n\n📏 *الأبعاد:* ${l}م × ${w}م\n📐 *المساحة:* ${area} م²\n🔧 *الوحدات:* ${units} وحدة\n💰 *التكلفة التقديرية:* ${cost} ج.م\n\nأرغب في معرفة التفاصيل.`;
-    const num = "201066321915";
-    window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-
-  /* ═══════════════════════════════════════════════════════
-     4️⃣  Scroll + Navbar + Menu + Portfolio
-     ═══════════════════════════════════════════════════════ */
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
-  }
-
-  function closeWelcomeModal() {
-    document.getElementById('welcomeModal').style.display = 'none';
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // تمرير سلس للروابط الداخلية
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
 
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-const cDateInput = document.getElementById('cDate');
-  if (cDateInput) cDateInput.min = new Date().toISOString().split('T')[0];
-
-  /* ═══ تعبئة حقول اليوم/الشهر/السنة وتجميعها في cDate ═══ */
-  const daySel = document.getElementById('cDay');
-  const monthSel = document.getElementById('cMonth');
-  const yearSel = document.getElementById('cYear');
-
-  if (daySel) {
-    for (let d = 1; d <= 31; d++) {
-      const opt = document.createElement('option');
-      opt.value = d;
-      opt.textContent = d;
-      daySel.appendChild(opt);
-    }
-  }
-  if (yearSel) {
-    const thisYear = new Date().getFullYear();
-    for (let y = thisYear; y <= thisYear + 2; y++) {
-      const opt = document.createElement('option');
-      opt.value = y;
-      opt.textContent = y;
-      yearSel.appendChild(opt);
-    }
-  }
-
-  function syncDateInput() {
-    if (cDateInput && daySel && monthSel && yearSel) {
-      if (daySel.value && monthSel.value && yearSel.value) {
-        const d = String(daySel.value).padStart(2, '0');
-        const m = String(monthSel.value).padStart(2, '0');
-        cDateInput.value = `${yearSel.value}-${m}-${d}`;
-      } else {
-        cDateInput.value = '';
-      }
-    }
-  }
-  if (daySel) daySel.addEventListener('change', syncDateInput);
-  if (monthSel) monthSel.addEventListener('change', syncDateInput);
-  if (yearSel) yearSel.addEventListener('change', syncDateInput);
-
-  const grid = document.getElementById('portfolioGrid');
-  const lightbox = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxContent');
-
-  if (grid) {
-    for (let i = 1; i <= 28; i++) {
-      grid.innerHTML += `
-        <div class="portfolio-item">
-          <img src="images/${i}.jpg.jpeg" alt="سابقة أعمال ${i}" onclick="openLightbox(this.src)" style="cursor: pointer;" loading="lazy" decoding="async">
-          <div class="portfolio-overlay">
-            <h3>تصميم مشروع ${i}</h3>
+    // تعبئة شبكة معرض الأعمال من الصور المحلية
+    const grid = document.getElementById('portfolioGrid');
+    if (grid) {
+      const featured = ['my-kitchen.jpg', 'my-bedroom.jpg', 'my-bathroom.jpg'];
+      let html = '';
+      featured.forEach((img, i) => {
+        const labels = ['مطبخ عصري', 'غرفة نوم فاخرة', 'حمام مودرن'];
+        html += `
+          <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer" class="group rounded-xl overflow-hidden shadow-soft hover:shadow-card transition-all border border-cream-200">
+            <div class="overflow-hidden h-52">
+              <img src="images/${img}" alt="${labels[i]}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
+            </div>
+            <div class="p-5 bg-white">
+              <h4 class="font-bold text-olive-800">${labels[i]}</h4>
+              <p class="text-sm text-gray-500 mt-1">تصميم وتنفيذ Kitchèra</p>
+            </div>
+          </a>`;
+      });
+      // البطاقة الرابعة
+      html += `
+        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer" class="group relative rounded-xl overflow-hidden shadow-soft h-full min-h-[280px] flex items-center justify-center border border-cream-200">
+          <div class="absolute inset-0 bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600"></div>
+          <div class="relative text-center text-white p-6">
+            <span class="text-5xl font-black block mb-2">+25</span>
+            <p class="font-bold text-lg mb-4">مشروع إضافي</p>
+            <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-5 py-2 rounded-full text-sm font-bold">
+              عرض المزيد
+              <i class="fas fa-arrow-left"></i>
+            </span>
           </div>
-        </div>
-      `;
+        </a>`;
+      grid.innerHTML = html;
     }
-  }
-
-  function openLightbox(imageSrc) {
-    if (lightbox && lightboxImg) {
-      lightboxImg.src = imageSrc;
-      lightbox.style.display = 'flex';
-    }
-  }
-
-  function closeLightbox() {
-    if (lightbox) {
-      lightbox.style.display = 'none';
-    }
-  }
-</script>
-
-<!-- ═══ Lightbox لعرض الصور بشكل مكبّر ═══ -->
-<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox()">
-  <span class="lightbox-close" onclick="closeLightbox()" aria-label="إغلاق">&times;</span>
-  <img id="lightboxContent" class="lightbox-content" src="" alt="صورة مكبّرة">
-</div>
+  </script>
 </body>
 </html>
-
