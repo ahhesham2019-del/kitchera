@@ -1328,9 +1328,9 @@
 
         const message = lines.filter(Boolean).join('\n');
 const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
-        openExternal(url);
 
         // نسخة احتياطية: إرسال نفس الطلب عبر FormSubmit.co (بريد الشركة)
+        // تُرسل قبل التحويل لواتساب ومع keepalive حتى تكتمل لو خرجت الصفحة
         const formData = new FormData();
         formData.append('name', name);
         formData.append('phone', phone);
@@ -1346,10 +1346,13 @@ const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
         formData.append('_subject', 'طلب زيارة من الموقع - Kitchèra');
         fetch('https://formsubmit.co/ajax/egyptkitchera@gmail.com', {
           method: 'POST',
-          body: formData
+          body: formData,
+          keepalive: true
         }).then(function(res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
         }).catch(function(err) { logError('FormSubmit backup failed', err); });
+
+        openExternal(url);
       });
     }
 
@@ -1465,10 +1468,11 @@ const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
       try { return JSON.parse(localStorage.getItem(key)) || fallback; }
       catch (e) { logError('failed to read "' + key + '" from localStorage', e); return fallback; }
     }
+    const STORAGE_ERROR_MSG = 'تعذر حفظ البيانات على هذا المتصفح';
+    // يُرجع false عند فشل الحفظ (امتلاء المساحة أو وضع التصفح الخاص)، وعلى المُنادي إبلاغ المستخدم
     function saveLS(key, val) {
-      // localStorage يرمي استثناءً عند امتلاء المساحة أو في وضع التصفح الخاص
       try { localStorage.setItem(key, JSON.stringify(val)); return true; }
-      catch (e) { reportError('failed to save "' + key + '" to localStorage', e, 'تعذر حفظ البيانات على هذا المتصفح'); return false; }
+      catch (e) { logError('failed to save "' + key + '" to localStorage', e); return false; }
     }
 
     // --- تبويب تسجيل الدخول / إنشاء حساب ---
@@ -1561,7 +1565,7 @@ function setAuthMsg(msg, isError) {
       }
       const salt = randomSalt();
       users[email] = { name, phone, email, salt, passwordHash: await hashPassword(password, salt), contracts: [] };
-      saveLS(LS_USERS, users);
+      if (!saveLS(LS_USERS, users)) { setAuthMsg(STORAGE_ERROR_MSG, true); return; }
       currentUser = { name, phone, email };
       saveLS(LS_SESSION, currentUser);
       onLoginSuccess();
@@ -1600,7 +1604,7 @@ function setAuthMsg(msg, isError) {
         return;
       }
       currentUser = { name: u.name, phone: u.phone, email };
-      saveLS(LS_SESSION, currentUser);
+      if (!saveLS(LS_SESSION, currentUser)) setAuthMsg(STORAGE_ERROR_MSG, true);
       onLoginSuccess();
     }
 
@@ -1677,7 +1681,7 @@ function setAuthMsg(msg, isError) {
       if (!FB_ENABLED || !window.firebase) {
         const contracts = getContracts();
         contracts.push({ date: dateLabel, file: fileName });
-        saveContracts(contracts);
+        if (!saveContracts(contracts)) { showToast(STORAGE_ERROR_MSG); return; }
         input.value = '';
         showToast('تم رفع الفاتورة وإضافة التعاقد');
         renderDashboard();
@@ -1728,7 +1732,7 @@ function setAuthMsg(msg, isError) {
 
       const reviews = loadLS(LS_REVIEWS, []);
       reviews.unshift(review);
-      saveLS(LS_REVIEWS, reviews);
+      if (!saveLS(LS_REVIEWS, reviews)) { showToast(STORAGE_ERROR_MSG); return; }
       $('reviewText').value = '';
       selectedRating = 0;
       document.querySelectorAll('#starRating .star-btn').forEach(b => b.classList.remove('active'));
@@ -1797,10 +1801,12 @@ function setAuthMsg(msg, isError) {
     }
 
     function saveContracts(contracts) {
-      if (!currentUser || FB_ENABLED) return;
+      if (!currentUser || FB_ENABLED) return false;
       const users = loadLS(LS_USERS, {});
       const u = users[currentUser.email];
-      if (u) { u.contracts = contracts; saveLS(LS_USERS, users); }
+      if (!u) return false;
+      u.contracts = contracts;
+      return saveLS(LS_USERS, users);
     }
 
     function renderDashboard() {
@@ -1868,7 +1874,7 @@ function setAuthMsg(msg, isError) {
 
       const contracts = getContracts();
       contracts.push({ date: dateLabel });
-      saveContracts(contracts);
+      if (!saveContracts(contracts)) { showToast(STORAGE_ERROR_MSG); return; }
       fileInput.value = '';
       showToast('تم رفع الفاتورة وإضافة التعاقد');
       renderDashboard();
