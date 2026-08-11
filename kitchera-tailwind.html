@@ -1185,6 +1185,30 @@
 
   <!-- JavaScript -->
   <script>
+    // ═══ أدوات معالجة الأخطاء ═══
+    // كل خطأ يُسجَّل في الـ console مع سياقه، ويُعرض للمستخدم عند الحاجة
+    function logError(context, err) {
+      console.error('[Kitchèra] ' + context, err);
+    }
+
+    function reportError(context, err, userMessage) {
+      logError(context, err);
+      if (userMessage) showToast(userMessage + (err && err.message ? ': ' + err.message : ''));
+    }
+
+    window.addEventListener('error', (e) => logError('uncaught error', e.error || e.message));
+    window.addEventListener('unhandledrejection', (e) => logError('unhandled promise rejection', e.reason));
+
+    // فتح رابط خارجي مع التعامل مع حجب النوافذ المنبثقة
+    function openExternal(url) {
+      const win = window.open(url, '_blank');
+      if (!win || win.closed) {
+        logError('window.open blocked', url);
+        showToast('المتصفح منع فتح نافذة جديدة، سيتم التحويل في نفس الصفحة');
+        window.location.href = url;
+      }
+    }
+
 // قائمة الجوال
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1302,7 +1326,7 @@
 
         const message = lines.filter(Boolean).join('\n');
 const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
-        window.open(url, '_blank');
+        openExternal(url);
 
         // نسخة احتياطية: إرسال نفس الطلب عبر FormSubmit.co (بريد الشركة)
         const formData = new FormData();
@@ -1321,7 +1345,9 @@ const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
         fetch('https://formsubmit.co/ajax/egyptkitchera@gmail.com', {
           method: 'POST',
           body: formData
-        }).catch(function(err) { console.warn('FormSubmit backup failed', err); });
+        }).then(function(res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+        }).catch(function(err) { logError('FormSubmit backup failed', err); });
       });
     }
 
@@ -1395,10 +1421,12 @@ const url = 'https://wa.me/201066321915?text=' + encodeURIComponent(message);
 
     function loadLS(key, fallback) {
       try { return JSON.parse(localStorage.getItem(key)) || fallback; }
-      catch (e) { return fallback; }
+      catch (e) { logError('failed to read "' + key + '" from localStorage', e); return fallback; }
     }
     function saveLS(key, val) {
-      localStorage.setItem(key, JSON.stringify(val));
+      // localStorage يرمي استثناءً عند امتلاء المساحة أو في وضع التصفح الخاص
+      try { localStorage.setItem(key, JSON.stringify(val)); return true; }
+      catch (e) { reportError('failed to save "' + key + '" to localStorage', e, 'تعذر حفظ البيانات على هذا المتصفح'); return false; }
     }
 
     // --- تبويب تسجيل الدخول / إنشاء حساب ---
@@ -1535,7 +1563,9 @@ function setAuthMsg(msg, isError) {
 
     // --- تسجيل الخروج ---
     function logoutUser() {
-      if (FB_ENABLED && window.firebase) firebase.auth().signOut();
+      if (FB_ENABLED && window.firebase) {
+        firebase.auth().signOut().catch(err => reportError('signOut failed', err, 'تعذر تسجيل الخروج من الخدمة'));
+      }
       currentUser = null;
       localStorage.removeItem(LS_SESSION);
       updateAuthUI();
@@ -1614,7 +1644,7 @@ function setAuthMsg(msg, isError) {
           showToast('تم رفع الفاتورة وإضافة التعاقد');
           loadFirebaseContracts();
         })
-        .catch(err => showToast('خطأ: ' + err.message));
+        .catch(err => reportError('handleReviewInvoice failed', err, 'تعذر رفع الفاتورة'));
     }
 
     function submitReview() {
@@ -1638,7 +1668,7 @@ function setAuthMsg(msg, isError) {
           document.querySelectorAll('#starRating .star-btn').forEach(b => b.classList.remove('active'));
           showToast('تم إرسال تقييمك، سيظهر بعد اعتماده');
           loadReviews();
-        });
+        }).catch(err => reportError('submitReview failed', err, 'تعذر إرسال التقييم، حاول مرة أخرى'));
         return;
       }
 
@@ -1696,6 +1726,9 @@ function setAuthMsg(msg, isError) {
                 <p class="text-gray-600 text-sm leading-relaxed">${r.text}</p>
               </div>`;
           }).join('') || '<div class="col-span-full text-center text-gray-400 py-10">لا توجد تقييمات بعد</div>';
+        }, err => {
+          logError('reviews snapshot failed', err);
+          $('reviewsList').innerHTML = '<div class="col-span-full text-center text-gray-400 py-10">تعذر تحميل التقييمات، حدّث الصفحة للمحاولة مرة أخرى</div>';
         });
     }
 
@@ -1772,7 +1805,7 @@ function setAuthMsg(msg, isError) {
           fileInput.value = '';
           showToast('تم رفع الفاتورة وإضافة التعاقد');
           loadFirebaseContracts();
-        }).catch(err => showToast('خطأ: ' + err.message));
+        }).catch(err => reportError('uploadInvoice failed', err, 'تعذر رفع الفاتورة'));
         return;
       }
 
@@ -1814,7 +1847,8 @@ function setAuthMsg(msg, isError) {
               sessionStorage.setItem('rewardShown_' + currentUser.email, '1');
             }, 600);
           }
-        });
+        })
+        .catch(err => reportError('loadFirebaseContracts failed', err, 'تعذر تحميل سجل التعاقدات'));
     }
 
     // === ═══ إرسال الجائزة عبر واتساب ═══ ===
@@ -1834,8 +1868,8 @@ function setAuthMsg(msg, isError) {
 
       const url = 'https://wa.me/' + COMPANY_WHATSAPP + '?text=' + encodeURIComponent(message);
       closeModal('congratsModal');
-      window.open(url, '_blank');
       showToast('تم تجهيز رسالة الجائزة على واتساب');
+      openExternal(url);
     }
 
     // === ═══ التهيئة (Init) ═══ ===
@@ -1855,6 +1889,12 @@ function setAuthMsg(msg, isError) {
                 currentUser = { name: d.name || user.email, phone: d.phone || '', email: user.email, uid: user.uid };
                 updateAuthUI();
                 loadReviews();
+              }).catch(err => {
+                // نكمل ببيانات الحساب الأساسية حتى لا تبقى الواجهة في حالة غير مسجّلة
+                reportError('failed to load user profile', err, 'تعذر تحميل بيانات حسابك');
+                currentUser = { name: user.email, phone: '', email: user.email, uid: user.uid };
+                updateAuthUI();
+                loadReviews();
               });
             } else {
               currentUser = null;
@@ -1863,7 +1903,7 @@ function setAuthMsg(msg, isError) {
             }
           });
         } catch (err) {
-          console.warn('Firebase init error', err);
+          reportError('Firebase init failed', err, 'تعذر الاتصال بالخدمة، بعض الميزات غير متاحة حالياً');
         }
       }
 
@@ -1917,7 +1957,14 @@ document.addEventListener('click', (ev) => {
       if (!VIDEOS[index]) return;
       currentIndex = index;
       mainVideo.src = VIDEOS[index].src;
-      mainVideo.play().catch(() => {});
+      // منع التشغيل التلقائي متوقع ويُسجل كتحذير فقط، أما باقي الأخطاء فتُسجل كأخطاء
+      mainVideo.play().catch(err => {
+        if (err && (err.name === 'NotAllowedError' || err.name === 'AbortError')) {
+          console.warn('[Kitchèra] video playback blocked by browser', err.name);
+          return;
+        }
+        logError('video playback failed for ' + VIDEOS[index].src, err);
+      });
       videoTitle.textContent = VIDEOS[index].title;
       // تحديث الحالة النشطة في القائمة
       document.querySelectorAll('.playlist-item').forEach((el, i) => {
@@ -1925,6 +1972,12 @@ document.addEventListener('click', (ev) => {
           (i === currentIndex ? 'border-gold-400 ring-2 ring-gold-400/40' : 'border-white/10 hover:border-gold-400/50 bg-black');
       });
     }
+
+    mainVideo.addEventListener('error', () => {
+      const err = mainVideo.error;
+      logError('video element error for ' + mainVideo.currentSrc, err ? err.code + ': ' + err.message : 'unknown');
+      if (videoTitle) videoTitle.textContent = 'تعذر تحميل الفيديو';
+    });
 
     // ═══ التشغيل المتتالي والآلي (Sequential Auto-Play + Loop) ═══
     mainVideo.addEventListener('ended', () => {
