@@ -38,39 +38,10 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { cairo: ['Cairo', 'Tajawal', 'sans-serif'] },
-          colors: {
-            cream: { 50: '#F9F8F3', 100: '#F4F1E8', 200: '#EBE5D6' },
-            olive: { 400: '#5C7260', 500: '#4A5D4E', 600: '#3B4E3F', 700: '#2E3E31', 800: '#24312A' },
-            gold: { 300: '#E3C996', 400: '#D4B67A', 500: '#C5A059', 600: '#B08A3F' },
-          },
-          boxShadow: {
-            soft: '0 4px 24px rgba(43, 62, 48, 0.08)',
-            card: '0 8px 30px rgba(43, 62, 48, 0.10)',
-            cinematic: '0 30px 80px rgba(36, 49, 42, 0.45)',
-          },
-          keyframes: {
-            pulseSoft: {
-              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.5)' },
-              '50%': { transform: 'scale(1.06)', boxShadow: '0 0 0 16px rgba(37, 211, 102, 0)' },
-            },
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-          },
-          animation: {
-            pulseSoft: 'pulseSoft 2.2s ease-in-out infinite',
-            fadeUp: 'fadeUp 0.7s ease-out both',
-          },
-        },
-      },
-    }
-  </script>
+  <!-- الإعدادات وأدوات الموقع المشتركة -->
+  <script src="assets/js/kitchera-config.js"></script>
+  <script src="assets/js/tailwind-theme.js"></script>
+  <script src="assets/js/kitchera-shared.js"></script>
 
   <style>
     html, body { overflow-x: hidden; scroll-behavior: smooth; }
@@ -672,11 +643,10 @@ const IMG = {
     };
     const CATEGORY_NAMES = { kitchen: 'مطبخ عصري', bedroom: 'جناح نوم فاخر', furniture: 'أثاث متكامل فاخر' };
 
+    const K = window.Kitchera;
+
     // ═════════ قائمة الجوال ═════════
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    K.initMobileMenu('menuBtn', 'mobileMenu');
 
     // ═════════ معرض الأعمال المنسدل (Accordion) ═════════
     let openGallery = null;
@@ -707,8 +677,8 @@ const IMG = {
 
     // ═════════ نموذج التواصل ═════════
     const daySel = document.getElementById('cDay'), yearSel = document.getElementById('cYear'), monthSel = document.getElementById('cMonth'), visitDate = document.getElementById('visitDate');
-    if (daySel) for (let d = 1; d <= 31; d++) { const o = document.createElement('option'); o.value = d; o.textContent = d; daySel.appendChild(o); }
-    if (yearSel) { const y = new Date().getFullYear(); for (let i = y; i <= y + 2; i++) { const o = document.createElement('option'); o.value = i; o.textContent = i; yearSel.appendChild(o); } }
+    K.fillDayOptions(daySel);
+    K.fillYearOptions(yearSel);
     function syncDate() { if (visitDate && daySel && monthSel && yearSel) { if (daySel.value && monthSel.value && yearSel.value) { visitDate.value = `${yearSel.value}-${String(monthSel.value).padStart(2,'0')}-${String(daySel.value).padStart(2,'0')}`; } else visitDate.value = ''; } }
     if (daySel) daySel.addEventListener('change', syncDate);
     if (monthSel) monthSel.addEventListener('change', syncDate);
@@ -726,20 +696,23 @@ const IMG = {
       const address = document.getElementById('address')?.value.trim() || '';
       const dateVal = visitDate?.value || ''; const timeSel = document.getElementById('visitTime'); const time = timeSel ? timeSel.value : '';
       const details = document.getElementById('cDetails')?.value.trim() || '';
-      let message = `📩 طلب جديد من موقع Kitchèra\n\nالاسم: ${name}\nرقم التليفون: ${phone}\n`;
-      if (email) message += `الإيميل: ${email}\n`;
-      message += `نوع الخدمة: ${service || 'غير محدد'}\nنوع الزيارة: ${visitType}\n`;
-      if (address) message += `العنوان: ${address}\n`;
-      if (dateVal) message += `الموعد: ${dateVal} ${time || ''}\n`;
-      if (details) message += `التفاصيل: ${details}\n`;
-      window.open(`https://wa.me/201066321915?text=${encodeURIComponent(message)}`, '_blank');
+      const message = K.buildMessage([
+        '📩 طلب جديد من موقع Kitchèra',
+        '',
+        `الاسم: ${name}`,
+        `رقم التليفون: ${phone}`,
+        email && `الإيميل: ${email}`,
+        `نوع الخدمة: ${service || 'غير محدد'}`,
+        `نوع الزيارة: ${visitType}`,
+        address && `العنوان: ${address}`,
+        dateVal && `الموعد: ${dateVal} ${time || ''}`,
+        details && `التفاصيل: ${details}`,
+      ]);
+      K.openWhatsApp(message);
     }
 
     // التمرير السلس
-    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-      const t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
-    }));
+    K.initSmoothAnchors();
 
     // ═════════ نجوم التقييم ═════════
     let selectedRating = 0;
@@ -764,27 +737,17 @@ const IMG = {
     }
 
     // ═════════ Firebase Configuration ═════════
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    const FB_ENABLED = firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
+    // الإعدادات المشتركة في assets/js/kitchera-config.js
+    const firebaseConfig = K.config.firebase;
+    const FB_ENABLED = K.config.firebaseEnabled;
     let currentUser = null;
-    let db = null, storage = null;
+    let db = null;
 
-    const REQUIRED_CONTRACTS = 5;
-    const REQUIRED_AMOUNT = 100000;
-    const WHATSAPP_COMPANY = "201066321915";
+    const REQUIRED_CONTRACTS = K.config.requiredContracts;
 
     if (FB_ENABLED) {
       firebase.initializeApp(firebaseConfig);
       db = firebase.firestore();
-      storage = firebase.storage();
       firebase.auth().onAuthStateChanged(user => { currentUser = user; updateAuthUI(); if (user) { loadUserData(); loadReviews(); } });
     } else {
       console.warn('Firebase غير مكوّن. يُستخدم وضع تجريبي محلي.');
@@ -822,31 +785,17 @@ const IMG = {
     }
 
     function updateAuthUI() {
-      const loginBtn = document.getElementById('loginBtn'), userMenu = document.getElementById('userMenu');
-      if (currentUser) {
-        if (loginBtn) loginBtn.classList.add('hidden');
-        if (userMenu) userMenu.classList.remove('hidden');
-        document.getElementById('userName').textContent = (currentUser.displayName || 'حسابي');
-        document.getElementById('reviewFormContainer').classList.remove('hidden');
-        document.getElementById('loginPrompt').classList.add('hidden');
-      } else {
-        if (loginBtn) loginBtn.classList.remove('hidden');
-        if (userMenu) userMenu.classList.add('hidden');
-        document.getElementById('reviewFormContainer').classList.add('hidden');
-        document.getElementById('loginPrompt').classList.remove('hidden');
-      }
-    }
-
-    function escapeHTML(str) {
-      return String(str == null ? '' : str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"')
-        .replace(/'/g, '&#039;');
+      const loggedIn = !!currentUser;
+      K.toggleHidden('loginBtn', loggedIn);
+      K.toggleHidden('userMenu', !loggedIn);
+      K.toggleHidden('reviewFormContainer', !loggedIn);
+      K.toggleHidden('loginPrompt', loggedIn);
+      if (loggedIn) document.getElementById('userName').textContent = (currentUser.displayName || 'حسابي');
     }
 
     // ═════════ التقييمات ═════════
+    const STAR_STYLE = { outlineEmpty: true, emptyClass: 'text-gray-300' };
+
     async function submitReview() {
       const text = document.getElementById('reviewText').value.trim();
       const rating = +document.getElementById('ratingVal').value;
@@ -872,17 +821,9 @@ const IMG = {
         return;
       }
       const snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
-      let html = '';
-      snap.forEach(doc => {
-        const r = doc.data();
-        let stars = '';
-        for (let i = 1; i <= 5; i++) stars += `<i class="fa${i <= r.rating ? 's' : 'r'} fa-star ${i <= r.rating ? 'text-gold-500' : 'text-gray-300'}"></i>`;
-        html += `<div class="bg-cream-50 rounded-2xl p-6 shadow-soft border border-cream-200">
-          <div class="flex items-center gap-3 mb-3"><div class="w-11 h-11 rounded-full bg-olive-600 text-white flex items-center justify-center font-black">${escapeHTML((r.name||'م')[0])}</div>
-          <div><p class="font-bold text-olive-800">${escapeHTML(r.name)}</p><div class="flex text-sm gap-0.5">${stars}</div></div></div>
-          <p class="text-gray-600 text-sm leading-relaxed">${escapeHTML(r.text)}</p></div>`;
-      });
-      list.innerHTML = html || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
+      const reviews = snap.docs.map(doc => doc.data());
+      list.innerHTML = K.reviewsHTML(reviews, STAR_STYLE)
+        || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
     }
 
     // ═════════ لوحة تحكم العميل والولاء ═════════
@@ -895,9 +836,8 @@ const IMG = {
       document.getElementById('contractCount').textContent = contracts.length;
       document.getElementById('contractProgress').textContent = `${contracts.length}/${REQUIRED_CONTRACTS}`;
       const list = document.getElementById('contractsList');
-      list.innerHTML = contracts.length ? contracts.map((c, i) => `<div class="flex items-center justify-between bg-cream-50 rounded-xl p-4 border border-cream-200">
-        <div><p class="font-bold text-olive-800">تعاقد رقم ${i+1}</p><p class="text-sm text-gray-500">التاريخ: ${escapeHTML(c.date) || 'غير محدد'}</p></div>
-        <span class="text-gold-500 text-xl"><i class="fas fa-file-invoice"></i></span></div>`).join('')
+      list.innerHTML = contracts.length
+        ? K.contractsHTML(contracts, { tag: 'div', iconClass: 'fas fa-file-invoice' })
         : `<div class="text-center text-gray-500 py-4">لا توجد تعاقدات بعد.</div>`;
       if (contracts.length >= REQUIRED_CONTRACTS) { showCongrats(data); }
     }
@@ -905,17 +845,19 @@ const IMG = {
     async function saveInvoice(file, user) {
       try {
         if (FB_ENABLED) {
-          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${file.name}`);
-          await ref.put(file);
-          const url = await ref.getDownloadURL();
-          const today = new Date().toLocaleDateString('ar-EG');
+          const url = await K.uploadInvoiceFile(file, user.uid);
+          const today = K.todayLabel();
           const userDoc = await db.collection('users').doc(user.uid).get();
           const contracts = (userDoc.data()?.contracts || []);
           contracts.push({ date: today, url });
           await db.collection('users').doc(user.uid).update({ contracts });
           loadUserData();
-          let msg = `📄 تم رفع فاتورة تعاقد جديدة!\nاسم العميل: ${user.displayName || user.email}\nتاريخ الرفع: ${today}\nعدد التعاقدات: ${contracts.length}`;
-          window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
+          K.openWhatsApp(K.buildMessage([
+            '📄 تم رفع فاتورة تعاقد جديدة!',
+            `اسم العميل: ${user.displayName || user.email}`,
+            `تاريخ الرفع: ${today}`,
+            `عدد التعاقدات: ${contracts.length}`,
+          ]));
           alert('تم رفع الفاتورة بنجاح وإضافتها لسجلك!');
         } else {
           alert('وضع تجريبي: لرفع الفاتورة بشكل فعلي، قم بإعداد Firebase Storage.');
@@ -927,29 +869,36 @@ const IMG = {
       const modal = document.getElementById('congratsModal');
       if (modal.classList.contains('hidden')) {
         modal.classList.remove('hidden');
-        const dates = (data.contracts || []).map(c => c.date).join('، ');
-        const msg = `تم إكمال التعاقدات المطلوبة!\nاسم العميل: ${currentUser.displayName || currentUser.email}\nعدد التعاقدات: ${(data.contracts||[]).length}\nتواريخ التعاقدات: ${dates}\nالعميل يستحق الجائزة المقدمة من Kitchèra.`;
-        window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
+        const name = currentUser.displayName || currentUser.email;
+        K.openWhatsApp(K.rewardMessage(name, data.contracts || []));
       }
     }
 
     // ═════════ نوافذ Auth / Dashboard ═════════
-    function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); showLogin(); }
-    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
-    function showLogin() { document.getElementById('authTitle').textContent = 'تسجيل الدخول'; document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showSignup() { document.getElementById('authTitle').textContent = 'إنشاء حساب جديد'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.remove('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showForgot() { document.getElementById('authTitle').textContent = 'استعادة كلمة السر'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.remove('hidden'); hideMsg(); }
-    function hideMsg() { const m = document.getElementById('authMsg'); m.classList.add('hidden'); m.textContent = ''; m.className = 'hidden mt-4 text-center text-sm font-bold p-3 rounded-xl'; }
-    function showAuthMsg(txt, type) { const m = document.getElementById('authMsg'); m.classList.remove('hidden'); m.textContent = txt; m.className = `mt-4 text-center text-sm font-bold p-3 rounded-xl ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`; }
-    function openDashboard() { if (!currentUser) { alert('يرجى تسجيل الدخول أولاً.'); openAuthModal(); return; } document.getElementById('dashboardModal').classList.remove('hidden'); loadUserData(); }
-    function closeDashboard() { document.getElementById('dashboardModal').classList.add('hidden'); }
+    const AUTH_FORMS = {
+      login: { title: 'تسجيل الدخول', form: 'loginForm' },
+      signup: { title: 'إنشاء حساب جديد', form: 'signupForm' },
+      forgot: { title: 'استعادة كلمة السر', form: 'forgotForm' },
+    };
+
+    function showAuthForm(mode) {
+      document.getElementById('authTitle').textContent = AUTH_FORMS[mode].title;
+      Object.values(AUTH_FORMS).forEach(f => K.toggleHidden(f.form, f.form !== AUTH_FORMS[mode].form));
+      hideMsg();
+    }
+
+    function openAuthModal() { K.toggleHidden('authModal', false); showLogin(); }
+    function closeAuthModal() { K.toggleHidden('authModal', true); }
+    function showLogin() { showAuthForm('login'); }
+    function showSignup() { showAuthForm('signup'); }
+    function showForgot() { showAuthForm('forgot'); }
+    function hideMsg() { const m = document.getElementById('authMsg'); m.textContent = ''; m.className = 'hidden mt-4 text-center text-sm font-bold p-3 rounded-xl'; }
+    function showAuthMsg(txt, type) { const m = document.getElementById('authMsg'); m.textContent = txt; m.className = `mt-4 text-center text-sm font-bold p-3 rounded-xl ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`; }
+    function openDashboard() { if (!currentUser) { alert('يرجى تسجيل الدخول أولاً.'); openAuthModal(); return; } K.toggleHidden('dashboardModal', false); loadUserData(); }
+    function closeDashboard() { K.toggleHidden('dashboardModal', true); }
 
     // إغلاق النوافذ عند الضغط خارجها
-    document.querySelectorAll('.fixed.inset-0').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); }));
-
-    if (!FB_ENABLED) { 
-      // في الوضع التجريبي، أبقي الواجهة الافتراضية كما هي
-    }
+    K.initBackdropDismiss('.fixed.inset-0');
   </script>
 
 <!-- ═════════ مشغل الفيديو الموحد (Video Player + Playlist) ═════════ -->
