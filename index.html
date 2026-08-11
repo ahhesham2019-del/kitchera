@@ -668,6 +668,30 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
        JavaScript
        ════════════════════════════════════════════ -->
   <script>
+    // ═════════ أدوات معالجة الأخطاء ═════════
+    // كل خطأ يُسجَّل في الـ console مع سياقه، ويُعرض للمستخدم عند الحاجة
+    function logError(context, err) {
+      console.error('[Kitchèra] ' + context, err);
+    }
+
+    function reportError(context, err, userMessage) {
+      logError(context, err);
+      if (userMessage) alert(userMessage + (err && err.message ? '\n' + err.message : ''));
+    }
+
+    window.addEventListener('error', (e) => logError('uncaught error', e.error || e.message));
+    window.addEventListener('unhandledrejection', (e) => logError('unhandled promise rejection', e.reason));
+
+    // فتح رابط خارجي مع التعامل مع حجب النوافذ المنبثقة
+    function openExternal(url) {
+      const win = window.open(url, '_blank');
+      if (!win || win.closed) {
+        logError('window.open blocked', url);
+        alert('المتصفح منع فتح نافذة جديدة. سيتم تحويلك للرابط في نفس الصفحة.');
+        window.location.href = url;
+      }
+    }
+
     // ═════════ قواعد بيانات الصور ═════════
 const IMG = {
       kitchen: ['images/مطبخ عصري/24.jpg.jpeg','images/مطبخ عصري/25.jpg.jpeg','images/مطبخ عصري/26.jpg.jpeg','images/مطبخ عصري/27.jpg.jpeg','images/مطبخ عصري/28.jpg.jpeg','images/مطبخ عصري/30.jpg'],
@@ -729,7 +753,7 @@ const IMG = {
       const dateVal = visitDate?.value || ''; const timeSel = document.getElementById('visitTime'); const time = timeSel ? timeSel.value : '';
       const details = document.getElementById('cDetails')?.value.trim() || '';
       const message = CORE.buildContactMessage({ name, phone, email, service, visitType, address, date: dateVal, time, details });
-      window.open(CORE.whatsappUrl(CORE.WHATSAPP_COMPANY, message), '_blank');
+      openExternal(CORE.whatsappUrl(CORE.WHATSAPP_COMPANY, message));
     }
 
     // التمرير السلس
@@ -767,7 +791,7 @@ const IMG = {
       appId: "YOUR_APP_ID"
     };
 
-    const FB_ENABLED = firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
+    let FB_ENABLED = firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
     let currentUser = null;
     let db = null, storage = null;
 
@@ -776,11 +800,21 @@ const IMG = {
     const WHATSAPP_COMPANY = CORE.WHATSAPP_COMPANY;
 
     if (FB_ENABLED) {
-      firebase.initializeApp(firebaseConfig);
-      db = firebase.firestore();
-      storage = firebase.storage();
-      firebase.auth().onAuthStateChanged(user => { currentUser = user; updateAuthUI(); if (user) { loadUserData(); loadReviews(); } });
-    } else {
+      try {
+        firebase.initializeApp(firebaseConfig);
+        db = firebase.firestore();
+        storage = firebase.storage();
+        firebase.auth().onAuthStateChanged(
+          user => { currentUser = user; updateAuthUI(); if (user) { loadUserData(); loadReviews(); } },
+          err => reportError('auth state listener failed', err, 'تعذر التحقق من حالة تسجيل الدخول.')
+        );
+      } catch (err) {
+        FB_ENABLED = false;
+        db = null; storage = null;
+        reportError('Firebase init failed', err, 'تعذر الاتصال بالخدمة. بعض الميزات (الحساب والتقييمات) غير متاحة حالياً.');
+      }
+    }
+    if (!FB_ENABLED) {
       console.warn('Firebase غير مكوّن. يُستخدم وضع تجريبي محلي.');
     }
 
@@ -805,7 +839,13 @@ const IMG = {
       catch (err) { showAuthMsg(err.message, 'error'); }
     }
 
-    async function logout() { if (FB_ENABLED) await firebase.auth().signOut(); currentUser = null; updateAuthUI(); }
+    async function logout() {
+      if (FB_ENABLED) {
+        try { await firebase.auth().signOut(); }
+        catch (err) { reportError('signOut failed', err, 'تعذر تسجيل الخروج. حاول مرة أخرى.'); return; }
+      }
+      currentUser = null; updateAuthUI();
+    }
 
     async function resetPassword(e) {
       e.preventDefault();
@@ -840,9 +880,14 @@ const IMG = {
       if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
       if (!CORE.isValidReview(text, rating)) { alert('أدخل تقييمك وعدد النجوم.'); return; }
       if (FB_ENABLED) {
-        await db.collection('reviews').add({
-          userId: currentUser.uid, name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
+        try {
+          await db.collection('reviews').add({
+            userId: currentUser.uid, name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+        } catch (err) {
+          reportError('submitReview failed', err, 'تعذر إرسال التقييم. حاول مرة أخرى.');
+          return;
+        }
         cleanReviewForm();
         alert('تم إرسال تقييمك بانتظار الموافقة. شكراً لك!');
       } else {
@@ -858,7 +903,14 @@ const IMG = {
         list.innerHTML = `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">قُم بتفعيل Firebase لعرض آراء العملاء.</div>`;
         return;
       }
-      const snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
+      let snap;
+      try {
+        snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
+      } catch (err) {
+        logError('loadReviews failed', err);
+        list.innerHTML = `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">تعذر تحميل آراء العملاء. حدّث الصفحة للمحاولة مرة أخرى.</div>`;
+        return;
+      }
       let html = '';
       snap.forEach(doc => { html += DOM.reviewCardHTML(doc.data()); });
       list.innerHTML = html || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
@@ -867,7 +919,9 @@ const IMG = {
     // ═════════ لوحة تحكم العميل والولاء ═════════
     async function loadUserData() {
       if (!currentUser || !FB_ENABLED) return;
-      const doc = await db.collection('users').doc(currentUser.uid).get();
+      let doc;
+      try { doc = await db.collection('users').doc(currentUser.uid).get(); }
+      catch (err) { reportError('loadUserData failed', err, 'تعذر تحميل بيانات حسابك. حاول مرة أخرى.'); return; }
       if (!doc.exists) return;
       const data = doc.data();
       const contracts = data.contracts || [];
@@ -892,12 +946,12 @@ const IMG = {
           await db.collection('users').doc(user.uid).update({ contracts });
           loadUserData();
           const msg = CORE.buildInvoiceMessage({ user, date: today, count: contracts.length });
-          window.open(CORE.whatsappUrl(WHATSAPP_COMPANY, msg), '_blank');
           alert('تم رفع الفاتورة بنجاح وإضافتها لسجلك!');
+          openExternal(CORE.whatsappUrl(WHATSAPP_COMPANY, msg));
         } else {
           alert('وضع تجريبي: لرفع الفاتورة بشكل فعلي، قم بإعداد Firebase Storage.');
         }
-      } catch (err) { alert('خطأ في رفع الفاتورة: ' + err.message); }
+      } catch (err) { reportError('saveInvoice failed', err, 'خطأ في رفع الفاتورة:'); }
     }
 
     function showCongrats(data) {
@@ -905,7 +959,7 @@ const IMG = {
       if (modal.classList.contains('hidden')) {
         modal.classList.remove('hidden');
         const msg = CORE.buildCongratsMessage({ user: currentUser, contracts: data.contracts });
-        window.open(CORE.whatsappUrl(WHATSAPP_COMPANY, msg), '_blank');
+        openExternal(CORE.whatsappUrl(WHATSAPP_COMPANY, msg));
       }
     }
 
@@ -923,9 +977,6 @@ const IMG = {
     // إغلاق النوافذ عند الضغط خارجها
     document.querySelectorAll('.fixed.inset-0').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); }));
 
-    if (!FB_ENABLED) { 
-      // في الوضع التجريبي، أبقي الواجهة الافتراضية كما هي
-    }
   </script>
 
 <!-- ═════════ مشغل الفيديو الموحد (Video Player + Playlist) ═════════ -->
@@ -949,8 +1000,24 @@ const IMG = {
     let isUserPlaying = false;
 
     // تشغيل/إيقاف الفيديو
+    // تشغيل الفيديو مع تجاهل منع التشغيل التلقائي فقط، وتسجيل باقي الأخطاء
+    function playVideoSafely() {
+      return mainVideo.play().catch(err => {
+        if (err && (err.name === 'NotAllowedError' || err.name === 'AbortError')) {
+          console.warn('[Kitchèra] video playback blocked by browser', err.name);
+          return;
+        }
+        logError('video playback failed', err);
+        showVideoError('تعذر تشغيل الفيديو.');
+      });
+    }
+
+    function showVideoError(msg) {
+      if (videoTitle) videoTitle.textContent = msg;
+    }
+
     function togglePlay() {
-      if (mainVideo.paused) { mainVideo.play().catch(()=>{}); playPauseIcon.className = 'fas fa-pause'; }
+      if (mainVideo.paused) { playVideoSafely(); playPauseIcon.className = 'fas fa-pause'; }
       else { mainVideo.pause(); playPauseIcon.className = 'fas fa-play'; }
     }
 
@@ -979,8 +1046,9 @@ const IMG = {
           mainVideo.load();
           showLoader(false);
         })
-        .catch(() => {
+        .catch((err) => {
           // احتياطي: استخدم المصدر المباشر
+          console.warn('[Kitchèra] blob fetch failed for ' + v.src + ', falling back to direct source', err);
           mainVideo.src = v.src;
           mainVideo.load();
           showLoader(false);
@@ -991,7 +1059,7 @@ const IMG = {
     function nextVideo(dir) {
       const ni = window.KitcheraDom.nextVideoIndex(currentIndex, dir, VIDEOS.length);
       loadVideo(ni);
-      mainVideo.play().catch(()=>{});
+      playVideoSafely();
     }
 
     // بناء قائمة التشغيل
@@ -1003,7 +1071,7 @@ const IMG = {
         btn.className = 'playlist-item shrink-0 w-32 rounded-xl overflow-hidden border-2 border-transparent transition-all hover:border-gold-400 focus:outline-none';
         btn.innerHTML = `<img src="${v.poster}" alt="${v.title}" class="w-full h-20 object-cover"><span class="block bg-olive-800 text-white text-[11px] font-bold text-center py-1.5">${v.title}</span>`;
         btn.dataset.index = i;
-        btn.addEventListener('click', () => { loadVideo(i); mainVideo.play().catch(()=>{}); });
+        btn.addEventListener('click', () => { loadVideo(i); playVideoSafely(); });
         playlistEl.appendChild(btn);
       });
       updatePlaylist();
@@ -1021,7 +1089,13 @@ const IMG = {
     mainVideo.addEventListener('playing', () => showLoader(false));
     mainVideo.addEventListener('canplay', () => showLoader(false));
     mainVideo.addEventListener('loadeddata', () => showLoader(false));
-    mainVideo.addEventListener('error', () => { showLoader(false); if (videoLoader) videoLoader.classList.add('hidden'); });
+    mainVideo.addEventListener('error', () => {
+      showLoader(false);
+      if (videoLoader) videoLoader.classList.add('hidden');
+      const err = mainVideo.error;
+      logError('video element error for ' + mainVideo.currentSrc, err ? err.code + ': ' + err.message : 'unknown');
+      showVideoError('تعذر تحميل الفيديو.');
+    });
 
     // عند انتهاء الفيديو انتقل للتالي
     mainVideo.addEventListener('ended', () => nextVideo(1));
