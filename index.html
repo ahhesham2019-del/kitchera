@@ -38,6 +38,10 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
+  <!-- منطق الموقع المشترك (قابل للاختبار) -->
+  <script src="src/kitchera-core.js"></script>
+  <script src="src/kitchera-dom.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -670,7 +674,9 @@ const IMG = {
       bedroom: ['images/جناح نوم فاخر/1.jpg.jpeg','images/جناح نوم فاخر/3.jpg.jpeg','images/جناح نوم فاخر/12.jpg.jpeg','images/جناح نوم فاخر/13.jpg.jpeg','images/جناح نوم فاخر/14.jpg.jpeg','images/جناح نوم فاخر/16.jpg.jpeg'],
       furniture: ['images/اثاث متكامل فاخر/2.jpg.jpeg','images/اثاث متكامل فاخر/4.jpg.jpeg','images/اثاث متكامل فاخر/5.jpg.jpeg','images/اثاث متكامل فاخر/6.jpg.jpeg','images/اثاث متكامل فاخر/7.jpg.jpeg','images/اثاث متكامل فاخر/8.jpg.jpeg']
     };
-    const CATEGORY_NAMES = { kitchen: 'مطبخ عصري', bedroom: 'جناح نوم فاخر', furniture: 'أثاث متكامل فاخر' };
+    const CORE = window.KitcheraCore;
+    const DOM = window.KitcheraDom;
+    const CATEGORY_NAMES = CORE.CATEGORY_NAMES;
 
     // ═════════ قائمة الجوال ═════════
     const menuBtn = document.getElementById('menuBtn');
@@ -689,11 +695,7 @@ const IMG = {
       let html = `<div class="bg-cream-50 rounded-3xl p-6 md:p-8 border border-cream-200 shadow-card">
           <h3 class="text-2xl font-black text-olive-800 mb-6">${CATEGORY_NAMES[cat]}</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">`;
-      IMG[cat].forEach((src, i) => {
-        html += `<div class="group rounded-2xl overflow-hidden shadow-md border border-cream-200">
-            <img src="${src}" alt="${CATEGORY_NAMES[cat]} ${i+1}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
-          </div>`;
-      });
+      html += CORE.galleryImagesHTML(cat, IMG[cat]);
       html += `</div>
           <div class="mt-8 text-center">
             <button onclick="toggleGallery('${cat}')" class="inline-flex items-center gap-2 bg-white border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-bold px-6 py-3 rounded-xl transition-all">
@@ -709,11 +711,11 @@ const IMG = {
     const daySel = document.getElementById('cDay'), yearSel = document.getElementById('cYear'), monthSel = document.getElementById('cMonth'), visitDate = document.getElementById('visitDate');
     if (daySel) for (let d = 1; d <= 31; d++) { const o = document.createElement('option'); o.value = d; o.textContent = d; daySel.appendChild(o); }
     if (yearSel) { const y = new Date().getFullYear(); for (let i = y; i <= y + 2; i++) { const o = document.createElement('option'); o.value = i; o.textContent = i; yearSel.appendChild(o); } }
-    function syncDate() { if (visitDate && daySel && monthSel && yearSel) { if (daySel.value && monthSel.value && yearSel.value) { visitDate.value = `${yearSel.value}-${String(monthSel.value).padStart(2,'0')}-${String(daySel.value).padStart(2,'0')}`; } else visitDate.value = ''; } }
+    function syncDate() { if (visitDate && daySel && monthSel && yearSel) { visitDate.value = CORE.formatVisitDate(yearSel.value, monthSel.value, daySel.value); } }
     if (daySel) daySel.addEventListener('change', syncDate);
     if (monthSel) monthSel.addEventListener('change', syncDate);
     if (yearSel) yearSel.addEventListener('change', syncDate);
-    function toggleAddressField() { const h = document.querySelector('input[name="visitType"][value="home"]'); const c = document.getElementById('addressContainer'); if (h && c) c.style.display = h.checked ? 'block' : 'none'; }
+    function toggleAddressField() { DOM.setAddressVisibility(document.querySelector('input[name="visitType"][value="home"]'), document.getElementById('addressContainer')); }
     toggleAddressField();
 
     function handleContactSubmit(e) {
@@ -722,17 +724,12 @@ const IMG = {
       const phone = document.getElementById('cPhone')?.value.trim() || '';
       const email = document.getElementById('cEmail')?.value.trim() || '';
       const serviceSel = document.getElementById('cService'); const service = serviceSel ? serviceSel.options[serviceSel.selectedIndex]?.text : '';
-      const vt = document.querySelector('input[name="visitType"]:checked'); const visitType = vt ? (vt.value === 'home' ? 'منزلية 🏠' : 'في المقر 🏢') : '';
+      const vt = document.querySelector('input[name="visitType"]:checked'); const visitType = vt ? CORE.visitTypeLabel(vt.value) : '';
       const address = document.getElementById('address')?.value.trim() || '';
       const dateVal = visitDate?.value || ''; const timeSel = document.getElementById('visitTime'); const time = timeSel ? timeSel.value : '';
       const details = document.getElementById('cDetails')?.value.trim() || '';
-      let message = `📩 طلب جديد من موقع Kitchèra\n\nالاسم: ${name}\nرقم التليفون: ${phone}\n`;
-      if (email) message += `الإيميل: ${email}\n`;
-      message += `نوع الخدمة: ${service || 'غير محدد'}\nنوع الزيارة: ${visitType}\n`;
-      if (address) message += `العنوان: ${address}\n`;
-      if (dateVal) message += `الموعد: ${dateVal} ${time || ''}\n`;
-      if (details) message += `التفاصيل: ${details}\n`;
-      window.open(`https://wa.me/201066321915?text=${encodeURIComponent(message)}`, '_blank');
+      const message = CORE.buildContactMessage({ name, phone, email, service, visitType, address, date: dateVal, time, details });
+      window.open(CORE.whatsappUrl(CORE.WHATSAPP_COMPANY, message), '_blank');
     }
 
     // التمرير السلس
@@ -748,12 +745,7 @@ const IMG = {
       star.addEventListener('mouseleave', () => setStars(selectedRating));
       star.addEventListener('click', () => { selectedRating = +star.dataset.val; document.getElementById('ratingVal').value = selectedRating; setStars(selectedRating); });
     });
-    function setStars(n) {
-      document.querySelectorAll('.star').forEach(s => {
-        if (+s.dataset.val <= n) { s.style.color = '#f59e0b'; s.style.textShadow = '0 2px 4px rgba(0,0,0,0.2)'; }
-        else { s.style.color = '#ffffff'; s.style.textShadow = 'none'; }
-      });
-    }
+    function setStars(n) { DOM.paintStars(document.querySelectorAll('.star'), n); }
 
     // ═════════ رفع الفاتورة ═════════
     function handleInvoiceUpload(input) {
@@ -777,9 +769,9 @@ const IMG = {
     let currentUser = null;
     let db = null, storage = null;
 
-    const REQUIRED_CONTRACTS = 5;
+    const REQUIRED_CONTRACTS = CORE.REQUIRED_CONTRACTS;
     const REQUIRED_AMOUNT = 100000;
-    const WHATSAPP_COMPANY = "201066321915";
+    const WHATSAPP_COMPANY = CORE.WHATSAPP_COMPANY;
 
     if (FB_ENABLED) {
       firebase.initializeApp(firebaseConfig);
@@ -837,21 +829,14 @@ const IMG = {
       }
     }
 
-    function escapeHTML(str) {
-      return String(str == null ? '' : str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"')
-        .replace(/'/g, '&#039;');
-    }
+    const escapeHTML = CORE.escapeHTML;
 
     // ═════════ التقييمات ═════════
     async function submitReview() {
       const text = document.getElementById('reviewText').value.trim();
       const rating = +document.getElementById('ratingVal').value;
       if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
-      if (!text || rating === 0) { alert('أدخل تقييمك وعدد النجوم.'); return; }
+      if (!CORE.isValidReview(text, rating)) { alert('أدخل تقييمك وعدد النجوم.'); return; }
       if (FB_ENABLED) {
         await db.collection('reviews').add({
           name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -873,15 +858,7 @@ const IMG = {
       }
       const snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
       let html = '';
-      snap.forEach(doc => {
-        const r = doc.data();
-        let stars = '';
-        for (let i = 1; i <= 5; i++) stars += `<i class="fa${i <= r.rating ? 's' : 'r'} fa-star ${i <= r.rating ? 'text-gold-500' : 'text-gray-300'}"></i>`;
-        html += `<div class="bg-cream-50 rounded-2xl p-6 shadow-soft border border-cream-200">
-          <div class="flex items-center gap-3 mb-3"><div class="w-11 h-11 rounded-full bg-olive-600 text-white flex items-center justify-center font-black">${escapeHTML((r.name||'م')[0])}</div>
-          <div><p class="font-bold text-olive-800">${escapeHTML(r.name)}</p><div class="flex text-sm gap-0.5">${stars}</div></div></div>
-          <p class="text-gray-600 text-sm leading-relaxed">${escapeHTML(r.text)}</p></div>`;
-      });
+      snap.forEach(doc => { html += DOM.reviewCardHTML(doc.data()); });
       list.innerHTML = html || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
     }
 
@@ -893,19 +870,17 @@ const IMG = {
       const data = doc.data();
       const contracts = data.contracts || [];
       document.getElementById('contractCount').textContent = contracts.length;
-      document.getElementById('contractProgress').textContent = `${contracts.length}/${REQUIRED_CONTRACTS}`;
+      document.getElementById('contractProgress').textContent = CORE.contractProgressLabel(contracts);
       const list = document.getElementById('contractsList');
-      list.innerHTML = contracts.length ? contracts.map((c, i) => `<div class="flex items-center justify-between bg-cream-50 rounded-xl p-4 border border-cream-200">
-        <div><p class="font-bold text-olive-800">تعاقد رقم ${i+1}</p><p class="text-sm text-gray-500">التاريخ: ${escapeHTML(c.date) || 'غير محدد'}</p></div>
-        <span class="text-gold-500 text-xl"><i class="fas fa-file-invoice"></i></span></div>`).join('')
+      list.innerHTML = contracts.length ? contracts.map(DOM.contractRowHTML).join('')
         : `<div class="text-center text-gray-500 py-4">لا توجد تعاقدات بعد.</div>`;
-      if (contracts.length >= REQUIRED_CONTRACTS) { showCongrats(data); }
+      if (CORE.hasEarnedPrize(contracts)) { showCongrats(data); }
     }
 
     async function saveInvoice(file, user) {
       try {
         if (FB_ENABLED) {
-          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${file.name}`);
+          const ref = storage.ref(CORE.invoiceStoragePath(user.uid, Date.now(), file.name));
           await ref.put(file);
           const url = await ref.getDownloadURL();
           const today = new Date().toLocaleDateString('ar-EG');
@@ -914,8 +889,8 @@ const IMG = {
           contracts.push({ date: today, url });
           await db.collection('users').doc(user.uid).update({ contracts });
           loadUserData();
-          let msg = `📄 تم رفع فاتورة تعاقد جديدة!\nاسم العميل: ${user.displayName || user.email}\nتاريخ الرفع: ${today}\nعدد التعاقدات: ${contracts.length}`;
-          window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
+          const msg = CORE.buildInvoiceMessage({ user, date: today, count: contracts.length });
+          window.open(CORE.whatsappUrl(WHATSAPP_COMPANY, msg), '_blank');
           alert('تم رفع الفاتورة بنجاح وإضافتها لسجلك!');
         } else {
           alert('وضع تجريبي: لرفع الفاتورة بشكل فعلي، قم بإعداد Firebase Storage.');
@@ -927,9 +902,8 @@ const IMG = {
       const modal = document.getElementById('congratsModal');
       if (modal.classList.contains('hidden')) {
         modal.classList.remove('hidden');
-        const dates = (data.contracts || []).map(c => c.date).join('، ');
-        const msg = `تم إكمال التعاقدات المطلوبة!\nاسم العميل: ${currentUser.displayName || currentUser.email}\nعدد التعاقدات: ${(data.contracts||[]).length}\nتواريخ التعاقدات: ${dates}\nالعميل يستحق الجائزة المقدمة من Kitchèra.`;
-        window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
+        const msg = CORE.buildCongratsMessage({ user: currentUser, contracts: data.contracts });
+        window.open(CORE.whatsappUrl(WHATSAPP_COMPANY, msg), '_blank');
       }
     }
 
@@ -1013,9 +987,7 @@ const IMG = {
 
     // تنقل بين الفيديوهات
     function nextVideo(dir) {
-      let ni = currentIndex + dir;
-      if (ni >= VIDEOS.length) ni = 0;
-      if (ni < 0) ni = VIDEOS.length - 1;
+      const ni = window.KitcheraDom.nextVideoIndex(currentIndex, dir, VIDEOS.length);
       loadVideo(ni);
       mainVideo.play().catch(()=>{});
     }
