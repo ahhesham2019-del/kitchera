@@ -780,11 +780,30 @@ const IMG = {
     }
 
     // ═════════ رفع الفاتورة ═════════
+    const INVOICE_MAX_BYTES = 5 * 1024 * 1024;
+    const INVOICE_ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+
+    function validateInvoiceFile(file) {
+      if (!INVOICE_ALLOWED_TYPES.includes(file.type)) {
+        return 'صيغة الملف غير مسموحة. أرفق صورة (JPG / PNG / WEBP) أو ملف PDF.';
+      }
+      if (file.size > INVOICE_MAX_BYTES) {
+        return 'حجم الملف كبير جداً. الحد الأقصى 5 ميجابايت.';
+      }
+      return null;
+    }
+
+    function safeFileName(name) {
+      return String(name).replace(/[^\w.\-]/g, '_').slice(-80);
+    }
+
     function handleInvoiceUpload(input) {
       const file = input.files[0];
       if (!file) return;
-      if (currentUser) { saveInvoice(file, currentUser); }
-      else { alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); }
+      if (!currentUser) { input.value = ''; alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); return; }
+      const problem = validateInvoiceFile(file);
+      if (problem) { input.value = ''; alert(problem); return; }
+      saveInvoice(file, currentUser);
     }
 
     // ═════════ Firebase Configuration ═════════
@@ -888,14 +907,14 @@ const IMG = {
 
     // ═════════ التقييمات ═════════
     async function submitReview() {
-      const text = document.getElementById('reviewText').value.trim();
+      const text = document.getElementById('reviewText').value.trim().slice(0, 1000);
       const rating = +document.getElementById('ratingVal').value;
       if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
-      if (!text || rating === 0) { alert('أدخل تقييمك وعدد النجوم.'); return; }
+      if (!text || !Number.isInteger(rating) || rating < 1 || rating > 5) { alert('أدخل تقييمك وعدد النجوم.'); return; }
       if (FB_ENABLED) {
         try {
           await db.collection('reviews').add({
-            name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            userId: currentUser.uid, name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
           });
         } catch (err) {
           reportError('submitReview failed', err, 'تعذر إرسال التقييم. حاول مرة أخرى.');
@@ -959,7 +978,7 @@ const IMG = {
     async function saveInvoice(file, user) {
       try {
         if (FB_ENABLED) {
-          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${file.name}`);
+          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${safeFileName(file.name)}`);
           await ref.put(file);
           const url = await ref.getDownloadURL();
           const today = new Date().toLocaleDateString('ar-EG');
