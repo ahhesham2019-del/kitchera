@@ -23,3 +23,7 @@ python3 -m http.server 8000
 ## النشر
 
 الموقع منشور عبر GitHub Pages من الفرع الرئيسي.
+
+## المساهمة
+
+افتح Pull Request على الفرع `main` وسيقوم Devin بمراجعته تلقائيًا.
