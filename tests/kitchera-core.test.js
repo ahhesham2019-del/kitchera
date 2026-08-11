@@ -49,6 +49,7 @@ describe('formatVisitDate', () => {
 describe('visitTypeLabel', () => {
   it('maps the known visit types', () => {
     expect(core.visitTypeLabel('home')).toBe('منزلية 🏠');
+    expect(core.visitTypeLabel('showroom')).toBe('في المقر 🏢');
     expect(core.visitTypeLabel('office')).toBe('في المقر 🏢');
   });
 
@@ -211,7 +212,7 @@ describe('invoiceStoragePath', () => {
 });
 
 describe('isValidReview', () => {
-  it('accepts a non-empty text with a positive rating', () => {
+  it('accepts a non-empty text with a rating from one to five', () => {
     expect(core.isValidReview('رائع', 5)).toBe(true);
     expect(core.isValidReview('رائع', '1')).toBe(true);
   });
@@ -221,6 +222,72 @@ describe('isValidReview', () => {
     expect(core.isValidReview('   ', 5)).toBe(false);
     expect(core.isValidReview('رائع', 0)).toBe(false);
     expect(core.isValidReview('رائع', undefined)).toBe(false);
+  });
+
+  it('rejects out-of-range and non-integer ratings', () => {
+    expect(core.isValidReview('رائع', 6)).toBe(false);
+    expect(core.isValidReview('رائع', -1)).toBe(false);
+    expect(core.isValidReview('رائع', 3.5)).toBe(false);
+    expect(core.isValidReview('رائع', 'abc')).toBe(false);
+  });
+});
+
+describe('trimReviewText', () => {
+  it('trims surrounding whitespace', () => {
+    expect(core.trimReviewText('  رائع  ')).toBe('رائع');
+  });
+
+  it('caps the text at the maximum review length', () => {
+    expect(core.trimReviewText('x'.repeat(1500))).toHaveLength(core.REVIEW_MAX_LENGTH);
+  });
+
+  it('turns missing input into an empty string', () => {
+    expect(core.trimReviewText(null)).toBe('');
+    expect(core.trimReviewText(undefined)).toBe('');
+  });
+});
+
+describe('validateInvoiceFile', () => {
+  var ok = { type: 'application/pdf', size: 1024 };
+
+  it('accepts the allowed types within the size limit', () => {
+    expect(core.validateInvoiceFile(ok)).toBeNull();
+    expect(core.validateInvoiceFile({ type: 'image/jpeg', size: 1 })).toBeNull();
+    expect(core.validateInvoiceFile({ type: 'image/png', size: core.INVOICE_MAX_BYTES })).toBeNull();
+    expect(core.validateInvoiceFile({ type: 'image/webp', size: 1 })).toBeNull();
+  });
+
+  it('rejects a disallowed type', () => {
+    expect(core.validateInvoiceFile({ type: 'application/x-msdownload', size: 1 }))
+      .toContain('صيغة الملف غير مسموحة');
+    expect(core.validateInvoiceFile({ type: '', size: 1 })).not.toBeNull();
+  });
+
+  it('rejects a file over five megabytes', () => {
+    expect(core.validateInvoiceFile({ type: 'application/pdf', size: core.INVOICE_MAX_BYTES + 1 }))
+      .toContain('حجم الملف كبير');
+  });
+
+  it('rejects a missing file', () => {
+    expect(core.validateInvoiceFile(null)).not.toBeNull();
+  });
+});
+
+describe('safeFileName', () => {
+  it('replaces path separators and other unsafe characters', () => {
+    expect(core.safeFileName('../../etc/passwd')).toBe('.._.._etc_passwd');
+    expect(core.safeFileName('my bill (1).pdf')).toBe('my_bill__1_.pdf');
+  });
+
+  it('keeps word characters, dots and dashes', () => {
+    expect(core.safeFileName('invoice-2026_01.pdf')).toBe('invoice-2026_01.pdf');
+  });
+
+  it('keeps only the last 80 characters so the extension survives', () => {
+    const name = 'a'.repeat(200) + '.pdf';
+    const safe = core.safeFileName(name);
+    expect(safe).toHaveLength(80);
+    expect(safe.endsWith('.pdf')).toBe(true);
   });
 });
 

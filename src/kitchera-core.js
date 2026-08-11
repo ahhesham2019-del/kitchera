@@ -8,6 +8,10 @@
   var REQUIRED_CONTRACTS = 5;
   var WHATSAPP_COMPANY = '201066321915';
 
+  var INVOICE_MAX_BYTES = 5 * 1024 * 1024;
+  var INVOICE_ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+  var REVIEW_MAX_LENGTH = 1000;
+
   var CATEGORY_NAMES = {
     kitchen: 'مطبخ عصري',
     bedroom: 'جناح نوم فاخر',
@@ -30,7 +34,7 @@
 
   function visitTypeLabel(value) {
     if (value === 'home') return 'منزلية 🏠';
-    if (value === 'office') return 'في المقر 🏢';
+    if (value === 'showroom' || value === 'office') return 'في المقر 🏢';
     return '';
   }
 
@@ -100,7 +104,26 @@
   }
 
   function isValidReview(text, rating) {
-    return Boolean(String(text || '').trim()) && Number(rating) > 0;
+    var n = Number(rating);
+    return Boolean(String(text || '').trim()) && Number.isInteger(n) && n >= 1 && n <= 5;
+  }
+
+  function trimReviewText(text) {
+    return String(text == null ? '' : text).trim().slice(0, REVIEW_MAX_LENGTH);
+  }
+
+  function validateInvoiceFile(file) {
+    if (!file || INVOICE_ALLOWED_TYPES.indexOf(file.type) === -1) {
+      return 'صيغة الملف غير مسموحة. أرفق صورة (JPG / PNG / WEBP) أو ملف PDF.';
+    }
+    if (file.size > INVOICE_MAX_BYTES) {
+      return 'حجم الملف كبير جداً. الحد الأقصى 5 ميجابايت.';
+    }
+    return null;
+  }
+
+  function safeFileName(name) {
+    return String(name).replace(/[^\w.\-]/g, '_').slice(-80);
   }
 
   function starsHTML(rating) {
@@ -126,6 +149,9 @@
   var api = {
     REQUIRED_CONTRACTS: REQUIRED_CONTRACTS,
     WHATSAPP_COMPANY: WHATSAPP_COMPANY,
+    INVOICE_MAX_BYTES: INVOICE_MAX_BYTES,
+    INVOICE_ALLOWED_TYPES: INVOICE_ALLOWED_TYPES,
+    REVIEW_MAX_LENGTH: REVIEW_MAX_LENGTH,
     CATEGORY_NAMES: CATEGORY_NAMES,
     escapeHTML: escapeHTML,
     formatVisitDate: formatVisitDate,
@@ -141,6 +167,9 @@
     buildCongratsMessage: buildCongratsMessage,
     invoiceStoragePath: invoiceStoragePath,
     isValidReview: isValidReview,
+    trimReviewText: trimReviewText,
+    validateInvoiceFile: validateInvoiceFile,
+    safeFileName: safeFileName,
     starsHTML: starsHTML,
     galleryImagesHTML: galleryImagesHTML
   };

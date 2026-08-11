@@ -751,8 +751,10 @@ const IMG = {
     function handleInvoiceUpload(input) {
       const file = input.files[0];
       if (!file) return;
-      if (currentUser) { saveInvoice(file, currentUser); }
-      else { alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); }
+      if (!currentUser) { input.value = ''; alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); return; }
+      const problem = CORE.validateInvoiceFile(file);
+      if (problem) { input.value = ''; alert(problem); return; }
+      saveInvoice(file, currentUser);
     }
 
     // ═════════ Firebase Configuration ═════════
@@ -833,13 +835,13 @@ const IMG = {
 
     // ═════════ التقييمات ═════════
     async function submitReview() {
-      const text = document.getElementById('reviewText').value.trim();
+      const text = CORE.trimReviewText(document.getElementById('reviewText').value);
       const rating = +document.getElementById('ratingVal').value;
       if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
       if (!CORE.isValidReview(text, rating)) { alert('أدخل تقييمك وعدد النجوم.'); return; }
       if (FB_ENABLED) {
         await db.collection('reviews').add({
-          name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          userId: currentUser.uid, name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
         cleanReviewForm();
         alert('تم إرسال تقييمك بانتظار الموافقة. شكراً لك!');
@@ -880,7 +882,7 @@ const IMG = {
     async function saveInvoice(file, user) {
       try {
         if (FB_ENABLED) {
-          const ref = storage.ref(CORE.invoiceStoragePath(user.uid, Date.now(), file.name));
+          const ref = storage.ref(CORE.invoiceStoragePath(user.uid, Date.now(), CORE.safeFileName(file.name)));
           await ref.put(file);
           const url = await ref.getDownloadURL();
           const today = new Date().toLocaleDateString('ar-EG');
