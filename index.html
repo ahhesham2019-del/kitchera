@@ -103,18 +103,7 @@
 
       <!-- CTA موحّد + تسجيل الدخول -->
       <div class="flex items-center gap-3">
-        <button id="loginBtn" onclick="openAuthModal()" class="hidden sm:inline-flex items-center gap-2 text-olive-700 hover:text-gold-600 font-bold transition-colors text-sm" aria-label="تسجيل الدخول">
-          <i class="fas fa-user"></i>
-        </button>
-        <div id="userMenu" class="hidden items-center gap-2">
-          <button onclick="openDashboard()" class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-3 lg:px-4 py-2.5 rounded-xl transition-all text-sm">
-            <i class="fas fa-user-circle"></i> <span id="userName" class="max-w-[100px] truncate">حسابي</span>
-          </button>
-          <button onclick="logout()" class="text-olive-700 hover:text-red-600 text-lg" title="تسجيل الخروج">
-            <i class="fas fa-sign-out-alt"></i>
-          </button>
-        </div>
-<a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-5 lg:px-6 py-3 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5 text-sm lg:text-base">
+  <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-5 lg:px-6 py-3 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5 text-sm lg:text-base">
           <i class="fas fa-calendar-check"></i> احجز معاينتك
         </a>
         <button id="menuBtn" class="lg:hidden text-olive-700 text-2xl p-2" aria-label="القائمة">
@@ -389,7 +378,7 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
       </div>
 
       <!-- نموذج التقييم (للسجلين الدخول فقط) -->
-      <div id="reviewFormContainer" class="max-w-2xl mx-auto mb-12 hidden">
+      <div id="reviewFormContainer" class="max-w-2xl mx-auto mb-12">
         <div class="bg-cream-50 rounded-3xl p-6 md:p-8 shadow-xl border border-cream-200">
           <h3 class="text-2xl font-black text-olive-800 mb-4">قيم تجربتك معنا</h3>
           <div class="flex items-center gap-2 mb-4" id="starRow">
@@ -406,26 +395,10 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
             <button type="button" onclick="submitReview()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-6 py-3 rounded-xl transition-all">
               <i class="fas fa-paper-plane"></i> نشر التقييم
             </button>
-            <div class="w-full sm:w-auto text-center">
-              <button type="button" onclick="document.getElementById('invoiceInput').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-6 py-3 rounded-xl transition-all">
-                <i class="fas fa-upload"></i> ارفع الفاتورة
-              </button>
-              <input type="file" id="invoiceInput" accept="image/*,.pdf" class="hidden" onchange="handleInvoiceUpload(this)">
-              <span class="text-xs text-stone-600 mt-1 font-medium text-center block">(ارفع فاتورتك لتحصل على جائزتك)</span>
             </div>
-          </div>
         </div>
       </div>
-
-      <!-- رسالة للمستخدمين غير المسجلين -->
-      <div id="loginPrompt" class="max-w-2xl mx-auto mb-12 text-center bg-cream-50 rounded-3xl p-8 shadow-soft border border-cream-200">
-        <p class="text-olive-700 font-bold mb-3">سجّل الدخول لتتمكن من تقييم تجربتك ورفع فاتورتك والحصول على جائزتك</p>
-        <button onclick="openAuthModal()" class="inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-6 py-3 rounded-xl transition-all">
-          <i class="fas fa-user"></i> تسجيل الدخول
-        </button>
-      </div>
-
-      <!-- عرض التقييمات -->
+         <!-- عرض التقييمات -->
       <div id="reviewsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
   </section>
@@ -568,10 +541,6 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
      class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-card hover:scale-110 transition-transform animate-pulseSoft" aria-label="واتساب">
     <i class="fab fa-whatsapp"></i>
   </a>
-
-  <!-- ════════════════════════════════════════════
-       نافذة تسجيل الدخول / إنشاء حساب
-       ════════════════════════════════════════════ -->
   <div id="authModal" class="hidden fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 md:p-8 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-6">
@@ -756,72 +725,7 @@ const IMG = {
     }
 
     // ═════════ رفع الفاتورة ═════════
-    function handleInvoiceUpload(input) {
-      const file = input.files[0];
-      if (!file) return;
-      if (currentUser) { saveInvoice(file, currentUser); }
-      else { alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); }
-    }
-
-    // ═════════ Firebase Configuration ═════════
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    const FB_ENABLED = firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
-    let currentUser = null;
-    let db = null, storage = null;
-
-    const REQUIRED_CONTRACTS = 5;
-    const REQUIRED_AMOUNT = 100000;
-    const WHATSAPP_COMPANY = "201066321915";
-
-    if (FB_ENABLED) {
-      firebase.initializeApp(firebaseConfig);
-      db = firebase.firestore();
-      storage = firebase.storage();
-      firebase.auth().onAuthStateChanged(user => { currentUser = user; updateAuthUI(); if (user) { loadUserData(); loadReviews(); } });
-    } else {
-      console.warn('Firebase غير مكوّن. يُستخدم وضع تجريبي محلي.');
-    }
-
-    async function signup(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase في إعدادات الموقع.'); return; }
-      const name = document.getElementById('suName').value, phone = document.getElementById('suPhone').value,
-            email = document.getElementById('suEmail').value, pass = document.getElementById('suPass').value;
-      try {
-        const cred = await firebase.auth().createUserWithEmailAndPassword(email, pass);
-        await db.collection('users').doc(cred.user.uid).set({ name, phone, email, contracts: [], createdAt: firebase.firestore.FieldValue.serverTimestamp() });
-        currentUser = cred.user;
-        showAuthMsg('تم إنشاء الحساب بنجاح!', 'success'); closeAuthModal(); updateAuthUI();
-      } catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    async function login(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase.'); return; }
-      const email = document.getElementById('loginEmail').value, pass = document.getElementById('loginPass').value;
-      try { const cred = await firebase.auth().signInWithEmailAndPassword(email, pass); currentUser = cred.user; showAuthMsg('تم تسجيل الدخول!', 'success'); closeAuthModal(); updateAuthUI(); }
-      catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    async function logout() { if (FB_ENABLED) await firebase.auth().signOut(); currentUser = null; updateAuthUI(); }
-
-    async function resetPassword(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase.'); return; }
-      const email = document.getElementById('resetEmail').value;
-      try { await firebase.auth().sendPasswordResetEmail(email); showAuthMsg('تم إرسال رابط الاستعادة إلى بريدك.', 'success'); }
-      catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    function updateAuthUI() {
+          function updateAuthUI() {
       const loginBtn = document.getElementById('loginBtn'), userMenu = document.getElementById('userMenu');
       if (currentUser) {
         if (loginBtn) loginBtn.classList.add('hidden');
@@ -847,110 +751,51 @@ const IMG = {
     }
 
     // ═════════ التقييمات ═════════
-    async function submitReview() {
-      const text = document.getElementById('reviewText').value.trim();
-      const rating = +document.getElementById('ratingVal').value;
-      if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
-      if (!text || rating === 0) { alert('أدخل تقييمك وعدد النجوم.'); return; }
-      if (FB_ENABLED) {
-        await db.collection('reviews').add({
-          name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-        cleanReviewForm();
-        alert('تم إرسال تقييمك بانتظار الموافقة. شكراً لك!');
-      } else {
-        alert('وضع تجريبي: تم حفظ تقييمك محلياً. قم بإعداد Firebase لعرضه بشكل دائم.');
-        cleanReviewForm();
-      }
-    }
-    function cleanReviewForm() { document.getElementById('reviewText').value = ''; document.getElementById('ratingVal').value = 0; selectedRating = 0; setStars(0); }
+ function submitReview() {
+    const textInput = document.getElementById('reviewText');
+    const text = textInput.value.trim();
+    const rating = +document.getElementById('ratingVal').value || selectedRating || 5;
 
-    async function loadReviews() {
-      const list = document.getElementById('reviewsList');
-      if (!FB_ENABLED) {
-        list.innerHTML = `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">قُم بتفعيل Firebase لعرض آراء العملاء.</div>`;
-        return;
-      }
-      const snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
-      let html = '';
-      snap.forEach(doc => {
-        const r = doc.data();
-        let stars = '';
-        for (let i = 1; i <= 5; i++) stars += `<i class="fa${i <= r.rating ? 's' : 'r'} fa-star ${i <= r.rating ? 'text-gold-500' : 'text-gray-300'}"></i>`;
-        html += `<div class="bg-cream-50 rounded-2xl p-6 shadow-soft border border-cream-200">
-          <div class="flex items-center gap-3 mb-3"><div class="w-11 h-11 rounded-full bg-olive-600 text-white flex items-center justify-center font-black">${escapeHTML((r.name||'م')[0])}</div>
-          <div><p class="font-bold text-olive-800">${escapeHTML(r.name)}</p><div class="flex text-sm gap-0.5">${stars}</div></div></div>
-          <p class="text-gray-600 text-sm leading-relaxed">${escapeHTML(r.text)}</p></div>`;
-      });
-      list.innerHTML = html || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
+    if (!text || rating === 0) { 
+        alert('يرجى كتابة التعليق واختيار عدد النجوم!'); 
+        return; 
     }
 
-    // ═════════ لوحة تحكم العميل والولاء ═════════
-    async function loadUserData() {
-      if (!currentUser || !FB_ENABLED) return;
-      const doc = await db.collection('users').doc(currentUser.uid).get();
-      if (!doc.exists) return;
-      const data = doc.data();
-      const contracts = data.contracts || [];
-      document.getElementById('contractCount').textContent = contracts.length;
-      document.getElementById('contractProgress').textContent = `${contracts.length}/${REQUIRED_CONTRACTS}`;
-      const list = document.getElementById('contractsList');
-      list.innerHTML = contracts.length ? contracts.map((c, i) => `<div class="flex items-center justify-between bg-cream-50 rounded-xl p-4 border border-cream-200">
-        <div><p class="font-bold text-olive-800">تعاقد رقم ${i+1}</p><p class="text-sm text-gray-500">التاريخ: ${escapeHTML(c.date) || 'غير محدد'}</p></div>
-        <span class="text-gold-500 text-xl"><i class="fas fa-file-invoice"></i></span></div>`).join('')
-        : `<div class="text-center text-gray-500 py-4">لا توجد تعاقدات بعد.</div>`;
-      if (contracts.length >= REQUIRED_CONTRACTS) { showCongrats(data); }
+    const list = document.getElementById('reviewsList');
+
+    // إزالة نص "لا توجد تقييمات" إذا كان ظاهراً
+    if (list && list.innerText.includes('لا توجد تقييمات')) {
+        list.innerHTML = '';
     }
 
-    async function saveInvoice(file, user) {
-      try {
-        if (FB_ENABLED) {
-          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${file.name}`);
-          await ref.put(file);
-          const url = await ref.getDownloadURL();
-          const today = new Date().toLocaleDateString('ar-EG');
-          const userDoc = await db.collection('users').doc(user.uid).get();
-          const contracts = (userDoc.data()?.contracts || []);
-          contracts.push({ date: today, url });
-          await db.collection('users').doc(user.uid).update({ contracts });
-          loadUserData();
-          let msg = `📄 تم رفع فاتورة تعاقد جديدة!\nاسم العميل: ${user.displayName || user.email}\nتاريخ الرفع: ${today}\nعدد التعاقدات: ${contracts.length}`;
-          window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
-          alert('تم رفع الفاتورة بنجاح وإضافتها لسجلك!');
-        } else {
-          alert('وضع تجريبي: لرفع الفاتورة بشكل فعلي، قم بإعداد Firebase Storage.');
-        }
-      } catch (err) { alert('خطأ في رفع الفاتورة: ' + err.message); }
+    // بناء النجوم
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        starsHtml += `<i class="fa${i <= rating ? 's' : 'r'} fa-star ${i <= rating ? 'text-gold-500' : 'text-gray-300'}"></i>`;
     }
 
-    function showCongrats(data) {
-      const modal = document.getElementById('congratsModal');
-      if (modal.classList.contains('hidden')) {
-        modal.classList.remove('hidden');
-        const dates = (data.contracts || []).map(c => c.date).join('، ');
-        const msg = `تم إكمال التعاقدات المطلوبة!\nاسم العميل: ${currentUser.displayName || currentUser.email}\nعدد التعاقدات: ${(data.contracts||[]).length}\nتواريخ التعاقدات: ${dates}\nالعميل يستحق الجائزة المقدمة من Kitchèra.`;
-        window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
-      }
+    // تصميم كارت التقييم الجديد
+    const reviewCard = `
+        <div class="bg-cream-50 rounded-2xl p-6 shadow-soft border border-cream-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-11 h-11 rounded-full bg-olive-600 text-white flex items-center justify-center font-black">ع</div>
+                <div>
+                    <p class="font-bold text-olive-800">عميل</p>
+                    <div class="flex text-sm gap-0.5">${starsHtml}</div>
+                </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">${escapeHTML(text)}</p>
+        </div>
+    `;
+    // إضافة التقييم في أعلى القائمة
+    if (list) {
+        list.insertAdjacentHTML('afterbegin', reviewCard);
     }
 
-    // ═════════ نوافذ Auth / Dashboard ═════════
-    function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); showLogin(); }
-    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
-    function showLogin() { document.getElementById('authTitle').textContent = 'تسجيل الدخول'; document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showSignup() { document.getElementById('authTitle').textContent = 'إنشاء حساب جديد'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.remove('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showForgot() { document.getElementById('authTitle').textContent = 'استعادة كلمة السر'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.remove('hidden'); hideMsg(); }
-    function hideMsg() { const m = document.getElementById('authMsg'); m.classList.add('hidden'); m.textContent = ''; m.className = 'hidden mt-4 text-center text-sm font-bold p-3 rounded-xl'; }
-    function showAuthMsg(txt, type) { const m = document.getElementById('authMsg'); m.classList.remove('hidden'); m.textContent = txt; m.className = `mt-4 text-center text-sm font-bold p-3 rounded-xl ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`; }
-    function openDashboard() { if (!currentUser) { alert('يرجى تسجيل الدخول أولاً.'); openAuthModal(); return; } document.getElementById('dashboardModal').classList.remove('hidden'); loadUserData(); }
-    function closeDashboard() { document.getElementById('dashboardModal').classList.add('hidden'); }
-
-    // إغلاق النوافذ عند الضغط خارجها
-    document.querySelectorAll('.fixed.inset-0').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); }));
-
-    if (!FB_ENABLED) { 
-      // في الوضع التجريبي، أبقي الواجهة الافتراضية كما هي
-    }
-  </script>
+    alert('تم نشر تقييمك بنجاح!');
+    cleanReviewForm();
+}
+</script>
 
 <!-- ═════════ مشغل الفيديو الموحد (Video Player + Playlist) ═════════ -->
   <script>
