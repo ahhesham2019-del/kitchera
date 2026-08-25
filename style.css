@@ -1,0 +1,154 @@
+/* ================================================================
+   KITCHÈRA - Global Stylesheet (Custom Theme & Glassmorphism)
+   ================================================================ */
+
+/* 1. خلفية الصفحة الثابتة بصورة 2 من مجلد بادية بالم هيلز */
+body {
+  background-image: url('images/%D8%A8%D8%A7%D8%AF%D9%8A%D8%A9%20%D8%A8%D8%A7%D9%84%D9%85%20%D9%87%D9%8A%D9%84%D8%B2/2.jpg'), url('images/بادية بالم هيلز/2.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-color: #121b15 !important;
+  color: #1F2937;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+/* 2. جعل خلفيات كافة الأقسام شفافة لتظهر صورة الخلفية بوضوح */
+section,
+#home,
+#portfolio,
+#videos,
+#services,
+#stats,
+#reviews,
+#contact {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* طبقة زجاجية شبه شفافة للكروت لتحقيق أعلى وضوح وتباين للنصوص فوق الخلفية */
+.bg-white {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.bg-cream-50,
+.bg-cream-50\/90 {
+  background-color: rgba(249, 248, 243, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.bg-cream-100,
+.bg-cream-100\/80 {
+  background-color: rgba(244, 241, 232, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* 3. شريط التنقل الرئيسي (Navbar) بلون ذهبي شفاف وتأثير ضبابي */
+header,
+.glass-navbar {
+  background: rgba(212, 175, 55, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+#mobileMenu {
+  background: rgba(36, 49, 42, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+/* 4. الحاويات والبطاقات الزجاجية الأنيقة (Glassmorphism) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+}
+
+.glass-card-dark {
+  background: rgba(20, 28, 24, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+}
+
+/* 5. إخفاء وإزالة جميع علامات وأيقونات اللوكيشن والموقع نهائياً */
+.fa-location-dot,
+.fa-map-pin,
+.fa-map-marker-alt,
+.fa-location-pin,
+.location-badge,
+.location-tag,
+#gModalLocation,
+.gModalLocationWrap,
+[data-location],
+.hide-location {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* 6. التأثيرات التفاعلية للصور وكروت المعرض (Hover & Zoom Animations) */
+.shorts-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.45s ease;
+  will-change: transform;
+}
+
+.shorts-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.4);
+  border-color: #D4AF37 !important;
+}
+
+.shorts-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+  will-change: transform;
+}
+
+.shorts-item:hover img {
+  transform: scale(1.12);
+  filter: brightness(1.05);
+}
+
+.playlist-card {
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.playlist-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.playlist-card img {
+  transition: transform 0.5s ease;
+}
+
+.playlist-card:hover img {
+  transform: scale(1.08);
+}
+
+/* تحسين السكرول بار */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

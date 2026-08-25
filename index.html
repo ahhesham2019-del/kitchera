@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
- <meta name="google-site-verification" content="rmcnYYc1fNcLwAqV2hTSeNUl1ihpz9OqfWoDKNzGfyI" />
+  <meta name="google-site-verification" content="rmcnYYc1fNcLwAqV2hTSeNUl1ihpz9OqfWoDKNzGfyI" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KITCHERA | تصميم وتشطيب المنازل والمطابخ</title>
-  <meta name="description" content="Kitchera - شركة تصميم وتشطيب المنازل والمطابخ. إبداع يفوق التوقعات في التصميم الداخلي.">
-  <meta name="keywords" content="مطابخ, تصميم داخلي, ديكورات, غرف نوم, أثاث, تصميم مطابخ, تشطيب منازل, interior design, kitchen design">
+  <title>KITCHERA | تصميم وتصنيع المطابخ وغرف النوم والدريسنج روم والأثاث المتكامل</title>
+  <meta name="description"
+    content="Kitchera - شركة متخصصة في تصميم وتصنيع المطابخ العصرية، غرف النوم الفاخرة، الدريسنج روم، والأثاث المتكامل بأعلى معايير الجودة والضمان.">
+  <meta name="keywords"
+    content="مطابخ, غرف نوم, دريسنج روم, أثاث متكامل, مطابخ مودرن, غرف نوم ماستر, دواليب ملابس, كيتشيرا, kitchera, kitchen design, dressing room, bedrooms, furniture">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <link rel="apple-touch-icon" href="images/logo.jpg">
+
+  <!-- ملف التنسيقات المخصص (Custom Stylesheet) -->
+  <link rel="stylesheet" href="style.css">
 
   <!-- وسوم أمان الموقع -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://www.gstatic.com https://www.instagram.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: blob: https://*.instagram.com https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' data: blob: https://*.firebaseio.com https://*.googleapis.com https://*.firebase.google.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.instagram.com https://graph.instagram.com; frame-src https://www.instagram.com https://*.instagram.com; base-uri 'self'; form-action 'self' https://wa.me https://www.instagram.com; object-src 'none'; media-src 'self' blob: data: *;">
-
-  <!-- تلميح أمان لمنع فتح الموقع داخل iframe من مواقع أخرى -->
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://www.gstatic.com https://www.instagram.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: blob: https://*.instagram.com https://*.cdninstagram.com https://*.fbcdn.net; connect-src 'self' data: blob: https://*.firebaseio.com https://*.googleapis.com https://*.firebase.google.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.instagram.com https://graph.instagram.com; frame-src https://www.instagram.com https://*.instagram.com; base-uri 'self'; form-action 'self' https://wa.me https://www.instagram.com; object-src 'none'; media-src 'self' blob: data: *;">
 
   <!-- خط Cairo / Tajawal من Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Firebase (Compat) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
   <script>
     tailwind.config = {
@@ -73,66 +73,95 @@
   </script>
 
   <style>
-    html, body { overflow-x: hidden; scroll-behavior: smooth; }
-    .video-frame { aspect-ratio: 16/9; }
-    .scrollbar-hide::-webkit-scrollbar { display: none; }
-    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    html,
+    body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .video-frame {
+      aspect-ratio: 16/9;
+    }
+
+    .shorts-card {
+      aspect-ratio: 9 / 16;
+    }
+
+    .shorts-track {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .shorts-item {
+      scroll-snap-align: center;
+    }
+
+    .gold-glow {
+      text-shadow: 0 0 25px rgba(212, 182, 122, 0.45);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
+
 <body class="bg-cream-50 font-cairo text-gray-800 antialiased">
 
   <!-- ════════════════════════════════════════════
        الهيدر (Sticky Glass Navbar)
        ════════════════════════════════════════════ -->
-  <header class="sticky top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-cream-200">
+  <header class="sticky top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-cream-200">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
       <!-- الشعار -->
       <a href="#home" class="flex items-center gap-3 shrink-0">
-        <img src="images/logo.jpg" alt="Kitchèra Logo" loading="lazy" class="h-10 w-auto object-contain rounded-lg">
-        <span class="text-2xl font-extrabold text-olive-700 tracking-wide">Kitchèra</span>
+        <img src="images/logo.jpg" alt="Kitchèra Logo" loading="lazy"
+          class="h-11 w-auto object-contain rounded-xl shadow-sm">
+        <span class="text-2xl font-black text-olive-800 tracking-wide">Kitchèra</span>
       </a>
 
       <!-- روابط التنقل -->
-      <ul class="hidden lg:flex items-center gap-6 xl:gap-8 text-[15px] font-semibold text-olive-700">
+      <ul class="hidden lg:flex items-center gap-7 xl:gap-9 text-[15px] font-bold text-olive-800">
         <li><a href="#home" class="hover:text-gold-600 transition-colors">الرئيسية</a></li>
         <li><a href="#services" class="hover:text-gold-600 transition-colors">خدماتنا</a></li>
         <li><a href="#portfolio" class="hover:text-gold-600 transition-colors">معرض الأعمال</a></li>
-        <li><a href="#videos" class="hover:text-gold-600 transition-colors">أعمالنا</a></li>
-        <li><a href="#reviews" class="hover:text-gold-600 transition-colors">آراء عملاؤنا</a></li>
+        <li><a href="#videos" class="hover:text-gold-600 transition-colors">فيديوهات مشاريعنا</a></li>
+        <li><a href="#reviews" class="hover:text-gold-600 transition-colors">آراء عملائنا</a></li>
       </ul>
 
-      <!-- CTA موحّد + تسجيل الدخول -->
+      <!-- CTA موحّد -->
       <div class="flex items-center gap-3">
-        <button id="loginBtn" onclick="openAuthModal()" class="hidden sm:inline-flex items-center gap-2 text-olive-700 hover:text-gold-600 font-bold transition-colors text-sm" aria-label="تسجيل الدخول">
-          <i class="fas fa-user"></i>
-        </button>
-        <div id="userMenu" class="hidden items-center gap-2">
-          <button onclick="openDashboard()" class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-3 lg:px-4 py-2.5 rounded-xl transition-all text-sm">
-            <i class="fas fa-user-circle"></i> <span id="userName" class="max-w-[100px] truncate">حسابي</span>
-          </button>
-          <button onclick="logout()" class="text-olive-700 hover:text-red-600 text-lg" title="تسجيل الخروج">
-            <i class="fas fa-sign-out-alt"></i>
-          </button>
-        </div>
-<a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-5 lg:px-6 py-3 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5 text-sm lg:text-base">
+        <a href="#contact"
+          class="hidden sm:inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-olive-950 font-black px-6 py-3 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5 text-sm lg:text-base">
           <i class="fas fa-calendar-check"></i> احجز معاينتك
         </a>
-        <button id="menuBtn" class="lg:hidden text-olive-700 text-2xl p-2" aria-label="القائمة">
+        <button id="menuBtn" class="lg:hidden text-olive-800 text-2xl p-2" aria-label="القائمة">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
 
     <!-- قائمة الجوال -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-t border-cream-200 px-4 py-4">
-      <ul class="flex flex-col gap-1 text-[15px] font-semibold text-olive-700">
+    <div id="mobileMenu"
+      class="hidden lg:hidden bg-white/98 backdrop-blur-md border-t border-cream-200 px-5 py-4 shadow-xl">
+      <ul class="flex flex-col gap-1.5 text-[15px] font-bold text-olive-800">
         <li><a href="#home" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">الرئيسية</a></li>
         <li><a href="#services" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">خدماتنا</a></li>
-        <li><a href="#portfolio" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">معرض الأعمال</a></li>
-        <li><a href="#videos" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">أعمالنا</a></li>
-        <li><a href="#reviews" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">آراء عملاؤنا</a></li>
+        <li><a href="#portfolio" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">معرض الأعمال
+            الفاخرة</a></li>
+        <li><a href="#videos" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">فيديوهات مشاريعنا
+            الواقعية</a></li>
+        <li><a href="#reviews" class="mobile-link block py-2.5 hover:text-gold-600 transition-colors">آراء عملائنا</a>
+        </li>
         <li class="pt-2 border-t border-cream-200 mt-2">
-<a href="#contact" class="mobile-link flex items-center justify-center gap-2 bg-gold-500 text-white text-center rounded-xl px-4 py-3">
+          <a href="#contact"
+            class="mobile-link flex items-center justify-center gap-2 bg-gold-500 text-olive-950 font-black text-center rounded-xl px-4 py-3 shadow-md">
             <i class="fas fa-calendar-check"></i> احجز معاينتك
           </a>
         </li>
@@ -148,39 +177,58 @@
       <div class="grid lg:grid-cols-2 gap-12 items-center mb-6">
         <!-- النصوص -->
         <div class="animate-fadeUp">
-          <span class="inline-flex items-center gap-2 bg-gold-300/30 text-gold-600 text-sm font-bold px-4 py-2 rounded-full mb-6">
+          <span
+            class="inline-flex items-center gap-2 bg-gold-300/30 text-gold-600 text-sm font-bold px-4 py-2 rounded-full mb-6">
             <i class="fas fa-gem"></i> إبداع يفوق التوقعات
           </span>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-olive-800 leading-tight mb-6">
-            Kitchèra: <span class="text-gold-500">إبداع يفوق التوقعات</span> في التصميم الداخلي
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-olive-950 leading-tight mb-6">
+            Kitchèra: <span class="text-gold-600">إبداع يفوق التوقعات</span> في صناعة وتصميم الأثاث
           </h1>
-          <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
-            نوفر لك تصاميم عصرية وتشطيبات فاخرة للمنازل والمطابخ، تجمع بين الجمال والوظيفة،
-            لنحوّل مساحتك إلى تحفة فنية تعكس ذوقك الرفيع.
+          <p class="text-lg text-stone-800 font-semibold leading-relaxed mb-8 max-w-xl">
+            متخصصون في تصميم وتصنيع المطابخ العصرية، غرف النوم الماستر، الدريسنج روم، والأثاث المتكامل الفاخر،
+            لنحوّل مساحتك إلى تحفة فنية تجمع بين الجمال والوظيفة بأعلى معايير الجودة العالمية.
           </p>
           <div class="flex flex-wrap gap-4">
-<a href="#contact" class="inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5">
+            <a href="#contact"
+              class="inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-card hover:-translate-y-0.5">
               احجز معاينتك <i class="fas fa-arrow-left text-sm"></i>
             </a>
-            <a href="#portfolio" class="inline-flex items-center gap-2 bg-transparent border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-bold px-8 py-4 rounded-xl transition-all">
+            <a href="#portfolio"
+              class="inline-flex items-center gap-2 bg-transparent border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-bold px-8 py-4 rounded-xl transition-all">
               <i class="fas fa-compass"></i> اكتشف أعمالنا
             </a>
           </div>
         </div>
 
-        <!-- شبكة الصور -->
+        <!-- شبكة الصور مع خلفية back.png الموحدة -->
         <div class="relative animate-fadeUp" style="animation-delay:0.15s">
-          <div class="absolute -inset-4 bg-gradient-to-tr from-gold-300/40 to-olive-400/30 rounded-[2rem] blur-xl"></div>
-          <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="sm:col-span-2 group rounded-2xl overflow-hidden shadow-md border-4 border-white">
-              <img src="images/مطبخ عصري/24.jpg.jpeg" alt="MODERN KITCHENS with Kitchera" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
-            </div>
-            <div class="group rounded-2xl overflow-hidden shadow-md border-2 border-white">
-              <img src="images/اثاث متكامل فاخر/2.jpg.jpeg" alt="أثاث متكامل" class="w-full h-44 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async">
-            </div>
-            <div class="group relative rounded-2xl overflow-hidden shadow-md border-2 border-white">
-              <img src="images/جناح نوم فاخر/1.jpg.jpeg" alt="جناح نوم فاخر" class="w-full h-44 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async">
-              <span class="absolute top-3 right-3 bg-gradient-to-l from-gold-400 to-gold-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow">+25 مشروع</span>
+          <div class="absolute -inset-4 bg-gradient-to-tr from-gold-300/40 to-olive-400/30 rounded-[2.5rem] blur-xl">
+          </div>
+          <div
+            class="relative rounded-3xl p-4 sm:p-6 shadow-cinematic border-2 border-gold-400/30 overflow-hidden bg-cover bg-center bg-no-repeat"
+            style="background-image: url('images/hero/back.png');">
+            <!-- طبقة تظليل خفيفة لإبراز الصور والتناسق -->
+            <div class="absolute inset-0 bg-black/25 backdrop-blur-[1px]"></div>
+
+            <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div
+                class="sm:col-span-2 group rounded-2xl overflow-hidden shadow-lg border border-white/40 bg-black/30 backdrop-blur-sm">
+                <img src="images/hero/back.png" alt="أهمية مثلث الحركة في المطبخ - Kitchèra"
+                  class="w-full h-56 sm:h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy" decoding="async">
+              </div>
+              <div
+                class="group rounded-2xl overflow-hidden shadow-lg border border-white/40 bg-black/30 backdrop-blur-sm">
+                <img src="images/hero/hero2.jpg" alt="تصاميم وتشطيبات Kitchèra"
+                  class="w-full h-40 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy" decoding="async">
+              </div>
+              <div
+                class="group rounded-2xl overflow-hidden shadow-lg border border-white/40 bg-black/30 backdrop-blur-sm">
+                <img src="images/hero/hero3.jpg" alt="مساحات تخزين بتفرق في مطبخك - Kitchèra"
+                  class="w-full h-40 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy" decoding="async">
+              </div>
             </div>
           </div>
         </div>
@@ -189,135 +237,229 @@
   </section>
 
   <!-- ════════════════════════════════════════════
-       معرض الأعمال (Accordion Gallery)
+       معرض الأعمال (Gallery Section - 9:16 Cards)
        ════════════════════════════════════════════ -->
-  <section id="portfolio" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+  <section id="portfolio" class="relative py-24 overflow-hidden bg-cream-50/90 border-y border-cream-200">
+    <!-- تأثيرات ضوئية وخلفية سينمائية ناعمة متناسقة -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-olive-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       <div class="text-center mb-12">
-        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">معرض الأعمال</span>
-        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">أحدث تصاميمنا</h2>
-<p class="text-lg text-gray-600 max-w-xl mx-auto">اضغط على أي فئة لعرض صور أعمالنا المميزة</p>
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/15 border border-gold-500/30 text-gold-600 font-bold text-xs sm:text-sm tracking-widest uppercase mb-3">
+          <i class="fas fa-gem"></i> معرض الأعمال الفاخرة
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-olive-900 mt-1 mb-4">أحدث تصاميمنا المنفذة</h2>
+        <p class="text-base sm:text-lg text-stone-800 max-w-2xl mx-auto font-bold leading-relaxed">
+          تفضل بزيارة أي من فروعنا لمناقشة التصميم وتعديله حسب رغبتك قبل البدء في التنفيذ.
+        </p>
+
+        <!-- أزرار الفلترة الفاخرة للتخصصات الأربعة -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+          <button onclick="filterGallery('مطابخ عصرية')" id="gfilter-kitchen"
+            class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-gold-500 text-olive-950 shadow-md transition-all">
+            <i class="fas fa-kitchen-set ml-1"></i> مطابخ عصرية <span
+              class="text-xs bg-olive-950/20 px-2 py-0.5 rounded-md mr-1">40</span>
+          </button>
+          <button onclick="filterGallery('غرف نوم فاخرة')" id="gfilter-bedroom"
+            class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cream-100 hover:bg-gold-500/20 text-olive-900 border border-cream-200 transition-all">
+            <i class="fas fa-bed ml-1"></i> غرف نوم فاخرة <span
+              class="text-xs bg-olive-950/10 px-2 py-0.5 rounded-md mr-1">12</span>
+          </button>
+          <button onclick="filterGallery('دريسنج روم')" id="gfilter-dressing"
+            class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cream-100 hover:bg-gold-500/20 text-olive-900 border border-cream-200 transition-all">
+            <i class="fas fa-vest ml-1"></i> دريسنج روم <span
+              class="text-xs bg-olive-950/10 px-2 py-0.5 rounded-md mr-1">8</span>
+          </button>
+          <button onclick="filterGallery('أثاث متكامل فاخر')" id="gfilter-furniture"
+            class="gallery-filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-cream-100 hover:bg-gold-500/20 text-olive-900 border border-cream-200 transition-all">
+            <i class="fas fa-couch ml-1"></i> أثاث متكامل فاخر <span
+              class="text-xs bg-olive-950/10 px-2 py-0.5 rounded-md mr-1">14</span>
+          </button>
+        </div>
       </div>
 
-      <!-- الكروت الثلاثة -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <button onclick="toggleGallery('kitchen')" class="group text-right rounded-2xl overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200">
-<div class="overflow-hidden h-52">
-            <img src="images/مطبخ عصري/24.jpg.jpeg" alt="مطبخ عصري" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          </div>
-          <div class="p-5 bg-white flex items-center justify-between">
-            <div>
-              <h4 class="text-xl font-bold text-olive-800">مطبخ عصري</h4>
-<p class="text-base text-gray-600 mt-1">تصاميم مطابخ حديثة</p>
-            </div>
-            <i class="fas fa-chevron-down text-gold-600 text-xl transition-transform" id="icon-kitchen"></i>
-          </div>
+      <!-- حاوية الكروت العمودية (Vertical Cards 9:16) -->
+      <div class="relative group/carousel">
+        <!-- أزرار التمرير السريع -->
+        <button onclick="scrollGallery(-1)"
+          class="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-olive-800/90 hover:bg-gold-500 text-white hover:text-olive-950 items-center justify-center text-lg border border-gold-400/40 shadow-cinematic backdrop-blur-md transition-all hover:scale-110"
+          aria-label="السابق">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button onclick="scrollGallery(1)"
+          class="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-olive-800/90 hover:bg-gold-500 text-white hover:text-olive-950 items-center justify-center text-lg border border-gold-400/40 shadow-cinematic backdrop-blur-md transition-all hover:scale-110"
+          aria-label="التالي">
+          <i class="fas fa-chevron-left"></i>
         </button>
 
-        <button onclick="toggleGallery('bedroom')" class="group text-right rounded-2xl overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200">
-<div class="overflow-hidden h-52">
-            <img src="images/جناح نوم فاخر/1.jpg.jpeg" alt="جناح نوم فاخر" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          </div>
-          <div class="p-5 bg-white flex items-center justify-between">
-            <div>
-              <h4 class="text-xl font-bold text-olive-800">جناح نوم فاخر</h4>
-<p class="text-base text-gray-600 mt-1">غرف نوم ودريسنج روم</p>
-            </div>
-            <i class="fas fa-chevron-down text-gold-600 text-xl transition-transform" id="icon-bedroom"></i>
-          </div>
-        </button>
-
-        <button onclick="toggleGallery('furniture')" class="group text-right rounded-2xl overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200">
-<div class="overflow-hidden h-52">
-            <img src="images/اثاث متكامل فاخر/2.jpg.jpeg" alt="أثاث متكامل فاخر" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          </div>
-          <div class="p-5 bg-white flex items-center justify-between">
-            <div>
-              <h4 class="text-xl font-bold text-olive-800">أثاث متكامل فاخر</h4>
-<p class="text-base text-gray-600 mt-1">صالونات وركنات وسفرة</p>
-            </div>
-            <i class="fas fa-chevron-down text-gold-600 text-xl transition-transform" id="icon-furniture"></i>
-          </div>
-        </button>
+        <div id="galleryTrack"
+          class="shorts-track flex items-stretch gap-5 overflow-x-auto scrollbar-hide py-4 px-2 select-none">
+          <!-- البطاقات تتولد ديناميكياً عبر JavaScript -->
+        </div>
       </div>
 
-      <!-- المعارض المنسدلة -->
-      <div id="galleryContainer" class="mt-8"></div>
-
-      <!-- زر المزيد -->
+      <!-- زر المزيد على إنستغرام -->
       <div class="mt-12 text-center">
         <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center justify-center gap-3 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white font-extrabold px-8 py-4 rounded-xl shadow-card hover:shadow-lg hover:scale-[1.03] transition-all">
-          <i class="fab fa-instagram text-2xl"></i> شاهد المزيد على إنستغرام
+          class="inline-flex items-center justify-center gap-3 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white font-black px-8 py-4 rounded-2xl shadow-card hover:shadow-lg hover:scale-[1.03] transition-all text-base">
+          <i class="fab fa-instagram text-2xl"></i> شاهد المزيد من الأعمال الحصرية على إنستغرام
         </a>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       مشغل الفيديو الموحد (Unified Luxury Video Player)
+       قسم الفيديوهات (Videos & Client Reviews Section)
        ════════════════════════════════════════════ -->
-  <section id="videos" class="py-20 bg-gradient-to-b from-olive-800 to-olive-700">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-12">
-        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase">أعمالنا بالفيديو</span>
-        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">مطبخ عصري</h2>
-        <p class="mt-3 text-lg text-cream-100/80 max-w-2xl mx-auto">شاهد أحدث تصميماتنا للمطابخ العصرية بأعلى درجات الفخامة</p>
+  <section id="videos" class="relative py-24 overflow-hidden bg-cream-100/80">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- ═══ قسم العنوان عالي التباين ═══ -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <!-- شارة القسم -->
+        <div
+          class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gold-500/15 border border-gold-500/40 text-olive-950 text-sm font-black mb-5 shadow-sm backdrop-blur-md">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+          <i class="fas fa-video text-gold-600"></i>
+          <span>لقطات حية وموثقة من مواقع التنفيذ</span>
+        </div>
+
+        <!-- العنوان الرئيسي الداكن عالي الوضوح -->
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-olive-950 tracking-tight leading-tight mb-5">
+          فيديوهات مشاريعنا <span class="text-gold-600">وآراء العملاء</span>
+        </h2>
+
+        <!-- الوصف الواضح والداكن -->
+        <p class="text-base sm:text-lg text-stone-800 leading-relaxed max-w-2xl mx-auto font-bold">
+          شاهد لقطات وفيديوهات واقعية من مواقع مشاريعنا المنفذة، وتجارب وآراء عملائنا الكرام أثناء وبعد تسليم الأعمال
+          بأعلى مقاييس الجودة والإتقان.
+        </p>
       </div>
 
-      <!-- المشغل المركزي -->
-      <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-4 md:p-6 border border-gold-400/30 shadow-cinematic">
-        <!-- عنوان الفيديو الحالي -->
-        <div class="flex items-center gap-3 mb-4">
-          <span class="w-11 h-11 shrink-0 rounded-full bg-gold-500 text-white flex items-center justify-center text-xl"><i class="fas fa-play"></i></span>
-          <div>
-            <h3 id="videoTitle" class="text-white font-black text-lg md:text-2xl leading-tight">تصميم مطبخ عصري</h3>
-<p class="text-cream-100/70 text-sm md:text-base">المشغل السينمائي — التشغيل التلقائي متاح</p>
+      <!-- المشغل المركزي الفاخر -->
+      <div class="bg-white rounded-3xl p-5 md:p-8 border-2 border-cream-200 shadow-cinematic">
+        <!-- عنوان وفئة الفيديو الحالي -->
+        <div class="flex items-center gap-3.5 mb-5 pb-4 border-b border-cream-200">
+          <span
+            class="w-12 h-12 shrink-0 rounded-2xl bg-gold-500 text-olive-950 flex items-center justify-center text-xl font-black shadow-md">
+            <i class="fas fa-play"></i>
+          </span>
+          <div class="text-right flex-1 min-w-0">
+            <h3 id="videoTitle" class="text-olive-950 font-black text-xl md:text-2xl leading-tight truncate">
+              جولة تنفيذ مطبخ عصري فاخر
+            </h3>
+            <p id="videoSubtitle" class="text-stone-700 text-sm md:text-base font-bold mt-0.5">
+              المشغل السينمائي — Kitchèra High Definition
+            </p>
           </div>
         </div>
 
-<!-- عنصر الفيديو -->
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-<video id="mainVideo" class="video-frame w-full object-contain" controls
-poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
+        <!-- عنصر الفيديو مع خلفية وتأثيرات بصرية سينمائية -->
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black border-2 border-gold-400/40 group">
+          <!-- خلفية صورة سينمائية مع تأثيرات التغبيش والظلال -->
+          <div
+            class="absolute inset-0 bg-cover bg-center pointer-events-none filter blur-sm scale-105 opacity-30 transition-all duration-700"
+            style="background-image: url('images/مطبخ عصري/1.jpg');">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/60 pointer-events-none">
+          </div>
+
+          <video id="mainVideo" class="video-frame w-full object-contain relative z-10" poster="images/مطبخ عصري/1.jpg"
+            controls playsinline preload="metadata">
             متصفحك لا يدعم تشغيل الفيديو.
           </video>
+
           <!-- مؤشر التحميل -->
-          <div id="videoLoader" class="hidden absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-10">
+          <div id="videoLoader"
+            class="hidden absolute inset-0 flex items-center justify-center bg-black/75 backdrop-blur-sm z-20">
             <div class="flex flex-col items-center gap-3">
               <div class="w-12 h-12 border-4 border-gold-400 border-t-transparent rounded-full animate-spin"></div>
               <span id="loaderText" class="text-white text-sm font-bold">جاري تحميل الفيديو...</span>
             </div>
           </div>
-          <!-- شارة عزز -->
-          <div class="absolute top-3 right-3 flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gold-400/40 z-20">
-            <i class="fas fa-video text-gold-400"></i> Kitchèra Showreel
+          <!-- شارة المشغل -->
+          <div
+            class="absolute top-3 right-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3.5 py-1.5 rounded-full border border-gold-400/40 z-20">
+            <i class="fas fa-circle text-red-500 animate-pulse text-[10px]"></i> Kitchèra Showreel
           </div>
         </div>
 
-<!-- أزرار التحكم -->
-        <div class="flex items-center justify-center gap-4 mt-5">
-          <button onclick="nextVideo(-1)" id="prevBtn" class="w-12 h-12 rounded-full bg-white/10 hover:bg-gold-500 text-white flex items-center justify-center text-lg shadow-lg transition-all" aria-label="الفيديو السابق">
+        <!-- شريط أزرار التحكم المتكامل -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6">
+          <button onclick="rewindVideo(10)"
+            class="flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 bg-cream-100 hover:bg-gold-500 text-olive-950 rounded-xl border border-cream-200 transition-all text-xs sm:text-sm font-bold shadow-sm hover:scale-105"
+            title="تأخير 10 ثوانٍ">
+            <i class="fas fa-rotate-left"></i>
+            <span>10ث-</span>
+          </button>
+
+          <button onclick="nextVideo(-1)" id="prevBtn"
+            class="w-12 h-12 rounded-full bg-olive-800 hover:bg-gold-500 text-white hover:text-olive-950 flex items-center justify-center text-lg shadow-md transition-all hover:scale-105"
+            aria-label="الفيديو السابق" title="الفيديو السابق">
             <i class="fas fa-chevron-right"></i>
           </button>
-          <button onclick="togglePlay()" id="playPauseBtn" class="w-14 h-14 rounded-full bg-gold-500 hover:bg-gold-600 text-white flex items-center justify-center text-xl shadow-lg transition-transform hover:scale-105" aria-label="تشغيل/إيقاف">
-            <i class="fas fa-pause" id="playPauseIcon"></i>
+
+          <button onclick="togglePlay()" id="playPauseBtn"
+            class="w-14 h-14 rounded-full bg-gold-500 hover:bg-gold-600 text-olive-950 flex items-center justify-center text-xl shadow-lg transition-transform hover:scale-110 font-black"
+            aria-label="تشغيل/إيقاف" title="تشغيل/إيقاف">
+            <i class="fas fa-play" id="playPauseIcon"></i>
           </button>
-          <button onclick="nextVideo(1)" id="nextBtn" class="w-12 h-12 rounded-full bg-white/10 hover:bg-gold-500 text-white flex items-center justify-center text-lg shadow-lg transition-all" aria-label="الفيديو التالي">
+
+          <button onclick="nextVideo(1)" id="nextBtn"
+            class="w-12 h-12 rounded-full bg-olive-800 hover:bg-gold-500 text-white hover:text-olive-950 flex items-center justify-center text-lg shadow-md transition-all hover:scale-105"
+            aria-label="الفيديو التالي" title="الفيديو التالي">
             <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <button onclick="forwardVideo(10)"
+            class="flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 bg-cream-100 hover:bg-gold-500 text-olive-950 rounded-xl border border-cream-200 transition-all text-xs sm:text-sm font-bold shadow-sm hover:scale-105"
+            title="تقديم 10 ثوانٍ">
+            <span>+10ث</span>
+            <i class="fas fa-rotate-right"></i>
           </button>
         </div>
 
+        <!-- رأس قائمة التشغيل -->
+        <div class="mt-8 flex items-center justify-between px-1 mb-3">
+          <h4 class="text-base sm:text-lg font-black text-olive-950 flex items-center gap-2">
+            <i class="fas fa-list-check text-gold-600"></i> قائمة الفيديوهات (<span id="videoCount">0</span> فيديو)
+          </h4>
+          <span class="text-xs text-stone-700 font-bold">اضغط على أي فيديو للتشغيل الفوري</span>
+        </div>
+
         <!-- قائمة التشغيل -->
-        <div id="playlist" class="mt-5 flex items-center gap-3 overflow-x-auto scrollbar-hide px-1 pb-1"></div>
+        <div id="playlist" class="flex items-center gap-3 overflow-x-auto scrollbar-hide px-1 pb-3 select-none"></div>
       </div>
 
-      <!-- زر متابعة إنستغرام -->
-      <div class="mt-12 text-center">
-        <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white font-extrabold text-lg rounded-full shadow-lg hover:opacity-95 hover:-translate-y-0.5 transition-all">
-          <i class="fab fa-instagram text-2xl"></i> متابعة حساب Kitchèra على إنستغرام
-        </a>
+      <!-- شريط سفلي لدعوة التواصل والمتابعة -->
+      <div
+        class="mt-12 p-6 sm:p-8 rounded-3xl bg-white border-2 border-cream-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-card">
+        <div class="flex items-center gap-4 text-center md:text-right">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gold-500 text-olive-950 flex items-center justify-center text-2xl font-black shrink-0 shadow-md">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <div>
+            <h4 class="text-lg sm:text-xl font-black text-olive-950">هل ترغب في تصميم وتنفيذ مشروعك الخاص بأعلى معايير
+              الجودة؟
+            </h4>
+            <p class="text-sm text-stone-800 mt-1 font-bold">نوفر لك معاينة هندسية مجانية ورسومات ثلاثية الأبعاد
+              3D قبل البدء في التنفيذ.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <a href="#contact"
+            class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-olive-950 font-black px-6 py-3.5 rounded-xl transition-all shadow-md hover:scale-105 text-sm sm:text-base">
+            <i class="fas fa-calendar-check"></i> احجز معاينتك الآن
+          </a>
+          <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-black px-5 py-3.5 rounded-xl shadow-md transition-all text-sm">
+            <i class="fab fa-whatsapp text-lg"></i> استفسار فوري
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -329,104 +471,199 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
         <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">خدماتنا</span>
-        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">لماذا تختار Kitchèra؟</h2>
-<p class="text-lg text-gray-600 max-w-xl mx-auto">نقدم حلولاً متكاملة تجمع بين الإبداع والجودة العالية</p>
+        <h2 class="text-3xl md:text-4xl font-black text-olive-950 mt-2 mb-4">لماذا تختار Kitchèra؟</h2>
+        <p class="text-lg text-stone-800 font-bold max-w-xl mx-auto">نقدم حلولاً متكاملة تجمع بين الإبداع والجودة
+          العالية</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200 text-center">
-          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6 transition-transform duration-300 group-hover:scale-110"><i class="fas fa-pen-ruler"></i></span>
-          <h3 class="text-xl font-bold text-olive-800 mb-3">تصميم مخصص</h3>
-          <p class="text-gray-500 leading-relaxed">نصمم كل مساحة حسب ذوقك واحتياجاتك، مع رسومات ثلاثية الأبعاد قبل التنفيذ.</p>
+        <div
+          class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border-2 border-cream-200 text-center">
+          <span
+            class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6 transition-transform duration-300 group-hover:scale-110"><i
+              class="fas fa-pen-ruler"></i></span>
+          <h3 class="text-xl font-black text-olive-950 mb-3">تصميم 3D مخصص</h3>
+          <p class="text-stone-700 font-medium leading-relaxed">نصمم كل مطبخ، غرفة نوم، دريسنج روم أو أثاث حسب مساحتك
+            واحتياجاتك برسم ثلاثي الأبعاد واقعي قبل البدء في التصنيع.</p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200 text-center">
-          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6"><i class="fas fa-helmet-safety"></i></span>
-          <h3 class="text-xl font-bold text-olive-800 mb-3">تنفيذ متكامل</h3>
-          <p class="text-gray-500 leading-relaxed">من المخطط حتى التسليم النهائي، فريقنا يدير المشروع بأكمله بإتقان تام.</p>
+        <div
+          class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border-2 border-cream-200 text-center">
+          <span
+            class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6"><i
+              class="fas fa-industry"></i></span>
+          <h3 class="text-xl font-black text-olive-950 mb-3">تصنيع دقيق بمصانعنا</h3>
+          <p class="text-stone-700 font-medium leading-relaxed">خطوط إنتاج متطورة وماكينات قص رقمي CNC تضمن أعلى دقة في
+            التجميع والتشطيب الفندقي.
+          </p>
         </div>
-        <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border border-cream-200 text-center">
-          <span class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6"><i class="fas fa-gem"></i></span>
-          <h3 class="text-xl font-bold text-olive-800 mb-3">مواد فاخرة</h3>
-          <p class="text-gray-500 leading-relaxed">نستخدم أجود أنواع الخامات والتشطيبات مع ضمان شامل على جميع الأعمال.</p>
+        <div
+          class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 border-2 border-cream-200 text-center">
+          <span
+            class="w-16 h-16 mx-auto rounded-2xl bg-gold-300/30 text-gold-600 flex items-center justify-center text-3xl mb-6"><i
+              class="fas fa-gem"></i></span>
+          <h3 class="text-xl font-black text-olive-950 mb-3">خامات أوروبية وضمان 10 سنوات</h3>
+          <p class="text-stone-700 font-medium leading-relaxed">نستخدم أجود خامات البولي لاك، HPL، الأخشاب الطبيعية،
+            ومفصلات بلوم النمساوية مع ضمان شامل.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       قسم الإحصائيات
+       قسم الإحصائيات (Scroll-Driven Interactive Background)
        ════════════════════════════════════════════ -->
-  <section class="py-20 bg-olive-700">
+  <section id="stats" class="relative py-24 overflow-hidden">
+    <!-- خلفية تفاعلية بـ Parallax Scrolling عمقي وسلس باستخدام صورة back.png -->
+    <div id="statsParallaxBg"
+      class="absolute -inset-24 bg-cover bg-center pointer-events-none transition-transform duration-100 ease-out will-change-transform scale-125"
+      style="background-image: url('images/hero/back.png');">
+    </div>
+    <!-- طبقة تظليل سينمائية للحفاظ على تباين وأناقة الأرقام والنصوص -->
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-olive-950/85 via-olive-900/80 to-olive-950/90 backdrop-blur-[2px] pointer-events-none">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14 animate-fadeUp">
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/15 border border-gold-400/30 text-gold-400 font-bold text-xs sm:text-sm tracking-widest uppercase mb-3 backdrop-blur-sm">
+          <i class="fas fa-chart-line"></i> إنجازاتنا
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mt-1 mb-4">
+          أرقام تتحدث عن <span
+            class="bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 bg-clip-text text-transparent">ثقة
+            عملائنا</span>
+        </h2>
+        <p class="text-cream-100/80 text-sm sm:text-base max-w-xl mx-auto">مسيرة حافلة بالإبداع والإتقان في تصميم وتصنيع
+          أفخم المطابخ وغرف النوم والدريسنج روم والأثاث في مصر</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+        <div class="text-center group">
+          <div
+            class="w-44 h-44 mx-auto rounded-full border-4 border-gold-400/80 flex flex-col items-center justify-center bg-olive-900/80 backdrop-blur-md shadow-cinematic group-hover:scale-105 group-hover:border-gold-300 transition-all duration-500">
+            <span class="text-4xl sm:text-5xl font-black text-gold-400 drop-shadow-sm">+2500</span>
+          </div>
+          <p class="text-white font-black text-xl mt-5 group-hover:text-gold-300 transition-colors">مشروع ناجح</p>
+          <p class="text-cream-100/70 text-xs sm:text-sm mt-1">تم تسليمه بأعلى مقاييس الجودة</p>
+        </div>
+        <div class="text-center group">
+          <div
+            class="w-44 h-44 mx-auto rounded-full border-4 border-gold-400/80 flex flex-col items-center justify-center bg-olive-900/80 backdrop-blur-md shadow-cinematic group-hover:scale-105 group-hover:border-gold-300 transition-all duration-500">
+            <span class="text-4xl sm:text-5xl font-black text-gold-400 drop-shadow-sm">25</span>
+          </div>
+          <p class="text-white font-black text-xl mt-5 group-hover:text-gold-300 transition-colors">عاماً خبرة عريقة</p>
+          <p class="text-cream-100/70 text-xs sm:text-sm mt-1">في صناعة الأثاث والتشطيبات</p>
+        </div>
+        <div class="text-center group">
+          <div
+            class="w-44 h-44 mx-auto rounded-full border-4 border-gold-400/80 flex flex-col items-center justify-center bg-olive-900/80 backdrop-blur-md shadow-cinematic group-hover:scale-105 group-hover:border-gold-300 transition-all duration-500">
+            <span class="text-4xl sm:text-5xl font-black text-gold-400 drop-shadow-sm">98%</span>
+          </div>
+          <p class="text-white font-black text-xl mt-5 group-hover:text-gold-300 transition-colors">رضا العملاء</p>
+          <p class="text-cream-100/70 text-xs sm:text-sm mt-1">تقييمات ممتازة وخدمة ما بعد البيع</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       قسم آراء عملائنا (Reviews - Direct Submission)
+       ════════════════════════════════════════════ -->
+  <section id="reviews" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-14">
-        <span class="text-gold-400 font-bold text-sm tracking-widest uppercase">إنجازاتنا</span>
-        <h2 class="text-3xl md:text-4xl font-black text-white mt-2 mb-4">أرقام تتحدث عنا</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card"><span class="text-4xl font-black text-gold-400">+2500</span></div>
-          <p class="text-white font-bold text-lg mt-5">مشروع ناجح</p>
-        </div>
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card"><span class="text-4xl font-black text-gold-400">25</span></div>
-          <p class="text-white font-bold text-lg mt-5">عاماً خبرة عريقة</p>
-        </div>
-        <div class="text-center">
-          <div class="w-40 h-40 mx-auto rounded-full border-4 border-gold-400 flex flex-col items-center justify-center bg-olive-800 shadow-card"><span class="text-4xl font-black text-gold-400">98%</span></div>
-          <p class="text-white font-bold text-lg mt-5">رضا العملاء</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       قسم آراء عملاؤنا (Reviews)
-       ════════════════════════════════════════════ -->
-  <section id="reviews" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <span class="text-gold-600 font-bold text-sm tracking-widest uppercase">آراء عملاؤنا</span>
-        <h2 class="text-3xl md:text-4xl font-black text-olive-800 mt-2 mb-4">ماذا قالوا عنا؟</h2>
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/15 border border-gold-500/30 text-gold-600 font-bold text-xs sm:text-sm tracking-widest uppercase mb-3">
+          <i class="fas fa-star text-gold-500"></i> آراء وتجارب العملاء
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-olive-900 mt-1 mb-4">ماذا قال عملاؤنا عن Kitchèra؟
+        </h2>
+        <p class="text-base sm:text-lg text-stone-700 max-w-xl mx-auto font-medium">نعتز بثقة عملائنا ونسعى دائماً
+          لتقديم تجربة تصميم وتصنيع استثنائية تفوق التوقعات.</p>
       </div>
 
-      <!-- نموذج التقييم (للسجلين الدخول فقط) -->
-      <div id="reviewFormContainer" class="max-w-2xl mx-auto mb-12 hidden">
-        <div class="bg-cream-50 rounded-3xl p-6 md:p-8 shadow-xl border border-cream-200">
-          <h3 class="text-2xl font-black text-olive-800 mb-4">قيم تجربتك معنا</h3>
-          <div class="flex items-center gap-2 mb-4" id="starRow">
-            <span class="ml-2 font-bold text-olive-800">تقييمك:</span>
-            <span class="star text-4xl cursor-pointer text-white drop-shadow-sm" style="-webkit-text-stroke:2px #f59e0b;" data-val="1">★</span>
-            <span class="star text-4xl cursor-pointer text-white drop-shadow-sm" style="-webkit-text-stroke:2px #f59e0b;" data-val="2">★</span>
-            <span class="star text-4xl cursor-pointer text-white drop-shadow-sm" style="-webkit-text-stroke:2px #f59e0b;" data-val="3">★</span>
-            <span class="star text-4xl cursor-pointer text-white drop-shadow-sm" style="-webkit-text-stroke:2px #f59e0b;" data-val="4">★</span>
-            <span class="star text-4xl cursor-pointer text-white drop-shadow-sm" style="-webkit-text-stroke:2px #f59e0b;" data-val="5">★</span>
-          </div>
-          <input type="hidden" id="ratingVal" value="0">
-          <textarea id="reviewText" rows="3" placeholder="اكتب تعليقك هنا..." class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-white text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all resize-none mb-4"></textarea>
-          <div class="flex flex-col sm:flex-row items-center gap-3">
-            <button type="button" onclick="submitReview()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-6 py-3 rounded-xl transition-all">
-              <i class="fas fa-paper-plane"></i> نشر التقييم
-            </button>
-            <div class="w-full sm:w-auto text-center">
-              <button type="button" onclick="document.getElementById('invoiceInput').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-6 py-3 rounded-xl transition-all">
-                <i class="fas fa-upload"></i> ارفع الفاتورة
-              </button>
-              <input type="file" id="invoiceInput" accept="image/*,.pdf" class="hidden" onchange="handleInvoiceUpload(this)">
-              <span class="text-xs text-stone-600 mt-1 font-medium text-center block">(ارفع فاتورتك لتحصل على جائزتك)</span>
+      <!-- نموذج التقييم المباشر البسيط لجميع الزوار -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="bg-cream-50 rounded-3xl p-6 sm:p-9 shadow-card border-2 border-cream-200">
+          <div class="flex items-center gap-3 mb-6">
+            <span
+              class="w-12 h-12 rounded-2xl bg-gold-500 text-olive-950 flex items-center justify-center text-2xl font-black shadow-sm">
+              <i class="fas fa-pen-fancy"></i>
+            </span>
+            <div>
+              <h3 class="text-2xl font-black text-olive-900 leading-tight">شاركنا رأيك وتجربتك</h3>
+              <p class="text-xs sm:text-sm text-stone-600 font-medium">تقييمك يُنشر مباشرة على الموقع ويساعدنا على
+                التطور الدائم</p>
             </div>
           </div>
+
+          <form id="directReviewForm" onsubmit="handleDirectReviewSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-black text-olive-900 mb-2">اسمك الكريم *</label>
+                <input type="text" id="revAuthor" required placeholder="أدخل اسمك"
+                  class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-white text-stone-900 font-semibold focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+              </div>
+              <div>
+                <label class="block text-sm font-black text-olive-900 mb-2">نوع المشروع / الخدمة</label>
+                <input type="text" id="revService" placeholder="مثال: مطبخ عصري، غرفة نوم، دريسنج روم، أثاث متكامل..."
+                  class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-white text-stone-900 font-semibold focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+              </div>
+            </div>
+
+            <!-- صف اختيار النجوم -->
+            <div>
+              <label class="block text-sm font-black text-olive-900 mb-2">تقييمك العام *</label>
+              <div class="flex items-center gap-2 bg-white px-4 py-3 rounded-xl border-2 border-cream-200">
+                <span class="font-bold text-stone-700 text-sm ml-2">اختر عدد النجوم:</span>
+                <div class="flex items-center gap-1.5" id="starRow">
+                  <span
+                    class="star text-3xl sm:text-4xl cursor-pointer text-amber-400 drop-shadow-sm transition-transform hover:scale-115"
+                    data-val="1">★</span>
+                  <span
+                    class="star text-3xl sm:text-4xl cursor-pointer text-amber-400 drop-shadow-sm transition-transform hover:scale-115"
+                    data-val="2">★</span>
+                  <span
+                    class="star text-3xl sm:text-4xl cursor-pointer text-amber-400 drop-shadow-sm transition-transform hover:scale-115"
+                    data-val="3">★</span>
+                  <span
+                    class="star text-3xl sm:text-4xl cursor-pointer text-amber-400 drop-shadow-sm transition-transform hover:scale-115"
+                    data-val="4">★</span>
+                  <span
+                    class="star text-3xl sm:text-4xl cursor-pointer text-amber-400 drop-shadow-sm transition-transform hover:scale-115"
+                    data-val="5">★</span>
+                </div>
+                <input type="hidden" id="ratingVal" value="5">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-black text-olive-900 mb-2">رأيك بالتفصيل *</label>
+              <textarea id="revComment" rows="3" required
+                placeholder="صف لنا تجربتك مع فريق Kitchèra من حيث جودة الخامات والالتزام بالمواعيد..."
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-white text-stone-900 font-semibold focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all resize-none"></textarea>
+            </div>
+
+            <!-- رسالة النجاح الفورية -->
+            <div id="reviewSuccessMsg"
+              class="hidden p-4 rounded-xl bg-green-100 border border-green-300 text-green-800 text-sm font-bold text-center">
+              🎉 شكراً جزيلاً لتقييمك! تم نشر رأيك بنجاح على الموقع.
+            </div>
+
+            <div class="pt-2">
+              <button type="submit"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-olive-700 hover:bg-olive-800 text-white font-black px-8 py-3.5 rounded-xl shadow-md transition-all hover:scale-[1.02] text-base">
+                <i class="fas fa-paper-plane text-gold-400"></i> نشر تقييمي الآن
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
-      <!-- رسالة للمستخدمين غير المسجلين -->
-      <div id="loginPrompt" class="max-w-2xl mx-auto mb-12 text-center bg-cream-50 rounded-3xl p-8 shadow-soft border border-cream-200">
-        <p class="text-olive-700 font-bold mb-3">سجّل الدخول لتتمكن من تقييم تجربتك ورفع فاتورتك والحصول على جائزتك</p>
-        <button onclick="openAuthModal()" class="inline-flex items-center gap-2 bg-olive-600 hover:bg-olive-500 text-white font-bold px-6 py-3 rounded-xl transition-all">
-          <i class="fas fa-user"></i> تسجيل الدخول
-        </button>
+      <!-- عرض التقييمات في شبكة كروت متناسقة وواضحة -->
+      <div id="reviewsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- التقييمات تتولد ديناميكياً عبر JavaScript -->
       </div>
-
-      <!-- عرض التقييمات -->
-      <div id="reviewsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
   </section>
 
@@ -444,24 +681,49 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
         <div class="space-y-8">
           <div>
             <h3 class="text-2xl md:text-3xl font-black text-[#3B4E3F] leading-snug mb-4">لنبدأ مشروعك القادم</h3>
-            <p class="text-gray-600 leading-relaxed max-w-xl">سواء كنت تبحث عن تصميم مطبخ عصري، أو غرفة نوم أنيقة، أو أثاث متكامل، فريقنا جاهز لتحويل رؤيتك إلى واقع.</p>
+            <p class="text-gray-600 leading-relaxed max-w-xl">سواء كنت تبحث عن تصميم مطبخ عصري، أو غرفة نوم أنيقة، أو
+              أثاث متكامل، فريقنا جاهز لتحويل رؤيتك إلى واقع.</p>
           </div>
           <div class="space-y-4">
-            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
-              <span class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i class="fas fa-phone"></i></span>
-              <div><h4 class="font-bold text-olive-800 mb-1">الهاتف</h4><p class="text-gray-600" dir="ltr">+201122601548</p></div>
+            <div
+              class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
+              <span
+                class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i
+                  class="fas fa-phone"></i></span>
+              <div>
+                <h4 class="font-bold text-olive-800 mb-1">الهاتف</h4>
+                <p class="text-gray-600" dir="ltr">+201122601548</p>
+              </div>
             </div>
-            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
-              <span class="w-14 h-14 shrink-0 rounded-full bg-green-100 text-[#25D366] flex items-center justify-center text-2xl"><i class="fab fa-whatsapp"></i></span>
-              <div><h4 class="font-bold text-olive-800 mb-1">واتساب</h4><p class="text-gray-600" dir="ltr">+201066321915</p></div>
+            <div
+              class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
+              <span
+                class="w-14 h-14 shrink-0 rounded-full bg-green-100 text-[#25D366] flex items-center justify-center text-2xl"><i
+                  class="fab fa-whatsapp"></i></span>
+              <div>
+                <h4 class="font-bold text-olive-800 mb-1">واتساب</h4>
+                <p class="text-gray-600" dir="ltr">+201066321915</p>
+              </div>
             </div>
-            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
-              <span class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i class="fas fa-envelope"></i></span>
-              <div><h4 class="font-bold text-olive-800 mb-1">البريد الإلكتروني</h4><p class="text-gray-600" dir="ltr">egyptkitchera@gmail.com</p></div>
+            <div
+              class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
+              <span
+                class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i
+                  class="fas fa-envelope"></i></span>
+              <div>
+                <h4 class="font-bold text-olive-800 mb-1">البريد الإلكتروني</h4>
+                <p class="text-gray-600" dir="ltr">egyptkitchera@gmail.com</p>
+              </div>
             </div>
-            <div class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
-              <span class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i class="fas fa-location-dot"></i></span>
-              <div><h4 class="font-bold text-olive-800 mb-1">العنوان</h4><p class="text-gray-600">مول 5 plaza _ الحي المتميز 002, October City, Egypt</p></div>
+            <div
+              class="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all border border-cream-200">
+              <span
+                class="w-14 h-14 shrink-0 rounded-full bg-gold-300/30 text-gold-600 flex items-center justify-center text-2xl"><i
+                  class="fas fa-location-dot"></i></span>
+              <div>
+                <h4 class="font-bold text-olive-800 mb-1">العنوان</h4>
+                <p class="text-gray-600">مول 5 plaza _ الحي المتميز 002, October City, Egypt</p>
+              </div>
             </div>
           </div>
         </div>
@@ -470,49 +732,103 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
         <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-cream-200">
           <form onsubmit="handleContactSubmit(event)" class="space-y-5">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div><label class="block text-sm font-bold text-olive-800 mb-2">الاسم الكامل</label><input type="text" id="cName" placeholder="أدخل اسمك" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all"></div>
-              <div><label class="block text-sm font-bold text-olive-800 mb-2">رقم الجوال</label><input type="tel" id="cPhone" placeholder="01xxxxxxxxx" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all"></div>
+              <div><label class="block text-sm font-bold text-olive-800 mb-2">الاسم الكامل</label><input type="text"
+                  id="cName" placeholder="أدخل اسمك" required
+                  class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+              </div>
+              <div><label class="block text-sm font-bold text-olive-800 mb-2">رقم الجوال</label><input type="tel"
+                  id="cPhone" placeholder="01xxxxxxxxx" required
+                  class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+              </div>
             </div>
-            <div><label class="block text-sm font-bold text-olive-800 mb-2">البريد الإلكتروني</label><input type="email" id="cEmail" placeholder="example@gmail.com" class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all"></div>
+            <div><label class="block text-sm font-bold text-olive-800 mb-2">البريد الإلكتروني</label><input type="email"
+                id="cEmail" placeholder="example@gmail.com"
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+            </div>
             <div><label class="block text-sm font-bold text-olive-800 mb-2">نوع الخدمة</label>
-              <select id="cService" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+              <select id="cService" required
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
                 <option value="">اختر الخدمة المطلوبة</option>
-                <option value="kitchen">مطبخ عصري</option>
-                <option value="bedroom">غرفة نوم</option>
-                <option value="furniture">أثاث متكامل</option>
-                <option value="finishing">تشطيب شامل</option>
+                <option value="kitchen">مطابخ عصرية (Kitchens)</option>
+                <option value="bedroom">غرف نوم فاخرة (Bedrooms)</option>
+                <option value="dressing">دريسنج روم (Dressing Rooms)</option>
+                <option value="furniture">أثاث متكامل فاخر (Custom Furniture)</option>
               </select>
             </div>
             <div><label class="block text-sm font-bold text-olive-800 mb-3">نوع الزيارة</label>
               <div class="grid grid-cols-2 gap-3">
-                <label class="flex items-center gap-3 cursor-pointer border-2 border-cream-200 rounded-xl px-4 py-3 bg-cream-50 has-[:checked]:border-gold-500 has-[:checked]:bg-gold-300/10 transition-all">
-                  <input type="radio" name="visitType" value="home" checked onchange="toggleAddressField()" class="accent-gold-500 w-4 h-4"><span class="text-xl">🏠</span>
-                  <span><span class="block font-bold text-olive-800 text-sm">زيارة منزلية</span><span class="block text-xs text-gray-500">نزورك في بيتك</span></span>
+                <label
+                  class="flex items-center gap-3 cursor-pointer border-2 border-cream-200 rounded-xl px-4 py-3 bg-cream-50 has-[:checked]:border-gold-500 has-[:checked]:bg-gold-300/10 transition-all">
+                  <input type="radio" name="visitType" value="home" checked onchange="toggleAddressField()"
+                    class="accent-gold-500 w-4 h-4"><span class="text-xl">🏠</span>
+                  <span><span class="block font-bold text-olive-800 text-sm">زيارة منزلية</span><span
+                      class="block text-xs text-gray-500">نزورك في بيتك</span></span>
                 </label>
-                <label class="flex items-center gap-3 cursor-pointer border-2 border-cream-200 rounded-xl px-4 py-3 bg-cream-50 has-[:checked]:border-gold-500 has-[:checked]:bg-gold-300/10 transition-all">
-                  <input type="radio" name="visitType" value="showroom" onchange="toggleAddressField()" class="accent-gold-500 w-4 h-4"><span class="text-xl">🏢</span>
-                  <span><span class="block font-bold text-olive-800 text-sm">زيارة المقر</span><span class="block text-xs text-gray-500">تفضل بزيارتنا</span></span>
+                <label
+                  class="flex items-center gap-3 cursor-pointer border-2 border-cream-200 rounded-xl px-4 py-3 bg-cream-50 has-[:checked]:border-gold-500 has-[:checked]:bg-gold-300/10 transition-all">
+                  <input type="radio" name="visitType" value="showroom" onchange="toggleAddressField()"
+                    class="accent-gold-500 w-4 h-4"><span class="text-xl">🏢</span>
+                  <span><span class="block font-bold text-olive-800 text-sm">زيارة المقر</span><span
+                      class="block text-xs text-gray-500">تفضل بزيارتنا</span></span>
                 </label>
               </div>
             </div>
-            <div id="addressContainer"><label class="block text-sm font-bold text-olive-800 mb-2">عنوان الزيارة بالتفصيل</label><input type="text" id="address" placeholder="المدينة - المنطقة - الشارع - رقم العقار" class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all"></div>
+            <div id="addressContainer"><label class="block text-sm font-bold text-olive-800 mb-2">عنوان الزيارة
+                بالتفصيل</label><input type="text" id="address" placeholder="المدينة - المنطقة - الشارع - رقم العقار"
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+            </div>
             <div><label class="block text-sm font-bold text-olive-800 mb-2">📅 تاريخ الزيارة</label>
               <div class="grid grid-cols-3 gap-3">
-                <select id="cDay" class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all"><option value="">اليوم</option></select>
-                <select id="cMonth" class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all">
-                  <option value="">الشهر</option><option value="1">يناير</option><option value="2">فبراير</option><option value="3">مارس</option><option value="4">أبريل</option><option value="5">مايو</option><option value="6">يونيو</option><option value="7">يوليو</option><option value="8">أغسطس</option><option value="9">سبتمبر</option><option value="10">أكتوبر</option><option value="11">نوفمبر</option><option value="12">ديسمبر</option>
+                <select id="cDay"
+                  class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all">
+                  <option value="">اليوم</option>
                 </select>
-                <select id="cYear" class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all"><option value="">السنة</option></select>
+                <select id="cMonth"
+                  class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all">
+                  <option value="">الشهر</option>
+                  <option value="1">يناير</option>
+                  <option value="2">فبراير</option>
+                  <option value="3">مارس</option>
+                  <option value="4">أبريل</option>
+                  <option value="5">مايو</option>
+                  <option value="6">يونيو</option>
+                  <option value="7">يوليو</option>
+                  <option value="8">أغسطس</option>
+                  <option value="9">سبتمبر</option>
+                  <option value="10">أكتوبر</option>
+                  <option value="11">نوفمبر</option>
+                  <option value="12">ديسمبر</option>
+                </select>
+                <select id="cYear"
+                  class="w-full px-3 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 transition-all">
+                  <option value="">السنة</option>
+                </select>
               </div>
               <input type="hidden" id="visitDate">
             </div>
             <div><label class="block text-sm font-bold text-olive-800 mb-2">ساعة الزيارة</label>
-              <select id="visitTime" class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
-                <option value="">اختر الساعة</option><option>12:00 ظهراً</option><option>01:00 مساءً</option><option>02:00 مساءً</option><option>03:00 مساءً</option><option>04:00 مساءً</option><option>05:00 مساءً</option><option>06:00 مساءً</option><option>07:00 مساءً</option><option>08:00 مساءً</option><option>09:00 مساءً</option><option>10:00 مساءً</option>
+              <select id="visitTime"
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all">
+                <option value="">اختر الساعة</option>
+                <option>12:00 ظهراً</option>
+                <option>01:00 مساءً</option>
+                <option>02:00 مساءً</option>
+                <option>03:00 مساءً</option>
+                <option>04:00 مساءً</option>
+                <option>05:00 مساءً</option>
+                <option>06:00 مساءً</option>
+                <option>07:00 مساءً</option>
+                <option>08:00 مساءً</option>
+                <option>09:00 مساءً</option>
+                <option>10:00 مساءً</option>
               </select>
             </div>
-            <div><label class="block text-sm font-bold text-olive-800 mb-2">تفاصيل إضافية</label><textarea id="cDetails" rows="3" placeholder="صف لنا مشروعك وأي متطلبات خاصة..." class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all resize-none"></textarea></div>
-            <button type="submit" class="w-full inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-lg px-6 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <div><label class="block text-sm font-bold text-olive-800 mb-2">تفاصيل إضافية</label><textarea id="cDetails"
+                rows="3" placeholder="صف لنا مشروعك وأي متطلبات خاصة..."
+                class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-300/40 transition-all resize-none"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-lg px-6 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
               <i class="fab fa-whatsapp text-2xl"></i> إرسال الطلب عبر واتساب
             </button>
           </form>
@@ -532,131 +848,141 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
             <img src="images/logo.jpg" alt="Kitchèra Logo" loading="lazy" class="h-11 w-auto object-contain rounded-lg">
             <span class="text-2xl font-extrabold text-white tracking-wide">Kitchèra</span>
           </div>
-          <p class="text-cream-100/70 text-sm leading-relaxed">شركة متخصصة في تصميم وتشطيب المنازل والمطابخ، نتميز بالإبداع والجودة والالتزام التام بمواعيد الإنجاز.</p>
+          <p class="text-cream-100/70 text-sm leading-relaxed">شركة متخصصة في تصميم وتصنيع المطابخ العصرية، غرف النوم،
+            الدريسنج روم، والأثاث المتكامل الفاخر، نتميز بالإبداع والجودة والالتزام التام بمواعيد التسليم.</p>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-5">روابط سريعة</h4>
           <ul class="space-y-3 text-sm">
-            <li><a href="#home" class="hover:text-gold-400 transition-colors">الرئيسية</a></li><li><a href="#services" class="hover:text-gold-400 transition-colors">خدماتنا</a></li><li><a href="#portfolio" class="hover:text-gold-400 transition-colors">معرض الأعمال</a></li><li><a href="#videos" class="hover:text-gold-400 transition-colors">أعمالنا</a></li><li><a href="#reviews" class="hover:text-gold-400 transition-colors">آراء عملاؤنا</a></li><li><a href="#contact" class="hover:text-gold-400 transition-colors">تواصل معنا</a></li>
+            <li><a href="#home" class="hover:text-gold-400 transition-colors">الرئيسية</a></li>
+            <li><a href="#services" class="hover:text-gold-400 transition-colors">خدماتنا</a></li>
+            <li><a href="#portfolio" class="hover:text-gold-400 transition-colors">معرض الأعمال</a></li>
+            <li><a href="#videos" class="hover:text-gold-400 transition-colors">فيديوهات مشاريعنا</a></li>
+            <li><a href="#reviews" class="hover:text-gold-400 transition-colors">آراء عملائنا</a></li>
+            <li><a href="#contact" class="hover:text-gold-400 transition-colors">تواصل معنا</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-5">معلومات الاتصال</h4>
           <ul class="space-y-4 text-sm">
-            <li class="flex items-start gap-3"><i class="fas fa-phone text-gold-400 mt-1"></i><span dir="ltr">+201122601548</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-envelope text-gold-400 mt-1"></i><span dir="ltr">egyptkitchera@gmail.com</span></li>
-            <li class="flex items-start gap-3"><i class="fas fa-location-dot text-gold-400 mt-1"></i><span>مول 5 plaza، الحي المتميز، 6 أكتوبر، مصر</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-phone text-gold-400 mt-1"></i><span
+                dir="ltr">+201122601548</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-envelope text-gold-400 mt-1"></i><span
+                dir="ltr">egyptkitchera@gmail.com</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-location-dot text-gold-400 mt-1"></i><span>مول 5 plaza،
+                الحي المتميز، 6 أكتوبر، مصر</span></li>
           </ul>
         </div>
         <div>
           <h4 class="text-white font-bold text-lg mb-5">تابعنا</h4>
           <div class="flex gap-3">
-            <a href="https://facebook.com/KITCHERA" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com/KITCHERA" target="_blank" rel="noopener noreferrer"
+              class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors"
+              aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/kitchera.eg/" target="_blank" rel="noopener noreferrer"
+              class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors"
+              aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer"
+              class="w-11 h-11 rounded-lg bg-olive-700 hover:bg-gold-500 text-white flex items-center justify-center text-lg transition-colors"
+              aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </div>
       <div class="border-t border-olive-700 pt-6 text-center text-sm text-cream-100/60">
-        © 2025 Kitchèra | جميع الحقوق محفوظة | تصميم وتشطيب المنازل والمطابخ
+        © 2025 Kitchèra | جميع الحقوق محفوظة | تصميم وتصنيع المطابخ وغرف النوم والدريسنج روم والأثاث المتكامل
       </div>
     </div>
   </footer>
 
   <!-- زر واتساب طافي مع نبض -->
   <a href="https://wa.me/201066321915" target="_blank" rel="noopener noreferrer"
-     class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-card hover:scale-110 transition-transform animate-pulseSoft" aria-label="واتساب">
+    class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center text-2xl shadow-card hover:scale-110 transition-transform animate-pulseSoft"
+    aria-label="واتساب">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- ════════════════════════════════════════════
-       نافذة تسجيل الدخول / إنشاء حساب
+       نافذة المعاينة المكبرة للأعمال (Gallery Lightbox Modal)
        ════════════════════════════════════════════ -->
-  <div id="authModal" class="hidden fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-6 md:p-8 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="text-2xl font-black text-olive-800" id="authTitle">تسجيل الدخول</h3>
-        <button onclick="closeAuthModal()" class="text-gray-400 hover:text-gray-700 text-2xl"><i class="fas fa-times"></i></button>
-      </div>
+  <div id="galleryModal"
+    class="hidden fixed inset-0 z-[80] bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
+    <div
+      class="relative bg-olive-950 border border-gold-400/40 rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col md:flex-row animate-fadeUp">
+      <!-- زر الإغلاق -->
+      <button onclick="closeGalleryModal()"
+        class="absolute top-4 left-4 z-50 w-11 h-11 rounded-full bg-black/70 hover:bg-red-600 text-white flex items-center justify-center text-xl transition-all border border-white/20"
+        aria-label="إغلاق">
+        <i class="fas fa-times"></i>
+      </button>
 
-      <form id="loginForm" onsubmit="login(event)" class="space-y-4">
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">البريد الإلكتروني</label><input type="email" id="loginEmail" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="example@gmail.com"></div>
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">كلمة السر</label><input type="password" id="loginPass" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="••••••••"></div>
-        <button type="submit" class="w-full bg-olive-600 hover:bg-olive-500 text-white font-bold py-3.5 rounded-xl transition-all">تسجيل الدخول</button>
-        <a onclick="showForgot()" class="text-xs text-stone-500 hover:text-amber-600 transition-colors mt-2 text-center block cursor-pointer font-medium">(هل نسيت الإيميل أو كلمة السر؟)</a>
-        <p class="text-center text-sm text-gray-500">ليس لديك حساب؟
-          <a onclick="showSignup()" class="text-gold-600 font-bold cursor-pointer hover:underline">إنشاء حساب جديد</a>
-        </p>
-      </form>
+      <!-- جانب الصورة العمودي (9:16) -->
+      <div
+        class="relative md:w-1/2 bg-black flex items-center justify-center overflow-hidden min-h-[350px] md:min-h-[550px]">
+        <img id="gModalImg" src="" alt=""
+          class="w-full h-full max-h-[550px] md:max-h-[620px] object-contain transition-all duration-300">
 
-      <form id="signupForm" onsubmit="signup(event)" class="hidden space-y-4">
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">الاسم الكامل</label><input type="text" id="suName" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="اسمك الكامل"></div>
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">رقم الهاتف</label><input type="tel" id="suPhone" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="01xxxxxxxxx"></div>
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">البريد الإلكتروني</label><input type="email" id="suEmail" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="example@gmail.com"></div>
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">كلمة السر</label><input type="password" id="suPass" required minlength="6" class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="6 أحرف على الأقل"></div>
-        <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-white font-bold py-3.5 rounded-xl transition-all">إنشاء الحساب</button>
-        <p class="text-center text-sm text-gray-500">لديك حساب بالفعل؟
-          <a onclick="showLogin()" class="text-gold-600 font-bold cursor-pointer hover:underline">تسجيل الدخول</a>
-        </p>
-      </form>
-
-      <form id="forgotForm" onsubmit="resetPassword(event)" class="hidden space-y-4">
-        <p class="text-sm text-gray-600">أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة السر.</p>
-        <div><label class="block text-sm font-bold text-olive-800 mb-2">البريد الإلكتروني</label><input type="email" id="resetEmail" required class="w-full px-4 py-3 rounded-xl border-2 border-cream-200 bg-cream-50 focus:outline-none focus:border-gold-500 transition-all" placeholder="example@gmail.com"></div>
-        <button type="submit" class="w-full bg-olive-600 hover:bg-olive-500 text-white font-bold py-3.5 rounded-xl transition-all">إرسال رابط الاستعادة</button>
-        <p class="text-center"><a onclick="showLogin()" class="text-gold-600 font-bold cursor-pointer hover:underline text-sm">العودة لتسجيل الدخول</a></p>
-      </form>
-
-      <div id="authMsg" class="hidden mt-4 text-center text-sm font-bold p-3 rounded-xl"></div>
-    </div>
-  </div>
-
-  <!-- نافذة لوحة تحكم العميل -->
-  <div id="dashboardModal" class="hidden fixed inset-0 z-[60] bg-black/60 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-6 md:p-8 w-full max-w-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="text-2xl font-black text-olive-800">حسابي / طلباتي</h3>
-        <button onclick="closeDashboard()" class="text-gray-400 hover:text-gray-700 text-2xl"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div class="bg-cream-50 rounded-2xl p-5 text-center border border-cream-200">
-          <p class="text-3xl font-black text-gold-500" id="contractCount">0</p>
-          <p class="text-sm font-bold text-olive-800 mt-1">إجمالي التعاقدات</p>
+        <!-- عداد الصور -->
+        <div class="absolute top-4 right-4 flex items-center gap-2 z-10">
+          <span id="gModalCounter"
+            class="px-3.5 py-1.5 rounded-full bg-black/75 text-gold-400 text-xs font-black border border-gold-400/40 backdrop-blur-sm shadow-md">
+            1 / 1
+          </span>
         </div>
-        <div class="bg-cream-50 rounded-2xl p-5 text-center border border-cream-200">
-          <p class="text-3xl font-black text-gold-500" id="contractProgress">0/5</p>
-          <p class="text-sm font-bold text-olive-800 mt-1">التقدم نحو الجائزة</p>
-        </div>
-        <div class="bg-cream-50 rounded-2xl p-5 text-center border border-cream-200">
-          <p class="text-3xl font-black text-gold-500">🎁</p>
-          <p class="text-sm font-bold text-olive-800 mt-1">جائزة الولاء</p>
-        </div>
-      </div>
-      <div class="mb-6">
-        <h4 class="font-bold text-olive-800 mb-3">ارفع فاتورة تعاقد</h4>
-        <div class="flex flex-col sm:flex-row items-center gap-3">
-          <button onclick="document.getElementById('dashInvoiceInput').click()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-6 py-3 rounded-xl transition-all">
-            <i class="fas fa-upload"></i> رفع فاتورة
-          </button>
-          <input type="file" id="dashInvoiceInput" accept="image/*,.pdf" class="hidden" onchange="handleInvoiceUpload(this)">
-          <span class="text-xs text-stone-600 font-medium">(ارفع فاتورة التعاقد لإضافتها لسجلك)</span>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-bold text-olive-800 mb-3">سجل التعاقدات</h4>
-        <div id="contractsList" class="space-y-3"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- نافذة التهنئة بالجائزة -->
-  <div id="congratsModal" class="hidden fixed inset-0 z-[70] bg-black/70 flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-8 text-center w-full max-w-md shadow-2xl">
-      <span class="text-6xl block mb-4">🏆</span>
-      <h3 class="text-3xl font-black text-gold-500 mb-3">تهانينا!</h3>
-      <p class="text-lg text-olive-800 font-bold mb-2">لقد حصلت على جائزة مقدمة من Kitchèra</p>
-      <p class="text-gray-600 mb-6">أكملت جميع التعاقدات المطلوبة لبرنامج الولاء. سيتواصل معك فريقنا قريباً لتسليمك جائزتك، وتم إشعار الإدارة عبر واتساب.</p>
-      <button onclick="document.getElementById('congratsModal').classList.add('hidden')" class="bg-olive-600 hover:bg-olive-500 text-white font-bold px-8 py-3 rounded-xl transition-all">رائع!</button>
+        <!-- أزرار التنقل السريع -->
+        <button onclick="navGalleryModal(-1)"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-gold-500 text-white hover:text-olive-950 flex items-center justify-center text-lg border border-white/20 transition-all z-20">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button onclick="navGalleryModal(1)"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 hover:bg-gold-500 text-white hover:text-olive-950 flex items-center justify-center text-lg border border-white/20 transition-all z-20">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <!-- جانب التفاصيل والمواصفات الفاخرة -->
+      <div
+        class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-[380px] md:max-h-[620px] bg-gradient-to-b from-olive-900 to-olive-950 text-white">
+        <div>
+          <!-- وسم الفئة -->
+          <div class="flex items-center gap-2 mb-3">
+            <span id="gModalCategory"
+              class="inline-flex items-center gap-1.5 text-gold-400 text-xs font-black bg-gold-400/15 px-3.5 py-1 rounded-full border border-gold-400/40">
+              مطبخ عصري
+            </span>
+            <span class="text-cream-100/70 text-xs font-bold bg-white/5 px-3 py-1 rounded-full border border-white/10">
+              Kitchèra Quality
+            </span>
+          </div>
+
+          <!-- عنوان العمل -->
+          <h3 id="gModalTitle" class="text-2xl sm:text-3xl font-black text-white leading-tight mb-3"></h3>
+
+          <!-- الوصف التفصيلي -->
+          <p id="gModalDesc" class="text-sm sm:text-base text-cream-100/85 leading-relaxed mb-6 font-medium"></p>
+
+          <!-- قائمة المواصفات -->
+          <div class="mb-6">
+            <h4 class="text-xs font-black uppercase text-gold-400 tracking-wider mb-3 flex items-center gap-2">
+              <i class="fas fa-check-circle"></i> مواصفات وجودة العمل:
+            </h4>
+            <div id="gModalSpecs" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-cream-100/95 font-semibold">
+            </div>
+          </div>
+        </div>
+
+        <!-- أزرار الإجراء السريع -->
+        <div class="pt-4 border-t border-white/10 space-y-3">
+          <a id="gModalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-black py-3.5 px-5 rounded-2xl shadow-lg hover:shadow-xl transition-all text-base">
+            <i class="fab fa-whatsapp text-xl"></i> اطلب نفس هذا التصميم عبر واتساب
+          </a>
+          <div class="flex items-center justify-between text-xs text-cream-100/70 px-1 font-medium">
+            <span><i class="fas fa-shield-halved text-gold-400 ml-1"></i> ضمان شامل 10 سنوات</span>
+            <span><i class="fas fa-cube text-gold-400 ml-1"></i> معاينة وتصميم 3D مجاناً</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -664,52 +990,23 @@ poster="images/مطبخ عصري/24.jpg.jpeg" playsinline preload="metadata">
        JavaScript
        ════════════════════════════════════════════ -->
   <script>
-    // ═════════ قواعد بيانات الصور ═════════
-const IMG = {
-      kitchen: ['images/مطبخ عصري/24.jpg.jpeg','images/مطبخ عصري/25.jpg.jpeg','images/مطبخ عصري/26.jpg.jpeg','images/مطبخ عصري/27.jpg.jpeg','images/مطبخ عصري/28.jpg.jpeg','images/مطبخ عصري/30.jpg'],
-      bedroom: ['images/جناح نوم فاخر/1.jpg.jpeg','images/جناح نوم فاخر/3.jpg.jpeg','images/جناح نوم فاخر/12.jpg.jpeg','images/جناح نوم فاخر/13.jpg.jpeg','images/جناح نوم فاخر/14.jpg.jpeg','images/جناح نوم فاخر/16.jpg.jpeg'],
-      furniture: ['images/اثاث متكامل فاخر/2.jpg.jpeg','images/اثاث متكامل فاخر/4.jpg.jpeg','images/اثاث متكامل فاخر/5.jpg.jpeg','images/اثاث متكامل فاخر/6.jpg.jpeg','images/اثاث متكامل فاخر/7.jpg.jpeg','images/اثاث متكامل فاخر/8.jpg.jpeg']
-    };
-    const CATEGORY_NAMES = { kitchen: 'مطبخ عصري', bedroom: 'جناح نوم فاخر', furniture: 'أثاث متكامل فاخر' };
-
     // ═════════ قائمة الجوال ═════════
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-    // ═════════ معرض الأعمال المنسدل (Accordion) ═════════
-    let openGallery = null;
-    function toggleGallery(cat) {
-      const container = document.getElementById('galleryContainer');
-      document.querySelectorAll('[id^="icon-"]').forEach(i => i.classList.remove('rotate-180'));
-      if (openGallery === cat) { openGallery = null; container.innerHTML = ''; return; }
-      openGallery = cat;
-      const icon = document.getElementById('icon-' + cat); if (icon) icon.classList.add('rotate-180');
-      let html = `<div class="bg-cream-50 rounded-3xl p-6 md:p-8 border border-cream-200 shadow-card">
-          <h3 class="text-2xl font-black text-olive-800 mb-6">${CATEGORY_NAMES[cat]}</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">`;
-      IMG[cat].forEach((src, i) => {
-        html += `<div class="group rounded-2xl overflow-hidden shadow-md border border-cream-200">
-            <img src="${src}" alt="${CATEGORY_NAMES[cat]} ${i+1}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async">
-          </div>`;
-      });
-      html += `</div>
-          <div class="mt-8 text-center">
-            <button onclick="toggleGallery('${cat}')" class="inline-flex items-center gap-2 bg-white border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-bold px-6 py-3 rounded-xl transition-all">
-              إظهار أقل <i class="fas fa-chevron-up"></i>
-            </button>
-          </div>
-        </div>`;
-      container.innerHTML = html;
-      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    // التمرير السلس للروابط
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function (e) {
+      const t = document.querySelector(this.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
+    }));
 
-    // ═════════ نموذج التواصل ═════════
+    // ═════════ نموذج التواصل السريع (WhatsApp) ═════════
     const daySel = document.getElementById('cDay'), yearSel = document.getElementById('cYear'), monthSel = document.getElementById('cMonth'), visitDate = document.getElementById('visitDate');
     if (daySel) for (let d = 1; d <= 31; d++) { const o = document.createElement('option'); o.value = d; o.textContent = d; daySel.appendChild(o); }
     if (yearSel) { const y = new Date().getFullYear(); for (let i = y; i <= y + 2; i++) { const o = document.createElement('option'); o.value = i; o.textContent = i; yearSel.appendChild(o); } }
-    function syncDate() { if (visitDate && daySel && monthSel && yearSel) { if (daySel.value && monthSel.value && yearSel.value) { visitDate.value = `${yearSel.value}-${String(monthSel.value).padStart(2,'0')}-${String(daySel.value).padStart(2,'0')}`; } else visitDate.value = ''; } }
+    function syncDate() { if (visitDate && daySel && monthSel && yearSel) { if (daySel.value && monthSel.value && yearSel.value) { visitDate.value = `${yearSel.value}-${String(monthSel.value).padStart(2, '0')}-${String(daySel.value).padStart(2, '0')}`; } else visitDate.value = ''; } }
     if (daySel) daySel.addEventListener('change', syncDate);
     if (monthSel) monthSel.addEventListener('change', syncDate);
     if (yearSel) yearSel.addEventListener('change', syncDate);
@@ -726,7 +1023,7 @@ const IMG = {
       const address = document.getElementById('address')?.value.trim() || '';
       const dateVal = visitDate?.value || ''; const timeSel = document.getElementById('visitTime'); const time = timeSel ? timeSel.value : '';
       const details = document.getElementById('cDetails')?.value.trim() || '';
-      let message = `📩 طلب جديد من موقع Kitchèra\n\nالاسم: ${name}\nرقم التليفون: ${phone}\n`;
+      let message = `📩 طلب معاينة جديد من موقع Kitchèra\n\nالاسم: ${name}\nرقم التليفون: ${phone}\n`;
       if (email) message += `الإيميل: ${email}\n`;
       message += `نوع الخدمة: ${service || 'غير محدد'}\nنوع الزيارة: ${visitType}\n`;
       if (address) message += `العنوان: ${address}\n`;
@@ -734,333 +1031,11 @@ const IMG = {
       if (details) message += `التفاصيل: ${details}\n`;
       window.open(`https://wa.me/201066321915?text=${encodeURIComponent(message)}`, '_blank');
     }
-
-    // التمرير السلس
-    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-      const t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
-    }));
-
-    // ═════════ نجوم التقييم ═════════
-    let selectedRating = 0;
-    document.querySelectorAll('.star').forEach(star => {
-      star.addEventListener('mouseenter', () => setStars(+star.dataset.val));
-      star.addEventListener('mouseleave', () => setStars(selectedRating));
-      star.addEventListener('click', () => { selectedRating = +star.dataset.val; document.getElementById('ratingVal').value = selectedRating; setStars(selectedRating); });
-    });
-    function setStars(n) {
-      document.querySelectorAll('.star').forEach(s => {
-        if (+s.dataset.val <= n) { s.style.color = '#f59e0b'; s.style.textShadow = '0 2px 4px rgba(0,0,0,0.2)'; }
-        else { s.style.color = '#ffffff'; s.style.textShadow = 'none'; }
-      });
-    }
-
-    // ═════════ رفع الفاتورة ═════════
-    function handleInvoiceUpload(input) {
-      const file = input.files[0];
-      if (!file) return;
-      if (currentUser) { saveInvoice(file, currentUser); }
-      else { alert('يرجى تسجيل الدخول أولاً لرفع الفاتورة.'); }
-    }
-
-    // ═════════ Firebase Configuration ═════════
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    const FB_ENABLED = firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY";
-    let currentUser = null;
-    let db = null, storage = null;
-
-    const REQUIRED_CONTRACTS = 5;
-    const REQUIRED_AMOUNT = 100000;
-    const WHATSAPP_COMPANY = "201066321915";
-
-    if (FB_ENABLED) {
-      firebase.initializeApp(firebaseConfig);
-      db = firebase.firestore();
-      storage = firebase.storage();
-      firebase.auth().onAuthStateChanged(user => { currentUser = user; updateAuthUI(); if (user) { loadUserData(); loadReviews(); } });
-    } else {
-      console.warn('Firebase غير مكوّن. يُستخدم وضع تجريبي محلي.');
-    }
-
-    async function signup(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase في إعدادات الموقع.'); return; }
-      const name = document.getElementById('suName').value, phone = document.getElementById('suPhone').value,
-            email = document.getElementById('suEmail').value, pass = document.getElementById('suPass').value;
-      try {
-        const cred = await firebase.auth().createUserWithEmailAndPassword(email, pass);
-        await db.collection('users').doc(cred.user.uid).set({ name, phone, email, contracts: [], createdAt: firebase.firestore.FieldValue.serverTimestamp() });
-        currentUser = cred.user;
-        showAuthMsg('تم إنشاء الحساب بنجاح!', 'success'); closeAuthModal(); updateAuthUI();
-      } catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    async function login(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase.'); return; }
-      const email = document.getElementById('loginEmail').value, pass = document.getElementById('loginPass').value;
-      try { const cred = await firebase.auth().signInWithEmailAndPassword(email, pass); currentUser = cred.user; showAuthMsg('تم تسجيل الدخول!', 'success'); closeAuthModal(); updateAuthUI(); }
-      catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    async function logout() { if (FB_ENABLED) await firebase.auth().signOut(); currentUser = null; updateAuthUI(); }
-
-    async function resetPassword(e) {
-      e.preventDefault();
-      if (!FB_ENABLED) { alert('يرجى إعداد Firebase.'); return; }
-      const email = document.getElementById('resetEmail').value;
-      try { await firebase.auth().sendPasswordResetEmail(email); showAuthMsg('تم إرسال رابط الاستعادة إلى بريدك.', 'success'); }
-      catch (err) { showAuthMsg(err.message, 'error'); }
-    }
-
-    function updateAuthUI() {
-      const loginBtn = document.getElementById('loginBtn'), userMenu = document.getElementById('userMenu');
-      if (currentUser) {
-        if (loginBtn) loginBtn.classList.add('hidden');
-        if (userMenu) userMenu.classList.remove('hidden');
-        document.getElementById('userName').textContent = (currentUser.displayName || 'حسابي');
-        document.getElementById('reviewFormContainer').classList.remove('hidden');
-        document.getElementById('loginPrompt').classList.add('hidden');
-      } else {
-        if (loginBtn) loginBtn.classList.remove('hidden');
-        if (userMenu) userMenu.classList.add('hidden');
-        document.getElementById('reviewFormContainer').classList.add('hidden');
-        document.getElementById('loginPrompt').classList.remove('hidden');
-      }
-    }
-
-    function escapeHTML(str) {
-      return String(str == null ? '' : str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"')
-        .replace(/'/g, '&#039;');
-    }
-
-    // ═════════ التقييمات ═════════
-    async function submitReview() {
-      const text = document.getElementById('reviewText').value.trim();
-      const rating = +document.getElementById('ratingVal').value;
-      if (!currentUser) { alert('سجّل الدخول أولاً.'); return; }
-      if (!text || rating === 0) { alert('أدخل تقييمك وعدد النجوم.'); return; }
-      if (FB_ENABLED) {
-        await db.collection('reviews').add({
-          name: currentUser.displayName || 'مستخدم', rating, text, approved: false, createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-        cleanReviewForm();
-        alert('تم إرسال تقييمك بانتظار الموافقة. شكراً لك!');
-      } else {
-        alert('وضع تجريبي: تم حفظ تقييمك محلياً. قم بإعداد Firebase لعرضه بشكل دائم.');
-        cleanReviewForm();
-      }
-    }
-    function cleanReviewForm() { document.getElementById('reviewText').value = ''; document.getElementById('ratingVal').value = 0; selectedRating = 0; setStars(0); }
-
-    async function loadReviews() {
-      const list = document.getElementById('reviewsList');
-      if (!FB_ENABLED) {
-        list.innerHTML = `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">قُم بتفعيل Firebase لعرض آراء العملاء.</div>`;
-        return;
-      }
-      const snap = await db.collection('reviews').where('approved','==',true).orderBy('createdAt','desc').get();
-      let html = '';
-      snap.forEach(doc => {
-        const r = doc.data();
-        let stars = '';
-        for (let i = 1; i <= 5; i++) stars += `<i class="fa${i <= r.rating ? 's' : 'r'} fa-star ${i <= r.rating ? 'text-gold-500' : 'text-gray-300'}"></i>`;
-        html += `<div class="bg-cream-50 rounded-2xl p-6 shadow-soft border border-cream-200">
-          <div class="flex items-center gap-3 mb-3"><div class="w-11 h-11 rounded-full bg-olive-600 text-white flex items-center justify-center font-black">${escapeHTML((r.name||'م')[0])}</div>
-          <div><p class="font-bold text-olive-800">${escapeHTML(r.name)}</p><div class="flex text-sm gap-0.5">${stars}</div></div></div>
-          <p class="text-gray-600 text-sm leading-relaxed">${escapeHTML(r.text)}</p></div>`;
-      });
-      list.innerHTML = html || `<div class="md:col-span-2 lg:col-span-3 text-center text-gray-500">لا توجد تقييمات معتمدة بعد.</div>`;
-    }
-
-    // ═════════ لوحة تحكم العميل والولاء ═════════
-    async function loadUserData() {
-      if (!currentUser || !FB_ENABLED) return;
-      const doc = await db.collection('users').doc(currentUser.uid).get();
-      if (!doc.exists) return;
-      const data = doc.data();
-      const contracts = data.contracts || [];
-      document.getElementById('contractCount').textContent = contracts.length;
-      document.getElementById('contractProgress').textContent = `${contracts.length}/${REQUIRED_CONTRACTS}`;
-      const list = document.getElementById('contractsList');
-      list.innerHTML = contracts.length ? contracts.map((c, i) => `<div class="flex items-center justify-between bg-cream-50 rounded-xl p-4 border border-cream-200">
-        <div><p class="font-bold text-olive-800">تعاقد رقم ${i+1}</p><p class="text-sm text-gray-500">التاريخ: ${escapeHTML(c.date) || 'غير محدد'}</p></div>
-        <span class="text-gold-500 text-xl"><i class="fas fa-file-invoice"></i></span></div>`).join('')
-        : `<div class="text-center text-gray-500 py-4">لا توجد تعاقدات بعد.</div>`;
-      if (contracts.length >= REQUIRED_CONTRACTS) { showCongrats(data); }
-    }
-
-    async function saveInvoice(file, user) {
-      try {
-        if (FB_ENABLED) {
-          const ref = storage.ref(`invoices/${user.uid}/${Date.now()}_${file.name}`);
-          await ref.put(file);
-          const url = await ref.getDownloadURL();
-          const today = new Date().toLocaleDateString('ar-EG');
-          const userDoc = await db.collection('users').doc(user.uid).get();
-          const contracts = (userDoc.data()?.contracts || []);
-          contracts.push({ date: today, url });
-          await db.collection('users').doc(user.uid).update({ contracts });
-          loadUserData();
-          let msg = `📄 تم رفع فاتورة تعاقد جديدة!\nاسم العميل: ${user.displayName || user.email}\nتاريخ الرفع: ${today}\nعدد التعاقدات: ${contracts.length}`;
-          window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
-          alert('تم رفع الفاتورة بنجاح وإضافتها لسجلك!');
-        } else {
-          alert('وضع تجريبي: لرفع الفاتورة بشكل فعلي، قم بإعداد Firebase Storage.');
-        }
-      } catch (err) { alert('خطأ في رفع الفاتورة: ' + err.message); }
-    }
-
-    function showCongrats(data) {
-      const modal = document.getElementById('congratsModal');
-      if (modal.classList.contains('hidden')) {
-        modal.classList.remove('hidden');
-        const dates = (data.contracts || []).map(c => c.date).join('، ');
-        const msg = `تم إكمال التعاقدات المطلوبة!\nاسم العميل: ${currentUser.displayName || currentUser.email}\nعدد التعاقدات: ${(data.contracts||[]).length}\nتواريخ التعاقدات: ${dates}\nالعميل يستحق الجائزة المقدمة من Kitchèra.`;
-        window.open(`https://wa.me/${WHATSAPP_COMPANY}?text=${encodeURIComponent(msg)}`, '_blank');
-      }
-    }
-
-    // ═════════ نوافذ Auth / Dashboard ═════════
-    function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); showLogin(); }
-    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
-    function showLogin() { document.getElementById('authTitle').textContent = 'تسجيل الدخول'; document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showSignup() { document.getElementById('authTitle').textContent = 'إنشاء حساب جديد'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.remove('hidden'); document.getElementById('forgotForm').classList.add('hidden'); hideMsg(); }
-    function showForgot() { document.getElementById('authTitle').textContent = 'استعادة كلمة السر'; document.getElementById('loginForm').classList.add('hidden'); document.getElementById('signupForm').classList.add('hidden'); document.getElementById('forgotForm').classList.remove('hidden'); hideMsg(); }
-    function hideMsg() { const m = document.getElementById('authMsg'); m.classList.add('hidden'); m.textContent = ''; m.className = 'hidden mt-4 text-center text-sm font-bold p-3 rounded-xl'; }
-    function showAuthMsg(txt, type) { const m = document.getElementById('authMsg'); m.classList.remove('hidden'); m.textContent = txt; m.className = `mt-4 text-center text-sm font-bold p-3 rounded-xl ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`; }
-    function openDashboard() { if (!currentUser) { alert('يرجى تسجيل الدخول أولاً.'); openAuthModal(); return; } document.getElementById('dashboardModal').classList.remove('hidden'); loadUserData(); }
-    function closeDashboard() { document.getElementById('dashboardModal').classList.add('hidden'); }
-
-    // إغلاق النوافذ عند الضغط خارجها
-    document.querySelectorAll('.fixed.inset-0').forEach(m => m.addEventListener('click', function(e) { if (e.target === this) this.classList.add('hidden'); }));
-
-    if (!FB_ENABLED) { 
-      // في الوضع التجريبي، أبقي الواجهة الافتراضية كما هي
-    }
   </script>
 
-<!-- ═════════ مشغل الفيديو الموحد (Video Player + Playlist) ═════════ -->
-  <script>
-    // قائمة الفيديوهات (كلها مطابخ عصرية)
-    const VIDEOS = [
-      { src: 'videos/مطبخ عصري/reel1.mp4', title: 'مطبخ عصري - 1', poster: 'images/مطبخ عصري/24.jpg.jpeg' },
-      { src: 'videos/مطبخ عصري/reel2.mp4', title: 'مطبخ عصري - 2', poster: 'images/مطبخ عصري/25.jpg.jpeg' },
-      { src: 'videos/مطبخ عصري/reel3.mp4', title: 'مطبخ عصري - 3', poster: 'images/مطبخ عصري/26.jpg.jpeg' },
-      { src: 'videos/مطبخ عصري/reel4.mp4', title: 'مطبخ عصري - 4', poster: 'images/مطبخ عصري/27.jpg.jpeg' },
-      { src: 'videos/مطبخ عصري/reel5.mp4', title: 'مطبخ عصري - 5', poster: 'images/مطبخ عصري/28.jpg.jpeg' }
-    ];
-
-    const mainVideo = document.getElementById('mainVideo');
-    const videoTitle = document.getElementById('videoTitle');
-    const playPauseIcon = document.getElementById('playPauseIcon');
-    const videoLoader = document.getElementById('videoLoader');
-    const playlistEl = document.getElementById('playlist');
-
-    let currentIndex = 0;
-    let isUserPlaying = false;
-
-    // تشغيل/إيقاف الفيديو
-    function togglePlay() {
-      if (mainVideo.paused) { mainVideo.play().catch(()=>{}); playPauseIcon.className = 'fas fa-pause'; }
-      else { mainVideo.pause(); playPauseIcon.className = 'fas fa-play'; }
-    }
-
-    // إظهار/إخفاء مؤشر التحميل
-    function showLoader(show) {
-      if (videoLoader) videoLoader.classList.toggle('hidden', !show);
-    }
-
-// تحميل فيديو معيّن (عبر Blob لضمان التشغيل من GitHub Pages)
-    function loadVideo(index) {
-      const v = VIDEOS[index];
-      if (!v) return;
-      currentIndex = index;
-      mainVideo.pause();
-      videoTitle.textContent = v.title;
-      mainVideo.poster = v.poster;
-      showLoader(true);
-      playPauseIcon.className = 'fas fa-play';
-      updatePlaylist();
-      // تحميل الملف كاملاً ثم تشغيله عبر Blob URL
-      fetch(v.src)
-        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
-        .then(blob => {
-          const url = URL.createObjectURL(blob);
-          mainVideo.src = url;
-          mainVideo.load();
-          showLoader(false);
-        })
-        .catch(() => {
-          // احتياطي: استخدم المصدر المباشر
-          mainVideo.src = v.src;
-          mainVideo.load();
-          showLoader(false);
-        });
-    }
-
-    // تنقل بين الفيديوهات
-    function nextVideo(dir) {
-      let ni = currentIndex + dir;
-      if (ni >= VIDEOS.length) ni = 0;
-      if (ni < 0) ni = VIDEOS.length - 1;
-      loadVideo(ni);
-      mainVideo.play().catch(()=>{});
-    }
-
-    // بناء قائمة التشغيل
-    function buildPlaylist() {
-      if (!playlistEl) return;
-      playlistEl.innerHTML = '';
-      VIDEOS.forEach((v, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'playlist-item shrink-0 w-32 rounded-xl overflow-hidden border-2 border-transparent transition-all hover:border-gold-400 focus:outline-none';
-        btn.innerHTML = `<img src="${v.poster}" alt="${v.title}" class="w-full h-20 object-cover"><span class="block bg-olive-800 text-white text-[11px] font-bold text-center py-1.5">${v.title}</span>`;
-        btn.dataset.index = i;
-        btn.addEventListener('click', () => { loadVideo(i); mainVideo.play().catch(()=>{}); });
-        playlistEl.appendChild(btn);
-      });
-      updatePlaylist();
-    }
-
-    function updatePlaylist() {
-      document.querySelectorAll('.playlist-item').forEach((btn, i) => {
-        btn.classList.toggle('border-gold-500', i === currentIndex);
-        btn.classList.toggle('opacity-70', i !== currentIndex);
-      });
-    }
-
-    // أحداث التحميل
-    mainVideo.addEventListener('waiting', () => showLoader(true));
-    mainVideo.addEventListener('playing', () => showLoader(false));
-    mainVideo.addEventListener('canplay', () => showLoader(false));
-    mainVideo.addEventListener('loadeddata', () => showLoader(false));
-    mainVideo.addEventListener('error', () => { showLoader(false); if (videoLoader) videoLoader.classList.add('hidden'); });
-
-    // عند انتهاء الفيديو انتقل للتالي
-    mainVideo.addEventListener('ended', () => nextVideo(1));
-
-    // تحديث أيقونة التشغيل عند التغييرات
-    mainVideo.addEventListener('play', () => { playPauseIcon.className = 'fas fa-pause'; });
-    mainVideo.addEventListener('pause', () => { playPauseIcon.className = 'fas fa-play'; });
-
-// بدء التشغيل
-    buildPlaylist();
-    if (VIDEOS.length) {
-      loadVideo(0);
-    }
-  </script>
+  <!-- ملفات البيانات والوظائف التفاعلية الشاملة -->
+  <script src="media-data.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
