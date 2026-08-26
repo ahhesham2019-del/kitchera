@@ -9,13 +9,26 @@ let currentModalIndex = 0;
 let currentModalCategory = "مطبخ عصري";
 let currentReviews = [];
 
-// عند اكتمال تحميل المستند
-document.addEventListener('DOMContentLoaded', () => {
+// عند اكتمال تحميل المستند وتأمين بقاء الصفحة في الأعلى والتشغيل الفوري
+function initApp() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
   initVideoPlayer();
   initGallerySection();
   initReviewsSystem();
   initParallaxAndUI();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 /* ================================================================
  * 1. مشغل الفيديوهات الموثقة (20 فيديو مع قائمة تشغيل ذكية)
@@ -41,7 +54,7 @@ function initVideoPlayer() {
       <div class="playlist-card shrink-0 w-64 sm:w-72 bg-white rounded-2xl p-3 border-2 ${index === 0 ? 'border-gold-500 bg-gold-50/20' : 'border-cream-200'} cursor-pointer transition-all duration-300 hover:shadow-card hover:-translate-y-1 group"
            data-index="${index}" onclick="selectVideo(${index})">
         <div class="relative w-full h-32 rounded-xl overflow-hidden bg-black/90 mb-2.5">
-          <img src="${video.poster}" alt="${video.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100" />
+          <img src="${video.poster}" alt="${video.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
 
           <!-- شارة رقم الفيديو والمدة -->
@@ -96,6 +109,10 @@ function initVideoPlayer() {
       if (videoLoader) videoLoader.classList.add('hidden');
     });
 
+    mainVideo.addEventListener('error', () => {
+      if (videoLoader) videoLoader.classList.add('hidden');
+    });
+
     // تحميل الفيديو الأول افتراضياً
     loadVideo(0, false);
   }
@@ -119,10 +136,23 @@ function loadVideo(index, autoPlay = false) {
   const video = videosData[index];
 
   // تحديث مسار الفيديو والبوستر
-  if (mainVideo.getAttribute('src') !== video.src) {
-    mainVideo.src = video.src;
+  const encodedSrc = encodeURI(video.src);
+  const currentSrc = mainVideo.currentSrc || mainVideo.src;
+
+  if (!currentSrc.endsWith(encodedSrc) && !currentSrc.endsWith(video.src)) {
+    const sourceEl = mainVideo.querySelector('source');
+    if (sourceEl) {
+      sourceEl.src = encodedSrc;
+    }
+    mainVideo.src = encodedSrc;
+    mainVideo.load();
   }
   mainVideo.poster = video.poster;
+
+  const videoBackdrop = document.getElementById('videoBackdrop');
+  if (videoBackdrop) {
+    videoBackdrop.style.backgroundImage = `url('${video.poster}')`;
+  }
 
   // تحديث النصوص
   if (videoTitle) videoTitle.textContent = video.title;
@@ -146,17 +176,27 @@ function loadVideo(index, autoPlay = false) {
         badgeIcon.className = 'fas fa-play';
       }
     }
-
-    if (isCurrent) {
-      // تمرير القائمة ليظهر الكارت النشط في المنتصف
-      card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
   });
 
   if (autoPlay) {
-    mainVideo.play().catch(e => {
-      console.log('Autoplay prevented:', e);
-    });
+    const activeCard = playlistCards[index];
+    const playlistEl = document.getElementById('playlist');
+    if (activeCard && playlistEl) {
+      const targetScroll = activeCard.offsetLeft - (playlistEl.offsetWidth / 2) + (activeCard.offsetWidth / 2);
+      playlistEl.scrollTo({ left: targetScroll, behavior: 'smooth' });
+    }
+
+    const playPromise = mainVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        updatePlayPauseUI(true);
+      }).catch(e => {
+        console.log('Playback info:', e);
+        updatePlayPauseUI(false);
+      });
+    }
+  } else {
+    updatePlayPauseUI(false);
   }
 }
 
@@ -166,9 +206,17 @@ window.togglePlay = function () {
   if (!mainVideo) return;
 
   if (mainVideo.paused) {
-    mainVideo.play();
+    const playPromise = mainVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        updatePlayPauseUI(true);
+      }).catch(err => {
+        console.warn('Play error:', err);
+      });
+    }
   } else {
     mainVideo.pause();
+    updatePlayPauseUI(false);
   }
 };
 
@@ -322,6 +370,52 @@ window.openGalleryModal = function (index, categoryName) {
   renderModalContent();
 
   const modal = document.getElementById('galleryModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+// دالة تكبير أي صورة مباشرة في الموقع
+window.openDirectImageModal = function (src, title, category, desc, specs) {
+  const modal = document.getElementById('galleryModal');
+  const img = document.getElementById('gModalImg');
+  const cat = document.getElementById('gModalCategory');
+  const titleEl = document.getElementById('gModalTitle');
+  const descEl = document.getElementById('gModalDesc');
+  const counter = document.getElementById('gModalCounter');
+  const specsEl = document.getElementById('gModalSpecs');
+  const waBtn = document.getElementById('gModalWhatsAppBtn');
+
+  if (img) {
+    img.src = src;
+    img.alt = title || 'معاينة العمل';
+  }
+  if (cat) cat.textContent = category || 'Kitchèra Quality';
+  if (titleEl) titleEl.textContent = title || 'تصميم وتشطيب راقٍ';
+  if (descEl) descEl.textContent = desc || 'تصميم وتنفيذ متكامل بأجود الخامات العالمية وضمان شامل 10 سنوات.';
+  if (counter) counter.textContent = 'معاينة مكبرة';
+
+  if (specsEl) {
+    const list = specs || [
+      "خامات أوروبية معتمدة مقاومة للحرارة والرطوبة",
+      "تصميم هندسي متقن بدقة ماكينات الـ CNC",
+      "معاينة وتصميم ثلاثي الأبعاد 3D مجاناً",
+      "ضمان شامل معتمد 10 سنوات شامل الصيانة"
+    ];
+    specsEl.innerHTML = list.map(s => `
+      <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-xl border border-white/10">
+        <i class="fas fa-check text-gold-400"></i>
+        <span>${s}</span>
+      </div>
+    `).join('');
+  }
+
+  if (waBtn) {
+    const waMsg = `مرحباً Kitchèra، أود الاستفسار وطلب تصميم مماثل لـ: "${title || 'أعمال Kitchèra'}"`;
+    waBtn.href = `https://wa.me/201066321915?text=${encodeURIComponent(waMsg)}`;
+  }
+
   if (modal) {
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';

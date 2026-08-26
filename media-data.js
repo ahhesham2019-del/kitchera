@@ -12,7 +12,7 @@ const videosData = [
     duration: "0:45",
     category: "مطابخ عصرية",
     tag: "مطبخ مودرن",
-    poster: "images/مطبخ عصري/1.jpg",
+    poster: "images/مطبخ عصري/1.webp",
     src: "videos/video (1).mp4",
     desc: "استعراض كامل لتوزيع وحدات المطبخ، مثلث الحركة، الإضاءات المخفية ومفصلات بلوم النمساوية مع سوفت كلوز."
   },
@@ -23,7 +23,7 @@ const videosData = [
     duration: "0:52",
     category: "دريسنج روم",
     tag: "دريسنج روم",
-    poster: "images/بادية بالم هيلز/1.jpg",
+    poster: "images/بادية بالم هيلز/1.webp",
     src: "videos/video (2).mp4",
     desc: "متابعة من موقع العمل أثناء تثبيت المطابخ وخزائن الملابس الدريسنج روم بأعلى دقة هندسية."
   },
@@ -34,7 +34,7 @@ const videosData = [
     duration: "0:30",
     category: "مطابخ عصرية",
     tag: "تخزين ذكي",
-    poster: "images/مطبخ عصري/3.jpg",
+    poster: "images/مطبخ عصري/3.webp",
     src: "videos/video (3).mp4",
     desc: "حلول سحرية للأركان والزوايا الميتة، ماجيك كورنر هيدروليك، وأدراج بلوم فائقة التحمل."
   },
@@ -45,7 +45,7 @@ const videosData = [
     duration: "1:15",
     category: "مطابخ عصرية",
     tag: "HPL فاخر",
-    poster: "images/مطبخ عصري/4.jpg",
+    poster: "images/مطبخ عصري/4.webp",
     src: "videos/video (4).mp4",
     desc: "تصميم مطبخ أمريكي مفتوح مع بار وجزيرة رخامية مزودة بوحدات كهرباء مخفية وأدراج زجاجية."
   },
@@ -56,7 +56,7 @@ const videosData = [
     duration: "0:48",
     category: "غرف نوم فاخرة",
     tag: "غرف نوم",
-    poster: "images/جناح نوم فاخر/1.jpg",
+    poster: "images/جناح نوم فاخر/1.webp",
     src: "videos/video (5).mp4",
     desc: "تناغم راقٍ بين ألوان الأخشاب الدافئة، الإضاءة المحيطية، ودواليب الملابس المودرن المدمجة."
   },
@@ -67,7 +67,7 @@ const videosData = [
     duration: "1:05",
     category: "مطابخ عصرية",
     tag: "مطبخ مودرن",
-    poster: "images/بادية بالم هيلز/2.jpg",
+    poster: "images/بادية بالم هيلز/2.webp",
     src: "videos/video (6).mp4",
     desc: "جولة شاملة بعد انتهاء التركيبات وتسليم المطبخ مطابقاً تماماً للمخططات والتصاميم ثلاثية الأبعاد 3D."
   },
@@ -78,7 +78,7 @@ const videosData = [
     duration: "0:38",
     category: "مطابخ عصرية",
     tag: "كوارتز إسباني",
-    poster: "images/مطبخ عصري/7.jpg",
+    poster: "images/مطبخ عصري/7.webp",
     src: "videos/video (7).mp4",
     desc: "استعراض صلابة ومقاومة أسطح الكوارتز للبقع والحرارة وسهولة التنظيف مع مظهر رخامي فخم."
   },
@@ -89,7 +89,7 @@ const videosData = [
     duration: "1:20",
     category: "مطابخ عصرية",
     tag: "تجديد مطبخ",
-    poster: "images/مطبخ عصري/8.jpg",
+    poster: "images/مطبخ عصري/8.webp",
     src: "videos/video (8).mp4",
     desc: "مقارنة حية بين المساحة قبل التجديد وبعد إعادة التخطيط والتصنيع بواسطة مهندسي كيتشيرا."
   },
@@ -100,7 +100,7 @@ const videosData = [
     duration: "1:10",
     category: "مطابخ عصرية",
     tag: "بولي لاك",
-    poster: "images/مطبخ عصري/9.jpg",
+    poster: "images/مطبخ عصري/9.webp",
     src: "videos/video (9).mp4",
     desc: "شرح تفصيلي لطبقات الحماية ومقاومة بخار الماء والحرارة وضمان 10 سنوات على كافة المطابخ."
   },
@@ -111,7 +111,7 @@ const videosData = [
     duration: "0:42",
     category: "مطابخ عصرية",
     tag: "أجهزة بيلت إن",
-    poster: "images/مطبخ عصري/10.jpg",
+    poster: "images/مطبخ عصري/10.webp",
     src: "videos/video (10).mp4",
     desc: "توزيع هندسي دقيق لمقاسات الأجهزة البلت إن والشفاطات لضمان أمان تام وعمر افتراضي أطول."
   },
@@ -122,7 +122,7 @@ const videosData = [
     duration: "0:58",
     category: "غرف نوم فاخرة",
     tag: "آراء العملاء",
-    poster: "images/بادية بالم هيلز/3.jpg",
+    poster: "images/بادية بالم هيلز/3.webp",
     src: "videos/video (11).mp4",
     desc: "لقاء عفوي مع عميلنا العزيز للحديث عن مدى الالتزام بالمواعيد وجودة الخامات المنفذة."
   },
@@ -133,7 +133,7 @@ const videosData = [
     duration: "0:44",
     category: "مطابخ عصرية",
     tag: "Black Matte",
-    poster: "images/مطبخ عصري/12.jpg",
+    poster: "images/مطبخ عصري/12.webp",
     src: "videos/video (12).mp4",
     desc: "أناقة اللون الأسود المات المقاوم لبصمات الأصابع مع لمسات الخشب الطبيعي وإضاءة احترافية."
   },
@@ -144,7 +144,7 @@ const videosData = [
     duration: "1:35",
     category: "أثاث متكامل فاخر",
     tag: "أثاث متكامل",
-    poster: "images/اثاث متكامل فاخر/1.jpg",
+    poster: "images/اثاث متكامل فاخر/1.webp",
     src: "videos/video (13).mp4",
     desc: "تناسق مثالي بين ديكورات الحوائط، وحدات التلفزيون المعلقة، وأطقم الأثاث المودرن بأقمشة وتربروف."
   },
@@ -155,7 +155,7 @@ const videosData = [
     duration: "0:50",
     category: "مطابخ عصرية",
     tag: "آراء العملاء",
-    poster: "images/مطبخ عصري/14.jpg",
+    poster: "images/مطبخ عصري/14.webp",
     src: "videos/video (14).mp4",
     desc: "العميل يروي تجربته مع فريق عمل Kitchèra والشفافية الكاملة من مرحلة التعاقد وحتى التسليم."
   },
@@ -166,7 +166,7 @@ const videosData = [
     duration: "0:40",
     category: "أثاث متكامل فاخر",
     tag: "أثاث مخصص",
-    poster: "images/اثاث متكامل فاخر/3.jpg",
+    poster: "images/اثاث متكامل فاخر/3.webp",
     src: "videos/video (15).mp4",
     desc: "اختيارات لونية عصرية تمنح المساحة إحساساً بالاتساع والهدوء والفخامة."
   },
@@ -177,7 +177,7 @@ const videosData = [
     duration: "1:45",
     category: "دريسنج روم",
     tag: "دريسنج روم",
-    poster: "images/جناح نوم فاخر/3.jpg",
+    poster: "images/جناح نوم فاخر/3.webp",
     src: "videos/video (16).mp4",
     desc: "دريسنج روم متكامل مع قطاعات ألومنيوم رفيعة، زجاج عاكس فاميه، وسينسور إضاءة تلقائي عند الفتح."
   },
@@ -188,7 +188,7 @@ const videosData = [
     duration: "0:35",
     category: "مطابخ عصرية",
     tag: "حلول ذكية",
-    poster: "images/مطبخ عصري/17.jpg",
+    poster: "images/مطبخ عصري/17.webp",
     src: "videos/video (17).mp4",
     desc: "كيف تحول المساحات الصغيرة إلى مطبخ عملي فائق الاتساع بأفكار هندسية مبتكرة."
   },
@@ -199,7 +199,7 @@ const videosData = [
     duration: "0:46",
     category: "مطابخ عصرية",
     tag: "أكريليك تركي",
-    poster: "images/مطبخ عصري/18.jpg",
+    poster: "images/مطبخ عصري/18.webp",
     src: "videos/video (18).mp4",
     desc: "مطبخ أكريليك باللون الأبيض مع لمسات خشبية يعطي إضاءة طبيعية واتساعاً للعين."
   },
@@ -210,7 +210,7 @@ const videosData = [
     duration: "1:55",
     category: "أثاث متكامل فاخر",
     tag: "كواليس التصنيع",
-    poster: "images/hero/hero2.jpg",
+    poster: "images/hero/hero2.webp",
     src: "videos/video (19).mp4",
     desc: "نظرة على دقة الماكينات الأوروبية والقص الآلي وشريط الحواف المقاوم للرطوبة (PUR Glue)."
   },
@@ -221,7 +221,7 @@ const videosData = [
     duration: "1:25",
     category: "أثاث متكامل فاخر",
     tag: "تسليم متكامل",
-    poster: "images/بادية بالم هيلز/4.jpg",
+    poster: "images/بادية بالم هيلز/4.webp",
     src: "videos/video (20).mp4",
     desc: "اللمسات النهائية وتسليم الفيلا كاملة بالمطابخ وغرف النوم والدريسنج روم والأثاث بأرقى المعايير."
   }
@@ -298,8 +298,8 @@ const furnitureSpecs = [
 
 // دمج صور المطابخ (32 من مجلد مطبخ عصري + 8 من مجلد بادية بالم هيلز)
 const allKitchenImages = [
-  ...Array.from({ length: 32 }, (_, i) => `images/مطبخ عصري/${i + 1}.jpg`),
-  ...Array.from({ length: 8 }, (_, i) => `images/بادية بالم هيلز/${i + 1}.jpg`)
+  ...Array.from({ length: 32 }, (_, i) => `images/مطبخ عصري/${i + 1}.webp`),
+  ...Array.from({ length: 8 }, (_, i) => `images/بادية بالم هيلز/${i + 1}.webp`)
 ];
 
 // بناء كائنات الصور لكل قسم
@@ -321,20 +321,20 @@ const mediaData = {
     title: bedroomTitles[i] || `تصميم غرفة نوم فاخرة ${i + 1}`,
     desc: `تصنيع غرف نوم ماستر فندقية تجمع بين الراحة والجمال، مع أسرة منجدة بأجود الأقمشة، وخزائن ملابس مدمجة بتشطيب دقيق.`,
     specs: bedroomSpecs,
-    src: `images/جناح نوم فاخر/${i + 1}.jpg`
+    src: `images/جناح نوم فاخر/${i + 1}.webp`
   })),
 
   "دريسنج روم": Array.from({ length: 8 }, (_, i) => {
     // استخدام صور الدريسنج روم الحقيقية والخزائن من مجلدات المشاريع
     const dressingImgSources = [
-      "images/جناح نوم فاخر/3.jpg",
-      "images/جناح نوم فاخر/6.jpg",
-      "images/جناح نوم فاخر/9.jpg",
-      "images/جناح نوم فاخر/12.jpg",
-      "images/جناح نوم فاخر/2.jpg",
-      "images/جناح نوم فاخر/5.jpg",
-      "images/جناح نوم فاخر/8.jpg",
-      "images/جناح نوم فاخر/11.jpg"
+      "images/جناح نوم فاخر/3.webp",
+      "images/جناح نوم فاخر/6.webp",
+      "images/جناح نوم فاخر/9.webp",
+      "images/جناح نوم فاخر/12.webp",
+      "images/جناح نوم فاخر/2.webp",
+      "images/جناح نوم فاخر/5.webp",
+      "images/جناح نوم فاخر/8.webp",
+      "images/جناح نوم فاخر/11.webp"
     ];
     return {
       id: i + 1,
@@ -343,7 +343,7 @@ const mediaData = {
       title: dressingTitles[i] || `تصميم دريسنج روم عصري ${i + 1}`,
       desc: `تصميم وتنفيذ غرف ملابس ودريسنج روم زجاجي فخم بقطاعات ألومنيوم رفيعة، إضاءات LED ذكية، وتقسيمات هندسية تستوعب كافة الملابس والإكسسوارات.`,
       specs: dressingSpecs,
-      src: dressingImgSources[i] || `images/جناح نوم فاخر/${i + 1}.jpg`
+      src: dressingImgSources[i] || `images/جناح نوم فاخر/${i + 1}.webp`
     };
   }),
 
@@ -354,7 +354,7 @@ const mediaData = {
     title: furnitureTitles[i] || `أثاث متكامل فاخر ${i + 1}`,
     desc: `تصنيع قطع أثاث مخصصة من خشب الزان والأقمشة المعالجة، متناسقة بدقة مع الديكور والتجاليد الجدارية للمنزل.`,
     specs: furnitureSpecs,
-    src: `images/اثاث متكامل فاخر/${i + 1}.jpg`
+    src: `images/اثاث متكامل فاخر/${i + 1}.webp`
   }))
 };
 
